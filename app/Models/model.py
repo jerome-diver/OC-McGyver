@@ -14,15 +14,15 @@ class Model:
     def __init__(self):
         pass
 
-    def checkRoom(self, room):
-        line = (room[0] >= 0 and room[0] <= 7)
-        row = (room[1] >= 0 and room[1] <= 7)
+    def checkCoordonates(self, coordonates):
+        line = (coordonates[0] >= 0 and coordonates[0] <= 7)
+        row = (coordonates[1] >= 0 and coordonates[1] <= 7)
         if not (line and row):
-            raise Exception("Room doesn't exist")
+            raise Exception("Coordonates are wrong")
 
     def checkDirection(self, direction):
         if direction not in ["north","south","east","west"]:
-            raise Exception("direction definition is wrong")
+            raise Exception("direction syntax is wrong")
 
     def oppositDirection(self, direction):
         if direction == "north":

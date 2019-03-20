@@ -18,7 +18,7 @@ class RoomModel(Model):
 	color = "#FFF"
 
     def __init__(self, map, room):		# room is a tuple(line,row)
-        checkRoom(room)
+        checkCoordonates(room)
         self.room = room
         self.walls = loadRoom(map)
         map.appendRoom(self)
@@ -77,11 +77,12 @@ class RoomModel(Model):
                 self.walls[direction] = copy(self.full_close)
         self.rooms[room] = walls
 
-    def generateUniqColor(self, map):
-        ok_rgb = 0
-        rgb = {"R": 0, "G": 0, "B": 0}
-        while ok != 3:
-            ok_chanel = False
-            while not ok_chanel:
-            color_chanel = randinit(0,15)
+    def getColor():
+        return self.color
 
+    def generateUniqColor(self, map):
+        while True:
+            color_chanel = randinit(0,255)
+            if not any(int(rM.getColor().split('#')[1], 16) - color_chanel <= 4 \
+                    for rM in map.getRoomsModels()):
+                return str("#" + hex(color_chanel).split('0x')[1].zfill(3))

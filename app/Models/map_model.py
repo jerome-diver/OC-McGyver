@@ -17,7 +17,7 @@ class MapModel(Model):
     south_walls = (b'\x03',b'\x07',b'\x09',b'\x0a',b'\x0c',b'\x0d',b'\x0e',b'\x0f')
     east_walls = (b'\x04',b'\x05',b'\x08',b'\x09',b'\x0b',b'\x0c',b'\x0d',b'\x0f')
     west_walls = (b'\x01',b'\x06',b'\x08',b'\x0a',b'\x0b',b'\x0d',b'\x0e',b'\x0f')
-    rooms = { }
+    rooms = { }     # { (line,row): RoomModel }
 
     def __init__(self):
         self.walls = loadMap()
@@ -25,20 +25,20 @@ class MapModel(Model):
     def wallPositions(self):
         return walls
 
-    def wallPosition(self, room):   # room is tuple matrix: (line, row)
-        checkRoom(room)
+    def wallPosition(self, room):   # room is tuple matrix: (line, row) coordonates
+        checkCoordonates(room)
         return walls[room]
 
-    def wallClockWisePosition(self,room):
-        checkRoom(room)
+    def wallClockWisePosition(self,room):   # room is coordonates tuple
+        checkCoordonates(room)
         return (walls[room] in north_wall, \
                 walls[room] in west_wall,  \
                 walls[room] in south_wall, \
                 walls[room] in east_wall)
 
-    def hasWallAt(self, room, edge):
+    def hasWallAt(self, room, edge):   # room is coordonates tuple
         checkDirection(edge)
-        checkRoom(room)
+        checkCoordonates(room)
         if edge == "north":
             return walls[room] in north_walls
         elif edge == "south":
@@ -57,3 +57,12 @@ class MapModel(Model):
 
     def appendRoom(self, roomModel):
         self.rooms[roomModel.getCoordonates()] = rooModel
+
+    def getRooms(self):
+        return self.rooms
+
+    def getRoomsModels(self):
+        roomsModelsList =[ ]
+        for rommModel in rooms.values:
+            roomsModelsList.append(roomsModel)
+        return roomsModelsList
