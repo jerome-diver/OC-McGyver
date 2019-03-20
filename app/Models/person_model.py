@@ -1,4 +1,7 @@
 '''
+Model of Person and specific Person like Hero or Guard,
+ who have some specific features added. 
+The superclass is a Model class
 '''
 from time import time
 
@@ -23,6 +26,7 @@ class PersonModel(Model):
         return (self.roomPosition["line"], self.roomPosition["row"])
 
     def setRoomPosition(self, coordonates):
+        checkCoordonates(coordonates)
         self.roomPosition["line"] = coordonates[0]
         self.roomPosition["row"] = coordonates[1]
 
@@ -30,6 +34,7 @@ class PersonModel(Model):
         return (self.mapPosition["line"], self.mapPosition["row"])
 
     def setMapPosition(self, coordonates):
+        checkCoordonates(coordonates)
         self.mapPosition["line"] = coordonates[0]
         self.mapPosition["row"] = coordonates[1]
 
