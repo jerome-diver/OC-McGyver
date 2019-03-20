@@ -6,11 +6,11 @@ model from MVC design pattern
 
 class View:
 
-	def __init__(self):
-	pass
+    def __init__(self):
+        pass
 
-	def Show(self, param):
-		pass
+    def Show(self, param):
+        pass
 
-	def Screen(self, param):
-		pass
+    def Screen(self, param):
+        pass

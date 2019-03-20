@@ -4,10 +4,10 @@ import View
 class GuardView(View):
 
     def __init__(self):
-    	pass
+        pass
 
 
 class HeroView(View):
 
-	def __init__(self):
-		pass
+    def __init__(self):
+        pass

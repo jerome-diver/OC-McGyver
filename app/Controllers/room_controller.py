@@ -3,5 +3,5 @@ import Controller
 
 class RoomController(Controller):
 
-	def __init__(self):
-		    pass
+    def __init__(self):
+        pass
