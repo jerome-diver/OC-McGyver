@@ -8,7 +8,7 @@ import binascii
 
 class Model:
 
-    directions = ("north", "west", "south", "east")
+    directions = ("north", "east", "south", "west")
     sides = ("top", "right", "bottom", "left")
 
     def __init__(self):

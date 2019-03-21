@@ -13,11 +13,6 @@ from components import Map
 
 class MapModel(Map,Model):
 
-    north_walls = (b'\x02',b'\x05',b'\x06',b'\x07',b'\x0b',b'\x0c',b'\x0e',b'\x0f')
-    south_walls = (b'\x03',b'\x07',b'\x09',b'\x0a',b'\x0c',b'\x0d',b'\x0e',b'\x0f')
-    east_walls = (b'\x04',b'\x05',b'\x08',b'\x09',b'\x0b',b'\x0c',b'\x0d',b'\x0f')
-    west_walls = (b'\x01',b'\x06',b'\x08',b'\x0a',b'\x0b',b'\x0d',b'\x0e',b'\x0f')
-
     def __init__(self):
         Model().__init__(self)
         Map().__init__(self)
@@ -27,11 +22,11 @@ class MapModel(Map,Model):
         checkDirection(edge_position)
         checkCoordonates(room_coordonates)
         if edge_position == "north":
-            return self.map.wallPosition(room_coordonates) in north_walls
+            return self.map.wallPosition(room_coordonates) in self.wallsN
         elif edge_position == "south":
-            return self.map.wallPosition(room_coordonates) in south_walls
+            return self.map.wallPosition(room_coordonates) in self.wallsS
         elif edge_position == "east":
-            return self.map.wallPosition(room_coordonates) in east_walls
+            return self.map.wallPosition(room_coordonates) in self.wallsE
         elif edge_position == "west":
-            return self.map.wallPosition(room_coordonates) in west_walls
+            return self.map.wallPosition(room_coordonates) in self.wallsW
 

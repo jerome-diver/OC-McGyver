@@ -17,7 +17,7 @@ class PersonModel(Person,Model):
         Person(self)
         isLookingAt(self.direction[0])
 
-    def getCoordonates(self, what):      # current Person room position coordonates
+    def getCoordonates(self, what):      # current Person coordonates (room)
         checkCoordonates(coordonates)
         if what == "map":
             return (self.mapCoordonates["line"], \
