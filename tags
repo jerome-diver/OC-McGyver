@@ -5,115 +5,117 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
-Controller	app/Controllers/Controller.py	/^class Controller:$/;"	c
-GuardModel	app/Models/person_model.py	/^class GuardModel(PersonModel):$/;"	c
-GuardView	app/Views/person_view.py	/^class GuardView(View):$/;"	c
-HeroModel	app/Models/person_model.py	/^class HeroModel(PersonModel):$/;"	c
-HeroView	app/Views/person_view.py	/^class HeroView(View):$/;"	c
+Controller	app/controllers/Controller.py	/^class Controller:$/;"	c
+GuardModel	app/models/person_model.py	/^class GuardModel(PersonModel):$/;"	c
+GuardView	app/views/person_view.py	/^class GuardView(View):$/;"	c
+HeroModel	app/models/person_model.py	/^class HeroModel(PersonModel):$/;"	c
+HeroView	app/views/person_view.py	/^class HeroView(View):$/;"	c
 Map	app/components/map.py	/^class Map:$/;"	c
-MapController	app/Controllers/map_controller.py	/^class MapController(Controller):$/;"	c
-MapModel	app/Models/map_model.py	/^class MapModel(Map,Model):$/;"	c
-MapView	app/Views/map_view.py	/^class MapView(View):$/;"	c
-Model	app/Models/model.py	/^class Model:$/;"	c
+MapController	app/controllers/map_controller.py	/^class MapController(Controller):$/;"	c
+MapModel	app/models/map_model.py	/^class MapModel(Map,Model):$/;"	c
+MapView	app/views/map_view.py	/^class MapView(View):$/;"	c
+Model	app/models/model.py	/^class Model:$/;"	c
 OC-McGyver	README.md	/^# OC-McGyver$/;"	c
-Object	app/Models/object_model.py	/^class Object:$/;"	c
-ObjectController	app/Controllers/object_controller.py	/^class ObjectController(Controller):$/;"	c
-ObjectModel	app/Models/object_model.py	/^class ObjectModel(Object, Model):$/;"	c
-ObjectView	app/Views/object_view.py	/^class ObjectView(View):$/;"	c
+Object	app/components/object.py	/^class Object:$/;"	c
+ObjectController	app/controllers/object_controller.py	/^class ObjectController(Controller):$/;"	c
+ObjectModel	app/models/object_model.py	/^class ObjectModel(Object, Model):$/;"	c
+ObjectView	app/views/object_view.py	/^class ObjectView(View):$/;"	c
 Person	app/components/person.py	/^class Person:$/;"	c
-PersonController	app/Controllers/person_controller.py	/^class PersonController(Controller):$/;"	c
-PersonModel	app/Models/person_model.py	/^class PersonModel(Person,Model):$/;"	c
+PersonController	app/controllers/person_controller.py	/^class PersonController(Controller):$/;"	c
+PersonModel	app/models/person_model.py	/^class PersonModel(Person,Model):$/;"	c
 Room	app/components/room.py	/^class Room:$/;"	c
-RoomController	app/Controllers/room_controller.py	/^class RoomController(Controller):$/;"	c
-RoomModel	app/Models/room_model.py	/^class RoomModel(Room,Model):$/;"	c
-RoomView	app/Views/room_view.py	/^class RoomView(View):$/;"	c
-Screen	app/Views/View.py	/^    def Screen(self, param):$/;"	m	class:View
-Show	app/Views/View.py	/^    def Show(self, param):$/;"	m	class:View
+RoomController	app/controllers/room_controller.py	/^class RoomController(Controller):$/;"	c
+RoomModel	app/models/room_model.py	/^class RoomModel(Room,Model):$/;"	c
+RoomView	app/views/room_view.py	/^class RoomView(View):$/;"	c
+Screen	app/views/view.py	/^    def Screen(self, param):$/;"	m	class:View
+Show	app/views/view.py	/^    def Show(self, param):$/;"	m	class:View
 The game story	README.md	/^## The game story$/;"	s
-View	app/Views/View.py	/^class View:$/;"	c
-__init__	app/Controllers/Controller.py	/^    def __init__(self):$/;"	m	class:Controller
-__init__	app/Controllers/map_controller.py	/^    def __init__(self):$/;"	m	class:MapController
-__init__	app/Controllers/object_controller.py	/^    def __init__(self):$/;"	m	class:ObjectController
-__init__	app/Controllers/person_controller.py	/^    def __init__(self):$/;"	m	class:PersonController
-__init__	app/Controllers/room_controller.py	/^    def __init__(self):$/;"	m	class:RoomController
-__init__	app/Models/map_model.py	/^    def __init__(self):$/;"	m	class:MapModel
-__init__	app/Models/model.py	/^    def __init__(self):$/;"	m	class:Model
-__init__	app/Models/object_model.py	/^    def __init__(self):$/;"	m	class:Object
-__init__	app/Models/object_model.py	/^    def __init__(self):$/;"	m	class:ObjectModel
-__init__	app/Models/person_model.py	/^    def __init__(self):$/;"	m	class:GuardModel
-__init__	app/Models/person_model.py	/^    def __init__(self):$/;"	m	class:HeroModel
-__init__	app/Models/person_model.py	/^    def __init__(self):$/;"	m	class:PersonModel
-__init__	app/Models/room_model.py	/^    def __init__(self, map_, coordonates):		# room is a tuple(line,row)$/;"	m	class:RoomModel
-__init__	app/Views/View.py	/^    def __init__(self):$/;"	m	class:View
-__init__	app/Views/map_view.py	/^    def __init__(self):$/;"	m	class:MapView
-__init__	app/Views/object_view.py	/^    def __init__(self):$/;"	m	class:ObjectView
-__init__	app/Views/person_view.py	/^    def __init__(self):$/;"	m	class:GuardView
-__init__	app/Views/person_view.py	/^    def __init__(self):$/;"	m	class:HeroView
-__init__	app/Views/room_view.py	/^    def __init__(self):$/;"	m	class:RoomView
+The game's tools used	README.md	/^## The game's tools used$/;"	s
+The game's type	README.md	/^### The game's type$/;"	S
+View	app/views/view.py	/^class View:$/;"	c
 __init__	app/components/map.py	/^    def __init__(self):$/;"	m	class:Map
-__init__	app/components/person.py	/^    def __init__(self, name):$/;"	m	class:Person
+__init__	app/components/object.py	/^    def __init__(self):$/;"	m	class:Object
+__init__	app/components/person.py	/^    def __init__(self, looking_where):$/;"	m	class:Person
 __init__	app/components/room.py	/^    def __init__(self, map_linked, coorodnates):$/;"	m	class:Room
+__init__	app/controllers/Controller.py	/^    def __init__(self):$/;"	m	class:Controller
+__init__	app/controllers/map_controller.py	/^    def __init__(self):$/;"	m	class:MapController
+__init__	app/controllers/object_controller.py	/^    def __init__(self):$/;"	m	class:ObjectController
+__init__	app/controllers/person_controller.py	/^    def __init__(self):$/;"	m	class:PersonController
+__init__	app/controllers/room_controller.py	/^    def __init__(self):$/;"	m	class:RoomController
+__init__	app/models/map_model.py	/^    def __init__(self):$/;"	m	class:MapModel
+__init__	app/models/model.py	/^    def __init__(self):$/;"	m	class:Model
+__init__	app/models/object_model.py	/^    def __init__(self):$/;"	m	class:ObjectModel
+__init__	app/models/person_model.py	/^    def __init__(self):$/;"	m	class:GuardModel
+__init__	app/models/person_model.py	/^    def __init__(self):$/;"	m	class:HeroModel
+__init__	app/models/person_model.py	/^    def __init__(self):$/;"	m	class:PersonModel
+__init__	app/models/room_model.py	/^    def __init__(self, map_, coordonates):		# room is a tuple(line,row)$/;"	m	class:RoomModel
+__init__	app/views/map_view.py	/^    def __init__(self):$/;"	m	class:MapView
+__init__	app/views/object_view.py	/^    def __init__(self):$/;"	m	class:ObjectView
+__init__	app/views/person_view.py	/^    def __init__(self):$/;"	m	class:GuardView
+__init__	app/views/person_view.py	/^    def __init__(self):$/;"	m	class:HeroView
+__init__	app/views/room_view.py	/^    def __init__(self):$/;"	m	class:RoomView
+__init__	app/views/view.py	/^    def __init__(self):$/;"	m	class:View
+_color	app/components/room.py	/^    _color = "#FFF"$/;"	v	class:Room
+_coordonates	app/components/room.py	/^    _coordonates = ( )    # self room coordonates inside the map$/;"	v	class:Room
+_directions	app/components/room.py	/^    _directions = ("north", "east", "south", "west")$/;"	v	class:Room
+_directions	app/models/model.py	/^    _directions = ("north", "east", "south", "west")$/;"	v	class:Model
+_endSleepîngTime	app/models/person_model.py	/^    _endSleepîngTime = time()$/;"	v	class:GuardModel
+_full_close	app/components/room.py	/^    _full_close = (True,True,True,True,True,True,True,True)$/;"	v	class:Room
+_mapCoordonates	app/models/object_model.py	/^    _mapCoordonates = ()       # tuple of integers as line and row$/;"	v	class:ObjectModel
+_mapCoordonates	app/models/person_model.py	/^    _mapCoordonates = { }   # (line:integer, row:integer)$/;"	v	class:PersonModel
+_name	app/components/person.py	/^    _name = ""$/;"	v	class:Person
+_objects	app/models/person_model.py	/^    _objects = []        # [ ObjectModel ]$/;"	v	class:HeroModel
+_roomCoordonates	app/models/object_model.py	/^    _roomCoordonates = ()      # tuple of integers as line and row$/;"	v	class:ObjectModel
+_roomCoordonates	app/models/person_model.py	/^    _roomCoordonates = { } $/;"	v	class:PersonModel
+_rooms	app/components/map.py	/^    _rooms = { }    # { (row,column): Room }$/;"	v	class:Map
+_sLookingAt	app/components/person.py	/^    _sLookingAt =""$/;"	v	class:Person
+_sides	app/models/model.py	/^    _sides = ("top", "right", "bottom", "left")$/;"	v	class:Model
+_walls	app/components/map.py	/^    _walls = { }    # { (row,column): byte }$/;"	v	class:Map
+_walls	app/components/room.py	/^    _walls = { }         # {"edge_direction": (8 boolean) }$/;"	v	class:Room
+_wallsE	app/components/map.py	/^    _wallsE = (b'\\x04',b'\\x05',b'\\x08',b'\\x09',b'\\x0b',b'\\x0c',b'\\x0d',b'\\x0f')$/;"	v	class:Map
+_wallsN	app/components/map.py	/^    _wallsN = (b'\\x02',b'\\x05',b'\\x06',b'\\x07',b'\\x0b',b'\\x0c',b'\\x0e',b'\\x0f')$/;"	v	class:Map
+_wallsS	app/components/map.py	/^    _wallsS = (b'\\x03',b'\\x07',b'\\x09',b'\\x0a',b'\\x0c',b'\\x0d',b'\\x0e',b'\\x0f')$/;"	v	class:Map
+_wallsW	app/components/map.py	/^    _wallsW = (b'\\x01',b'\\x06',b'\\x08',b'\\x0a',b'\\x0b',b'\\x0d',b'\\x0e',b'\\x0f')$/;"	v	class:Map
 appendRoom	app/components/map.py	/^    def appendRoom(self, room):$/;"	m	class:Map
-canMakeSleeping	app/Models/person_model.py	/^    def canMakeSleeping(self):$/;"	m	class:HeroModel
-canWalkAhead	app/Models/person_model.py	/^    def canWalkAhead(self):$/;"	m	class:HeroModel
-checkCoordonates	app/Models/model.py	/^    def checkCoordonates(self, coordonates):$/;"	m	class:Model
-checkDirection	app/Models/model.py	/^    def checkDirection(self, direction):$/;"	m	class:Model
-checkSide	app/Models/model.py	/^    def checkSide(self, side):$/;"	m	class:Model
-color	app/components/room.py	/^    color = "#FFF"$/;"	v	class:Room
-coordonates	app/components/room.py	/^    coordonates = ()    # self room coordonates inside the map$/;"	v	class:Room
-directions	app/Models/model.py	/^    directions = ("north", "west", "south", "east")$/;"	v	class:Model
-east_walls	app/Models/map_model.py	/^    east_walls = (b'\\x04',b'\\x05',b'\\x08',b'\\x09',b'\\x0b',b'\\x0c',b'\\x0d',b'\\x0f')$/;"	v	class:MapModel
-endSleepîngTime	app/Models/person_model.py	/^    endSleepîngTime = time()$/;"	v	class:GuardModel
-existRoom	app/Models/room_model.py	/^    def existRoom(self, coordonates):$/;"	m	class:RoomModel
-findObject	app/Models/person_model.py	/^    def findObject(self, object):$/;"	m	class:HeroModel
-full_close	app/Models/room_model.py	/^	full_close = (True,True,True,True,True,True,True,True)$/;"	v	class:RoomModel
-generateUniqColor	app/Models/room_model.py	/^    def generateUniqColor(self):$/;"	m	class:RoomModel
-generateWall	app/Models/room_model.py	/^    def generateWall():$/;"	m	class:RoomModel
+canMakeSleeping	app/models/person_model.py	/^    def canMakeSleeping(self):$/;"	m	class:HeroModel
+checkCoordonates	app/models/model.py	/^    def checkCoordonates(self, coordonates):$/;"	m	class:Model
+checkDirection	app/models/model.py	/^    def checkDirection(self, direction):$/;"	m	class:Model
+checkSide	app/models/model.py	/^    def checkSide(self, side):$/;"	m	class:Model
+existRoom	app/models/room_model.py	/^    def existRoom(self, coordonates):$/;"	m	class:RoomModel
+findObject	app/models/person_model.py	/^    def findObject(self, object):$/;"	m	class:HeroModel
+generateUniqColor	app/models/room_model.py	/^    def generateUniqColor(self):$/;"	m	class:RoomModel
+generateWall	app/models/room_model.py	/^    def generateWall():$/;"	m	class:RoomModel
 getColor	app/components/room.py	/^    def getColor(self)$/;"	m	class:Room
-getCoordonates	app/Models/object_model.py	/^    def getCoordonates(self, what):$/;"	m	class:ObjectModel
-getCoordonates	app/Models/person_model.py	/^    def getCoordonates(self, what):      # current Person room position coordonates$/;"	m	class:PersonModel
 getCoordonates	app/components/room.py	/^    def getCoordonates(self):$/;"	m	class:Room
-getName	app/Models/object_model.py	/^    def getName(self):$/;"	m	class:Object
+getCoordonates	app/models/object_model.py	/^    def getCoordonates(self, what):$/;"	m	class:ObjectModel
+getCoordonates	app/models/person_model.py	/^    def getCoordonates(self, what):      # current Person coordonates (room)$/;"	m	class:PersonModel
+getName	app/components/object.py	/^    def getName(self):$/;"	m	class:Object
 getName	app/components/person.py	/^    def getName(self):$/;"	m	class:Person
 getRoomAt	app/components/map.py	/^    def getRoomAt(self, room_coordonates):$/;"	m	class:Map
 getRooms	app/components/map.py	/^    def getRooms(self):$/;"	m	class:Map
 getRoomsDictionary	app/components/map.py	/^    def getRoomsDictionary(self):$/;"	m	class:Map
-getWallFor	app/Models/room_model.py	/^    def getWallFor(self, edge_side):$/;"	m	class:RoomModel
-hasWallAt	app/Models/map_model.py	/^    def hasWallAt(self, room_coordonates, edge_position):$/;"	m	class:MapModel
-injectVaccin	app/Models/person_model.py	/^    def injectVaccin(self):$/;"	m	class:GuardModel
-isInContact	app/Models/person_model.py	/^    def isInContact(self):$/;"	m	class:PersonModel
+getWallFor	app/models/room_model.py	/^    def getWallFor(self, edge_side):$/;"	m	class:RoomModel
+hasWallAt	app/models/map_model.py	/^    def hasWallAt(self, room_coordonates, edge_position):$/;"	m	class:MapModel
+injectVaccin	app/models/person_model.py	/^    def injectVaccin(self):$/;"	m	class:GuardModel
+isInContact	app/models/person_model.py	/^    def isInContact(self):$/;"	m	class:PersonModel
 isLookingAt	app/components/person.py	/^    def isLookingAt(self, direction):  # is looking in front of him (set where)$/;"	m	class:Person
-isLookingAt	app/components/person.py	/^    isLookingAt =""$/;"	v	class:Person
 isLookingWhere	app/components/person.py	/^    def isLookingWhere(self):$/;"	m	class:Person
-listObjects	app/Models/person_model.py	/^    def listObjects(self):$/;"	m	class:HeroModel
+listObjects	app/models/person_model.py	/^    def listObjects(self):$/;"	m	class:HeroModel
 loadMap	app/components/map.py	/^    def loadMap(self):$/;"	m	class:Map
 loadRoom	app/components/room.py	/^    def loadRoom(self, map_):$/;"	m	class:Room
-logoFile	app/Models/object_model.py	/^    logoFile = ""$/;"	v	class:Object
-mapCoordonates	app/Models/object_model.py	/^    mapCoordonates = ()       # tuple of integers as line and row$/;"	v	class:ObjectModel
-mapCoordonates	app/Models/person_model.py	/^    mapCoordonates = { }   # (line:integer, row:integer)$/;"	v	class:PersonModel
-name	app/Models/object_model.py	/^    name = ""$/;"	v	class:Object
-name	app/components/person.py	/^    name = ""$/;"	v	class:Person
-north_walls	app/Models/map_model.py	/^    north_walls = (b'\\x02',b'\\x05',b'\\x06',b'\\x07',b'\\x0b',b'\\x0c',b'\\x0e',b'\\x0f')$/;"	v	class:MapModel
-objects	app/Models/person_model.py	/^    objects = []        # [ ObjectModel ]$/;"	v	class:HeroModel
-oppositDirection	app/Models/model.py	/^    def oppositDirection(self, direction):$/;"	m	class:Model
-oppositSide	app/Models/model.py	/^    def oppositSide(self, side):$/;"	m	class:Model
-possibleRoomNear	app/Models/room_model.py	/^    def possibleRoomNear(self, edge_side):$/;"	m	class:RoomModel
-roomCoordonates	app/Models/object_model.py	/^    roomCoordonates = ()      # tuple of integers as line and row$/;"	v	class:ObjectModel
-roomCoordonates	app/Models/person_model.py	/^    roomCoordonates = { } $/;"	v	class:PersonModel
-roomCoordonatesNear	app/Models/room_model.py	/^    def roomCoordonatesNear(self, edge_side):$/;"	m	class:RoomModel
-rooms	app/components/map.py	/^    rooms = { }     # { (line,row): Room }$/;"	v	class:Map
+logoFile	app/components/object.py	/^    logoFile = ""$/;"	v	class:Object
+name	app/components/object.py	/^    name = ""$/;"	v	class:Object
+oppositDirection	app/models/model.py	/^    def oppositDirection(self, direction):$/;"	m	class:Model
+oppositSide	app/models/model.py	/^    def oppositSide(self, side):$/;"	m	class:Model
+possibleRoomNear	app/models/room_model.py	/^    def possibleRoomNear(self, edge_side):$/;"	m	class:RoomModel
+roomCoordonatesNear	app/models/room_model.py	/^    def roomCoordonatesNear(self, edge_side):$/;"	m	class:RoomModel
 setColor	app/components/room.py	/^    def setColor(self, rgb):$/;"	m	class:Room
-setCoordonates	app/Models/object_model.py	/^    def setCoordonates(self, coordonates, what):$/;"	m	class:ObjectModel
-setCoordonates	app/Models/person_model.py	/^    def setCoordonates(self, coordonates, what):$/;"	m	class:PersonModel
-setLogoFile	app/Models/object_model.py	/^    def setLogoFile(self, file):$/;"	m	class:Object
-setName	app/Models/object_model.py	/^    def setName(self, name):$/;"	m	class:Object
+setCoordonates	app/models/object_model.py	/^    def setCoordonates(self, coordonates, what):$/;"	m	class:ObjectModel
+setCoordonates	app/models/person_model.py	/^    def setCoordonates(self, coordonates, what):$/;"	m	class:PersonModel
+setLogoFile	app/components/object.py	/^    def setLogoFile(self, file):$/;"	m	class:Object
+setName	app/components/object.py	/^    def setName(self, name):$/;"	m	class:Object
 setName	app/components/person.py	/^    def setName(self, name):$/;"	m	class:Person
-sides	app/Models/model.py	/^    sides = ("top", "right", "bottom", "left")$/;"	v	class:Model
-south_walls	app/Models/map_model.py	/^    south_walls = (b'\\x03',b'\\x07',b'\\x09',b'\\x0a',b'\\x0c',b'\\x0d',b'\\x0e',b'\\x0f')$/;"	v	class:MapModel
-trashObject	app/Models/person_model.py	/^    def trashObject(self, object):$/;"	m	class:HeroModel
+trashObject	app/models/person_model.py	/^    def trashObject(self, one_object):$/;"	m	class:HeroModel
 wallClockWisePosition	app/components/map.py	/^    def wallClockWisePosition(self,room_coordonates):$/;"	m	class:Map
 wallPosition	app/components/map.py	/^    def wallPosition(self, room_coordonates):$/;"	m	class:Map
 wallPositions	app/components/map.py	/^    def wallPositions(self):$/;"	m	class:Map
-walls	app/components/map.py	/^    walls = { }    # { (line, row) => byte value }$/;"	v	class:Map
-walls	app/components/room.py	/^    walls = { }         # {"edge_direction": (8 boolean) }$/;"	v	class:Room
-west_walls	app/Models/map_model.py	/^    west_walls = (b'\\x01',b'\\x06',b'\\x08',b'\\x0a',b'\\x0b',b'\\x0d',b'\\x0e',b'\\x0f')$/;"	v	class:MapModel
