@@ -8,8 +8,8 @@ import binascii
 
 class Model:
 
-    rooms = { }		# { (line,row): { position: (boolean) } }
     directions = ("north", "west", "south", "east")
+    sides = ("top", "right", "bottom", "left")
 
     def __init__(self):
         pass
@@ -21,8 +21,12 @@ class Model:
             raise Exception("Coordonates are wrong")
 
     def checkDirection(self, direction):
-        if direction not in ["north","south","east","west"]:
+        if direction not in self.directiosn:
             raise Exception("direction syntax is wrong")
+
+    def checkSide(self, side):
+        if side not in self.sides:
+            raise Exception("side syntax is wrong")
 
     def oppositDirection(self, direction):
         if direction == "north":
@@ -33,3 +37,13 @@ class Model:
             return "west"
         if direction == "west":
             return "east"
+
+    def oppositSide(self, side):
+        if side == "top":
+          return "bottom"
+        if side == "bottom":
+            return "top"
+        if side == "left":
+            return "right"
+        if side == "right":
+            return "left"

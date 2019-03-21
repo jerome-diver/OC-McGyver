@@ -11,53 +11,76 @@ from copy import copy
 from model import Model
 
 
-class RoomModel(Model):
+class Room:
 
-	walls = { }	# {"edge_direction": (boolean) }
-	full_close = (True,True,True,True,True,True,True,True)
-	color = "#FFF"
+    coordonates = ()    # self room coordonates inside the map
+    walls = { }         # {"edge_direction": (8 boolean) }
+    color = "#FFF"
 
-    def __init__(self, map, room):		# room is a tuple(line,row)
-        checkCoordonates(room)
-        self.room = room
-        self.walls = loadRoom(map)
-        map.appendRoom(self)
-        self.color = genereateUiqColor(map)
-	
+    def __init__(self, map_linked, coorodnates):
+        self.coordonates = coordonates
+        self.mapLinked = map_linked
+        self.loadRoom(map_)
+
+    def loadRoom(self, map_):
+        for index,wall_cwp in enumerate(map_.clockWisePosition(self.coordonates)):
+            if wall_cwp:
+                direction = self.directions[index]
+                self.walls[direction] = getWallFor(direction)
+            else:
+                self.walls[direction] = copy(self.full_close)
+
+    def setColor(self, rgb):
+        self.color = rgb
+
+    def getColor(self)
+    return color
+
     def getCoordonates(self):
-        return self.room
+        return self.coordonates
 
-    def existRoom(self, room):
-        checkRoom(room)
-        return room in self.rooms[room]
 
-    def hasRoomAt(self, direction):
-        checkDirection(direction)
-        if direction == "north":
-            return (room[0] != 0)
-        if direction == "south"
-            return (room[0] != 7)
-        if direction == "east":
-            return (room[1] != 7)
-        if direction == "west":
-            return (room[1] != 0)
+class RoomModel(Room,Model):
 
-    def roomCoordonatesAt(self, direction):
-        checkDirection(direction)
-        if hasRoomAt(direction):
-            if direction = "north":
-                return (self.room[0] - 1, self.room[1])
-            if direction = "south":
-                return (self.room[0] + 1, self.room[1])
-            if direction == "east":
-                return (self.room[0], self.room[1] + 1)
-            if direction == "west":
-                return (self.room[0], self.room[1] - 1)
+	full_close = (True,True,True,True,True,True,True,True)
 
-    def getWallFor(self, edge):
-        if searched_room = roomCoordonateAt(edge) \
+    def __init__(self, map_, coordonates):		# room is a tuple(line,row)
+        checkCoordonates(coordonates)
+        Room(map_,coordonates)
+        map_.appendRoom(self.Room())
+        self.setColor(genereateUniqColor(map_))
+	
+
+    def existRoom(self, coordonates):
+        checkCoordonates(coordonates)
+        return coordonates in self.mapLinked.getRoomsDictionary().keys()
+
+    def possibleRoomNear(self, edge_side):
+        if edge_side == "top":
+            return (self.coordonates[0] != 0)
+        if edge_side == "bottom"
+            return (self.coordonates[0] != 7)
+        if edge_side == "right":
+            return (self.coordonates[1] != 7)
+        if edge_side == "left":
+            return (self.coordonates[1] != 0)
+
+    def roomCoordonatesNear(self, edge_side):
+        if possibleRoomAt(edge_side):
+            if edge_side = "top":
+                return (self.coordonates[0] - 1, self.coordonates[1])
+            if edge_side = "bottom":
+                return (self.coordonates[0] + 1, self.coordonates[1])
+            if edge_side == "right":
+                return (self.coordonates[0], self.coordonates[1] + 1)
+            if edge_side == "left":
+                return (self.coordonates[0], self.coordonates[1] - 1)
+
+    def getWallFor(self, edge_side):
+        checkSide(edge_side)
+        if searched_room = roomCoordonateNear(edge_side) \
                 and existRoom(searched_room):
-            return self.rooms[searched_room[oppositDirection(edge)]]
+            return self.rooms[searched_room[oppositSide(edge_side)]]
         else:
             return generateWall()
 
@@ -68,21 +91,9 @@ class RoomModel(Model):
             list_wall.append(x != door)
         return tuple(list_wall)
 
-    def loadRoom(self, map):
-        for index,wall_cwp in enumerate(map.clockWisePosition(self.room)):
-            if wall_cwp:
-                direction = self.directions[index]
-                self.walls[direction] = getWallFor(direction)
-            else:
-                self.walls[direction] = copy(self.full_close)
-        self.rooms[room] = walls
-
-    def getColor():
-        return self.color
-
-    def generateUniqColor(self, map):
+    def generateUniqColor(self):
         while True:
             color_chanel = randinit(0,255)
-            if not any(int(rM.getColor().split('#')[1], 16) - color_chanel <= 4 \
-                    for rM in map.getRoomsModels()):
+            if not any(int(room.getColor().split('#')[1], 16) - color_chanel <= 4 \
+                    for room in self.mapLinked.getRooms()):
                 return str("#" + hex(color_chanel).split('0x')[1].zfill(3))

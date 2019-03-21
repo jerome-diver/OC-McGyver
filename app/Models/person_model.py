@@ -7,20 +7,36 @@ from time import time
 
 from model import Model
 
-class PersonModel(Model):
+
+class Person:
 
     name = ""
     mapPosition = { }   # { "line": int, "row": int }
     roomPosition = { }  # { "line": int, "row": int }
+    isLookingAt =""
 
-    def __init__(self):
-        isLookingAt = self.direction[0]
+    def __init__(self, name):
+        self.name = name
 
     def getName(self):
         return self.name
 
     def setName(self, name):
         self.name = name
+
+    def isLookingWhere(self):
+        return self.isLookingAt
+
+    def isLookingAt(self, direction):  # is looking in front of him (set where)
+        checkDirection(direction)
+        self.isLookingAt = direction
+
+
+class PersonModel(Person,Model):
+
+    def __init__(self):
+        self.person = Person()
+        self.person.isLookingAt(self.direction[0])
 
     def getRoomPosition(self):      # current Person room position coordonates
         return (self.roomPosition["line"], self.roomPosition["row"])
@@ -38,23 +54,15 @@ class PersonModel(Model):
         self.mapPosition["line"] = coordonates[0]
         self.mapPosition["row"] = coordonates[1]
 
-    def isLookingWhere(self):
-        return self.isLookingAt
-
-    def isLookingAt(self, direction):  # is looking in front of him (set where)
-        checkDirection(direction)
-        self.isLookingAt = direction
-
     def isInContact(self):
-
-        return bool
+        return False
 
 class GuardModel(PersonModel):
 
     endSleepîngTime = time()
 
     def __init__(self):
-        pass
+        self.person.setName("Johnny")
 
     def injectVaccin(self):
         endSleepingTime = time()
@@ -65,7 +73,7 @@ class HeroModel(PersonModel):
     objects = []        # [ ObjectModel ]
 
     def __init__(self):
-        pass
+        self.person.setName("McGyver")
 
     def canWalkAhead(self):
         pass
