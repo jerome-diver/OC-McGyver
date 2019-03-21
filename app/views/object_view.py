@@ -1,4 +1,4 @@
-import Object
+from views import Object
 
 
 class ObjectView(View):

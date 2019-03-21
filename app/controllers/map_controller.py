@@ -1,4 +1,4 @@
-import Controller
+from controllers import Controller
 
 
 class MapController(Controller):

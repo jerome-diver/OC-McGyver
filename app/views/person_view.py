@@ -1,4 +1,4 @@
-import View
+from views import View
 
 
 class GuardView(View):
