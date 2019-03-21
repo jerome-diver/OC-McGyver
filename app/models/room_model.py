@@ -8,6 +8,7 @@ and it will automatically generate his own walls  structure edges
 
 from random import randint
 from copy import copy
+
 from models import Model
 from components import Room
 
@@ -66,6 +67,7 @@ class RoomModel(Room,Model):
     def generateUniqColor(self):
         while True:
             color_chanel = randinit(0,255)
-            if not any(int(room.getColor().split('#')[1], 16) - color_chanel <= 4 \
-                    for room in self.mapLinked.getRooms()):
+            if not any(int(room.getColor().split('#')[1], 16) \
+                       - color_chanel <= 4 \
+                       for room in self.mapLinked.getRooms()):
                 return str("#" + hex(color_chanel).split('0x')[1].zfill(3))

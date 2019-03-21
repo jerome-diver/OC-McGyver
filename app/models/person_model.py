@@ -20,9 +20,11 @@ class PersonModel(Person,Model):
     def getCoordonates(self, what):      # current Person room position coordonates
         checkCoordonates(coordonates)
         if what == "map":
-            return (self.mapCoordonates["line"], self.mapCoordonates["row"])
+            return (self.mapCoordonates["line"], \
+                    self.mapCoordonates["row"])
         elif what == "room":
-            return (self.roomCoordonates["line"], self.roomCoordonates["row"])
+            return (self.roomCoordonates["line"], \
+                    self.roomCoordonates["row"])
 
     def setCoordonates(self, coordonates, what):
         checkCoordonates(coordonates)
