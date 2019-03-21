@@ -15,45 +15,42 @@ from components import Room
 
 class RoomModel(Room,Model):
 
-	full_close = (True,True,True,True,True,True,True,True)
-
     def __init__(self, map_, coordonates):		# room is a tuple(line,row)
         checkCoordonates(coordonates)
-        Room(map_,coordonates)
-        map_.appendRoom(self.Room())
+        Room.__init__(self,map_,coordonates)
         self.setColor(genereateUniqColor(map_))
 	
 
     def existRoom(self, coordonates):
         checkCoordonates(coordonates)
-        return coordonates in self.mapLinked.getRoomsDictionary().keys()
+        return coordonates in self._mapLinked.getRoomsDictionary().keys()
 
     def possibleRoomNear(self, edge_side):
         if edge_side == "top":
-            return (self.coordonates[0] != 0)
+            return (self._coordonates[0] != 0)
         if edge_side == "bottom"
-            return (self.coordonates[0] != 7)
+            return (self._coordonates[0] != 7)
         if edge_side == "right":
-            return (self.coordonates[1] != 7)
+            return (self._coordonates[1] != 7)
         if edge_side == "left":
-            return (self.coordonates[1] != 0)
+            return (self._coordonates[1] != 0)
 
     def roomCoordonatesNear(self, edge_side):
         if possibleRoomAt(edge_side):
             if edge_side = "top":
-                return (self.coordonates[0] - 1, self.coordonates[1])
+                return (self._coordonates[0] - 1, self._coordonates[1])
             if edge_side = "bottom":
-                return (self.coordonates[0] + 1, self.coordonates[1])
+                return (self._coordonates[0] + 1, self._coordonates[1])
             if edge_side == "right":
-                return (self.coordonates[0], self.coordonates[1] + 1)
+                return (self._coordonates[0], self._coordonates[1] + 1)
             if edge_side == "left":
-                return (self.coordonates[0], self.coordonates[1] - 1)
+                return (self._coordonates[0], self._coordonates[1] - 1)
 
     def getWallFor(self, edge_side):
         checkSide(edge_side)
         if searched_room = roomCoordonateNear(edge_side) \
                 and existRoom(searched_room):
-            return self.rooms[searched_room[oppositSide(edge_side)]]
+            return self._rooms[searched_room[oppositSide(edge_side)]]
         else:
             return generateWall()
 
@@ -69,5 +66,5 @@ class RoomModel(Room,Model):
             color_chanel = randinit(0,255)
             if not any(int(room.getColor().split('#')[1], 16) \
                        - color_chanel <= 4 \
-                       for room in self.mapLinked.getRooms()):
+                       for room in self._mapLinked.getRooms()):
                 return str("#" + hex(color_chanel).split('0x')[1].zfill(3))

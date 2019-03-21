@@ -8,8 +8,8 @@ import binascii
 
 class Model:
 
-    directions = ("north", "east", "south", "west")
-    sides = ("top", "right", "bottom", "left")
+    _directions = ("north", "east", "south", "west")
+    _sides = ("top", "right", "bottom", "left")
 
     def __init__(self):
         pass
@@ -21,11 +21,11 @@ class Model:
             raise Exception("Coordonates are wrong")
 
     def checkDirection(self, direction):
-        if direction not in self.directiosn:
+        if direction not in self._directions:
             raise Exception("direction syntax is wrong")
 
     def checkSide(self, side):
-        if side not in self.sides:
+        if side not in self._sides:
             raise Exception("side syntax is wrong")
 
     def oppositDirection(self, direction):

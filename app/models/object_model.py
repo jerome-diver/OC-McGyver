@@ -2,28 +2,13 @@
 """
 
 from models import Model
+from components import Object
 
-
-class Object:
-
-    logoFile = ""
-    name = ""
-    def __init__(self):
-        pass
-
-    def setName(self, name):
-        self.name = name
-
-    def getName(self):
-        return self.name
-
-    def setLogoFile(self, file):
-        self.logoFile = file
 
 class ObjectModel(Object, Model):
 
-    mapCoordonates = ()       # tuple of integers as line and row
-    roomCoordonates = ()      # tuple of integers as line and row
+    _mapCoordonates = ()       # tuple of integers as line and row
+    _roomCoordonates = ()      # tuple of integers as line and row
 
 
     def __init__(self):
@@ -32,13 +17,13 @@ class ObjectModel(Object, Model):
     def setCoordonates(self, coordonates, what):
         checkCoordonates(coordonates)
         if what == "map":
-            self.mapCoordonates = coordonates
+            self._mapCoordonates = coordonates
         elif what == "room":
-        self.roomCoordonates = coordonates
+        self._roomCoordonates = coordonates
 
     def getCoordonates(self, what):
         if what == "map":
-            return self.mapCoordonates
+            return self._mapCoordonates
         elif what == "room":
-            return self.roomCoordonates
+            return self._roomCoordonates
 

@@ -4,29 +4,33 @@ The Room object is one of the 64 rooms of the map.
 
 class Room:
 
-    coordonates = ( )    # self room coordonates inside the map
-    walls = { }         # {"edge_direction": (8 boolean) }
-    color = "#FFF"
+    _coordonates = ( )    # self room coordonates inside the map
+    _walls = { }         # {"edge_direction": (8 boolean) }
+    _color = "#FFF"
+    _full_close = (True,True,True,True,True,True,True,True)
+    _directions = ("north", "east", "south", "west")
 
     def __init__(self, map_linked, coorodnates):
-        self.coordonates = coordonates
-        self.mapLinked = map_linked
+        self._coordonates = coordonates
+        self._mapLinked = map_linked
         self.loadRoom(map_linked)
+        map_linked.appendRoom(self)
 
     def loadRoom(self, map_):
-        for index,wall_cwp in enumerate(map_.clockWisePosition(self.coordonates)):
+        for index,wall_cwp in \
+                enumerate(map_.clockWisePosition(self._coordonates)):
             if wall_cwp:
-                direction = self.directions[index]
+                direction = self._directions[index]
                 self.walls[direction] = getWallFor(direction)
             else:
-                self.walls[direction] = copy(self.full_close)
+                self.walls[direction] = copy(self._full_close)
 
     def setColor(self, rgb):
-        self.color = rgb
+        self._color = rgb
 
     def getColor(self)
-    return color
+    return self._color
 
     def getCoordonates(self):
-        return self.coordonates
+        return self._coordonates
 

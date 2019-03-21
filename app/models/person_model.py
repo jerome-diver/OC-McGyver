@@ -10,63 +10,63 @@ from components import Person
 
 class PersonModel(Person,Model):
 
-    mapCoordonates = { }   # (line:integer, row:integer)
-    roomCoordonates = { } 
+    _mapCoordonates = { }   # (line:integer, row:integer)
+    _roomCoordonates = { } 
 
     def __init__(self):
-        Person(self)
-        isLookingAt(self.direction[0])
+        Person.__init__(self, self._direction[0])
 
     def getCoordonates(self, what):      # current Person coordonates (room)
         checkCoordonates(coordonates)
         if what == "map":
-            return (self.mapCoordonates["line"], \
-                    self.mapCoordonates["row"])
+            return (self._mapCoordonates["line"], \
+                    self._mapCoordonates["row"])
         elif what == "room":
-            return (self.roomCoordonates["line"], \
-                    self.roomCoordonates["row"])
+            return (self._roomCoordonates["line"], \
+                    self._roomCoordonates["row"])
 
     def setCoordonates(self, coordonates, what):
         checkCoordonates(coordonates)
         elif what == "room":
-            self.roomCoordonates["line"] = coordonates[0]
-            self.roomCoordonates["row"] = coordonates[1]
+            self._roomCoordonates["line"] = coordonates[0]
+            self._roomCoordonates["row"] = coordonates[1]
         if what == "map":
-        self.mapCoordonates["line"] = coordonates[0]
-        self.mapCoordonates["row"] = coordonates[1]
+        self._mapCoordonates["line"] = coordonates[0]
+        self._mapCoordonates["row"] = coordonates[1]
 
     def isInContact(self):
         return False
 
 class GuardModel(PersonModel):
 
-    endSleepîngTime = time()
+    _endSleepîngTime = time()
 
     def __init__(self):
-        self.person.setName("Johnny")
+        PersonModel.__init__(self)
+        Person.setName("Johnny Johnny")
 
     def injectVaccin(self):
-        endSleepingTime = time()
+        self._endSleepingTime = time()
 
 
 class HeroModel(PersonModel):
 
-    objects = []        # [ ObjectModel ]
+    _objects = []        # [ ObjectModel ]
 
     def __init__(self):
-        self.person.setName("McGyver")
-
-    def canWalkAhead(self):
-        pass
+        PersonModel.__init__(self)
+        Person.setName(self,"Mac Gyver")
 
     def listObjects(self):
-        pass
+        return self._objects
 
     def findObject(self, object):
-        pass
+        if obj in self._objects:
+            return obj
 
-    def trashObject(self, object):
-        pass
+    def trashObject(self, one_object):
+        if obj in self._objects:
+            self._objects.delete(one_object)
 
     def canMakeSleeping(self):
-        pass
+        return len(self._objects) >= 3

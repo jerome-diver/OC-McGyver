@@ -14,19 +14,18 @@ from components import Map
 class MapModel(Map,Model):
 
     def __init__(self):
-        Model().__init__(self)
-        Map().__init__(self)
-        self.map.loadMap()
+        Model.__init__(self)
+        Map.__init__(self)
 
     def hasWallAt(self, room_coordonates, edge_position):
         checkDirection(edge_position)
         checkCoordonates(room_coordonates)
         if edge_position == "north":
-            return self.map.wallPosition(room_coordonates) in self.wallsN
+            return self.wallPosition(room_coordonates) in self._wallsN
         elif edge_position == "south":
-            return self.map.wallPosition(room_coordonates) in self.wallsS
+            return self.wallPosition(room_coordonates) in self._wallsS
         elif edge_position == "east":
-            return self.map.wallPosition(room_coordonates) in self.wallsE
+            return self.wallPosition(room_coordonates) in self._wallsE
         elif edge_position == "west":
-            return self.map.wallPosition(room_coordonates) in self.wallsW
+            return self.wallPosition(room_coordonates) in self._wallsW
 
