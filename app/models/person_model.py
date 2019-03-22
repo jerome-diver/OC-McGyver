@@ -8,7 +8,7 @@ from time import time
 from models import Model
 from components import Person
 
-class PersonModel(Person,Model):
+class PersonModel(components.Person,Model):
 
     _mapCoordonates = { }   # (line:integer, row:integer)
     _roomCoordonates = { } 

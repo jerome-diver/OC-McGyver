@@ -11,7 +11,7 @@ from models import Model
 from components import Map
 
 
-class MapModel(Map,Model):
+class MapModel(components.Map,Model):
 
     def __init__(self):
         super().__init__()

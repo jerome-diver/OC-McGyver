@@ -5,7 +5,7 @@ from models import Model
 from components import Object
 
 
-class ObjectModel(Object, Model):
+class ObjectModel(components.Object, Model):
 
     _mapCoordonates = ()       # tuple of integers as line and row
     _roomCoordonates = ()      # tuple of integers as line and row

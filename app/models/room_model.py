@@ -13,7 +13,7 @@ from models import Model
 from components import Room
 
 
-class RoomModel(Room,Model):
+class RoomModel(components.Room,Model):
 
     def __init__(self, map_, coordonates):		# room is a tuple(line,row)
         checkCoordonates(coordonates)
