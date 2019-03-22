@@ -33,8 +33,10 @@ height = int(sys.argv[2])
 
 import pygame
 
-
 def setupPygame(width, height, image): 
+  red = (255,0,0)
+  black = (0,0,0) 
+  white = (255,255,255)
   pygame.init() 
   display = pygame.display 
   window = display.set_mode((width,height)) 
@@ -42,11 +44,19 @@ def setupPygame(width, height, image):
   clk = pygame.time.Clock() 
   crashed = False 
   posX, posY = 0,0 
-  red = (255,0,0) 
-  black = (0,0,0) 
   mcGyverIMG = pygame.image.load(image)
+  
+  def message(text):
+    font = pygame.font.Font("Ubuntu-M.ttf",12)
+    surf = font.render(text, True, white)
+    container = surf.get_rect()
+    container.center = (width - 100, 10)
+    window.blit(surf, container)
+    pygame.display.update()
+
   def hero(x,y):
     window.blit(mcGyverIMG, (x,y))
+
   while not crashed: 
     for ev in pygame.event.get(): 
       if ev.type == pygame.KEYDOWN: 
@@ -77,8 +87,9 @@ def setupPygame(width, height, image):
     window.fill(black) 
     #pygame.draw.rect(window, red, (posX, posY,50,50)) 
     hero(posX,posY)
+    message('hit "q" key to exit')
     pygame.display.flip() 
   pygame.quit() 
-  quit()
 
 setupPygame(width, height, img)
+quit()

@@ -61,8 +61,10 @@ _directions	app/components/room.py	/^    _directions = ("north", "east", "south"
 _directions	app/models/model.py	/^    _directions = ("north", "east", "south", "west")$/;"	v	class:Model
 _endSleepîngTime	app/models/person_model.py	/^    _endSleepîngTime = time()$/;"	v	class:GuardModel
 _full_close	app/components/room.py	/^    _full_close = (True,True,True,True,True,True,True,True)$/;"	v	class:Room
+_logoFile	app/components/object.py	/^    _logoFile = ""$/;"	v	class:Object
 _mapCoordonates	app/models/object_model.py	/^    _mapCoordonates = ()       # tuple of integers as line and row$/;"	v	class:ObjectModel
 _mapCoordonates	app/models/person_model.py	/^    _mapCoordonates = { }   # (line:integer, row:integer)$/;"	v	class:PersonModel
+_name	app/components/object.py	/^    _name = ""$/;"	v	class:Object
 _name	app/components/person.py	/^    _name = ""$/;"	v	class:Person
 _objects	app/models/person_model.py	/^    _objects = []        # [ ObjectModel ]$/;"	v	class:HeroModel
 _roomCoordonates	app/models/object_model.py	/^    _roomCoordonates = ()      # tuple of integers as line and row$/;"	v	class:ObjectModel
@@ -96,6 +98,9 @@ getRooms	app/components/map.py	/^    def getRooms(self):$/;"	m	class:Map
 getRoomsDictionary	app/components/map.py	/^    def getRoomsDictionary(self):$/;"	m	class:Map
 getWallFor	app/models/room_model.py	/^    def getWallFor(self, edge_side):$/;"	m	class:RoomModel
 hasWallAt	app/models/map_model.py	/^    def hasWallAt(self, room_coordonates, edge_position):$/;"	m	class:MapModel
+height	test/pygame_demo.py	/^height = int(sys.argv[2])$/;"	v
+hero	test/pygame_demo.py	/^  def hero(x,y):$/;"	f	function:setupPygame	file:
+img	test/pygame_demo.py	/^img = sys.argv[3]$/;"	v
 injectVaccin	app/models/person_model.py	/^    def injectVaccin(self):$/;"	m	class:GuardModel
 isInContact	app/models/person_model.py	/^    def isInContact(self):$/;"	m	class:PersonModel
 isLookingAt	app/components/person.py	/^    def isLookingAt(self, direction):  # is looking in front of him (set where)$/;"	m	class:Person
@@ -103,8 +108,7 @@ isLookingWhere	app/components/person.py	/^    def isLookingWhere(self):$/;"	m	cl
 listObjects	app/models/person_model.py	/^    def listObjects(self):$/;"	m	class:HeroModel
 loadMap	app/components/map.py	/^    def loadMap(self):$/;"	m	class:Map
 loadRoom	app/components/room.py	/^    def loadRoom(self, map_):$/;"	m	class:Room
-logoFile	app/components/object.py	/^    logoFile = ""$/;"	v	class:Object
-name	app/components/object.py	/^    name = ""$/;"	v	class:Object
+message	test/pygame_demo.py	/^  def message(text):$/;"	f	function:setupPygame	file:
 oppositDirection	app/models/model.py	/^    def oppositDirection(self, direction):$/;"	m	class:Model
 oppositSide	app/models/model.py	/^    def oppositSide(self, side):$/;"	m	class:Model
 possibleRoomNear	app/models/room_model.py	/^    def possibleRoomNear(self, edge_side):$/;"	m	class:RoomModel
@@ -115,7 +119,9 @@ setCoordonates	app/models/person_model.py	/^    def setCoordonates(self, coordon
 setLogoFile	app/components/object.py	/^    def setLogoFile(self, file):$/;"	m	class:Object
 setName	app/components/object.py	/^    def setName(self, name):$/;"	m	class:Object
 setName	app/components/person.py	/^    def setName(self, name):$/;"	m	class:Person
+setupPygame	test/pygame_demo.py	/^def setupPygame(width, height, image): $/;"	f
 trashObject	app/models/person_model.py	/^    def trashObject(self, one_object):$/;"	m	class:HeroModel
 wallClockWisePosition	app/components/map.py	/^    def wallClockWisePosition(self,room_coordonates):$/;"	m	class:Map
 wallPosition	app/components/map.py	/^    def wallPosition(self, room_coordonates):$/;"	m	class:Map
 wallPositions	app/components/map.py	/^    def wallPositions(self):$/;"	m	class:Map
+widht	test/pygame_demo.py	/^widht = int(sys.argv[1])$/;"	v
