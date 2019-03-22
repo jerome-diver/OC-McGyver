@@ -14,7 +14,7 @@ class PersonModel(Person,Model):
     _roomCoordonates = { } 
 
     def __init__(self):
-        Person.__init__(self, self._direction[0])
+        super().__init__(self._direction[0])
 
     def getCoordonates(self, what):      # current Person coordonates (room)
         checkCoordonates(coordonates)
@@ -42,8 +42,8 @@ class GuardModel(PersonModel):
     _endSleepîngTime = time()
 
     def __init__(self):
-        PersonModel.__init__(self)
-        Person.setName("Johnny Johnny")
+        super().__init__(self)
+        self.setName("Johnny Johnny")
 
     def injectVaccin(self):
         self._endSleepingTime = time()
@@ -54,8 +54,8 @@ class HeroModel(PersonModel):
     _objects = []        # [ ObjectModel ]
 
     def __init__(self):
-        PersonModel.__init__(self)
-        Person.setName(self,"Mac Gyver")
+        super().__init__(self)
+        self.setName(self,"Mac Gyver")
 
     def listObjects(self):
         return self._objects

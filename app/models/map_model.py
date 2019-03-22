@@ -14,8 +14,7 @@ from components import Map
 class MapModel(Map,Model):
 
     def __init__(self):
-        Model.__init__(self)
-        Map.__init__(self)
+        super().__init__()
 
     def hasWallAt(self, room_coordonates, edge_position):
         checkDirection(edge_position)

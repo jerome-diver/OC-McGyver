@@ -17,7 +17,7 @@ class RoomModel(Room,Model):
 
     def __init__(self, map_, coordonates):		# room is a tuple(line,row)
         checkCoordonates(coordonates)
-        Room.__init__(self,map_,coordonates)
+        super().__init__(map_,coordonates)
         self.setColor(genereateUniqColor(map_))
 	
 

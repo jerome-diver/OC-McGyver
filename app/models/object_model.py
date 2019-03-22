@@ -12,7 +12,7 @@ class ObjectModel(Object, Model):
 
 
     def __init__(self):
-        Object(self)
+        super.__init__()
 
     def setCoordonates(self, coordonates, what):
         checkCoordonates(coordonates)
