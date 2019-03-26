@@ -5,14 +5,22 @@ model from MVC design pattern
 
 import os
 import binascii
+from pygame.sprite import *
 
-class Model:
+
+class Model(Sprite):
 
     _directions = ("north", "east", "south", "west")
     _sides = ("top", "right", "bottom", "left")
+    _red = (255,0,0)
+    _black = (0,0,0)
+    _white = (255,255,255)
+    _width = 600
+    _height = 600
 
-    def __init__(self):
-        pass
+    def __init__(self, pyGameEngine):
+        super().__init__()
+        self._gameEngine = pyGameEngine
 
     def checkCoordonates(self, coordonates):
         line = (coordonates[0] >= 0 and coordonates[0] <= 7)
@@ -47,3 +55,16 @@ class Model:
             return "right"
         if side == "right":
             return "left"
+
+    def getModel(self):
+        return self
+
+    def gameEngine(self):
+        return self._gameEngine
+
+    def setImage(self, img, color):
+        self._image = img
+        self._image.fill(color)
+
+    def getImage(self):
+        return self._image

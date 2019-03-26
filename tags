@@ -5,123 +5,196 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
-Controller	app/controllers/Controller.py	/^class Controller:$/;"	c
+Controller	app/controllers/controller.py	/^class Controller:$/;"	c
 GuardModel	app/models/person_model.py	/^class GuardModel(PersonModel):$/;"	c
+GuardSprite	app/views/sprites.py	/^class GuardSprite(Sprite):$/;"	c
 GuardView	app/views/person_view.py	/^class GuardView(View):$/;"	c
+Hero	test/pygame_demo.py	/^class Hero(pygame.sprite.Sprite):$/;"	c
 HeroModel	app/models/person_model.py	/^class HeroModel(PersonModel):$/;"	c
+HeroSprite	app/views/sprites.py	/^class HeroSprite(Sprite):$/;"	c
 HeroView	app/views/person_view.py	/^class HeroView(View):$/;"	c
+Labyrinth	test/pygame_demo.py	/^class Labyrinth(pygame.sprite.Sprite):$/;"	c
+Main	app/McGyver.py	/^def Main():$/;"	f
 Map	app/components/map.py	/^class Map:$/;"	c
 MapController	app/controllers/map_controller.py	/^class MapController(Controller):$/;"	c
 MapModel	app/models/map_model.py	/^class MapModel(Map,Model):$/;"	c
+MapSprite	app/views/sprites.py	/^class MapSprite(Sprite):$/;"	c
 MapView	app/views/map_view.py	/^class MapView(View):$/;"	c
-Model	app/models/model.py	/^class Model:$/;"	c
+Model	app/models/model.py	/^class Model(Sprite):$/;"	c
 OC-McGyver	README.md	/^# OC-McGyver$/;"	c
 Object	app/components/object.py	/^class Object:$/;"	c
 ObjectController	app/controllers/object_controller.py	/^class ObjectController(Controller):$/;"	c
-ObjectModel	app/models/object_model.py	/^class ObjectModel(Object, Model):$/;"	c
+ObjectModel	app/models/object_model.py	/^class ObjectModel(components.Object, Model):$/;"	c
+ObjectSprite	app/views/sprites.py	/^class ObjectSprite(Sprite):$/;"	c
 ObjectView	app/views/object_view.py	/^class ObjectView(View):$/;"	c
 Person	app/components/person.py	/^class Person:$/;"	c
 PersonController	app/controllers/person_controller.py	/^class PersonController(Controller):$/;"	c
 PersonModel	app/models/person_model.py	/^class PersonModel(Person,Model):$/;"	c
+PyGameEngine	app/pygame_engine/game_engine.py	/^class PyGameEngine():$/;"	c
 Room	app/components/room.py	/^class Room:$/;"	c
 RoomController	app/controllers/room_controller.py	/^class RoomController(Controller):$/;"	c
 RoomModel	app/models/room_model.py	/^class RoomModel(Room,Model):$/;"	c
+RoomSprite	app/views/sprites.py	/^class RoomSprite(Sprite):$/;"	c
 RoomView	app/views/room_view.py	/^class RoomView(View):$/;"	c
-Screen	app/views/view.py	/^    def Screen(self, param):$/;"	m	class:View
-Show	app/views/view.py	/^    def Show(self, param):$/;"	m	class:View
 The game story	README.md	/^## The game story$/;"	s
 The game's tools used	README.md	/^## The game's tools used$/;"	s
 The game's type	README.md	/^### The game's type$/;"	S
 View	app/views/view.py	/^class View:$/;"	c
+Wall	test/pygame_demo.py	/^  class Wall(pygame.sprite.Sprite):$/;"	c	class:Labyrinth
+_SquareLength	app/views/room_view.py	/^    _SquareLength = 40  # 30 + 2 walls enclosure thickness of 5 = 40$/;"	v	class:RoomView
+__del__	app/components/map.py	/^    def __del__(self):$/;"	m	class:Map
+__del__	app/pygame_engine/game_engine.py	/^    def __del__(self):$/;"	m	class:PyGameEngine
 __init__	app/components/map.py	/^    def __init__(self):$/;"	m	class:Map
 __init__	app/components/object.py	/^    def __init__(self):$/;"	m	class:Object
 __init__	app/components/person.py	/^    def __init__(self, looking_where):$/;"	m	class:Person
-__init__	app/components/room.py	/^    def __init__(self, map_linked, coorodnates):$/;"	m	class:Room
-__init__	app/controllers/Controller.py	/^    def __init__(self):$/;"	m	class:Controller
-__init__	app/controllers/map_controller.py	/^    def __init__(self):$/;"	m	class:MapController
-__init__	app/controllers/object_controller.py	/^    def __init__(self):$/;"	m	class:ObjectController
-__init__	app/controllers/person_controller.py	/^    def __init__(self):$/;"	m	class:PersonController
-__init__	app/controllers/room_controller.py	/^    def __init__(self):$/;"	m	class:RoomController
-__init__	app/models/map_model.py	/^    def __init__(self):$/;"	m	class:MapModel
-__init__	app/models/model.py	/^    def __init__(self):$/;"	m	class:Model
-__init__	app/models/object_model.py	/^    def __init__(self):$/;"	m	class:ObjectModel
+__init__	app/components/room.py	/^    def __init__(self, map_linked, coordonates):$/;"	m	class:Room
+__init__	app/controllers/controller.py	/^    def __init__(self):$/;"	m	class:Controller
+__init__	app/controllers/map_controller.py	/^    def __init__(self, pyGameEngine):$/;"	m	class:MapController
+__init__	app/controllers/object_controller.py	/^    def __init__(self,pyGameEngine):$/;"	m	class:ObjectController
+__init__	app/controllers/person_controller.py	/^    def __init__(self,pyGameEngine):$/;"	m	class:PersonController
+__init__	app/controllers/room_controller.py	/^    def __init__(self,pyGameEngine, map_):$/;"	m	class:RoomController
+__init__	app/models/map_model.py	/^    def __init__(self, pyGameEngine):$/;"	m	class:MapModel
+__init__	app/models/model.py	/^    def __init__(self, pyGameEngine):$/;"	m	class:Model
+__init__	app/models/object_model.py	/^    def __init__(self,pyGameEngine):$/;"	m	class:ObjectModel
 __init__	app/models/person_model.py	/^    def __init__(self):$/;"	m	class:GuardModel
 __init__	app/models/person_model.py	/^    def __init__(self):$/;"	m	class:HeroModel
-__init__	app/models/person_model.py	/^    def __init__(self):$/;"	m	class:PersonModel
-__init__	app/models/room_model.py	/^    def __init__(self, map_, coordonates):		# room is a tuple(line,row)$/;"	m	class:RoomModel
-__init__	app/views/map_view.py	/^    def __init__(self):$/;"	m	class:MapView
-__init__	app/views/object_view.py	/^    def __init__(self):$/;"	m	class:ObjectView
-__init__	app/views/person_view.py	/^    def __init__(self):$/;"	m	class:GuardView
-__init__	app/views/person_view.py	/^    def __init__(self):$/;"	m	class:HeroView
-__init__	app/views/room_view.py	/^    def __init__(self):$/;"	m	class:RoomView
-__init__	app/views/view.py	/^    def __init__(self):$/;"	m	class:View
-_color	app/components/room.py	/^    _color = "#FFF"$/;"	v	class:Room
-_coordonates	app/components/room.py	/^    _coordonates = ( )    # self room coordonates inside the map$/;"	v	class:Room
+__init__	app/models/person_model.py	/^    def __init__(self, pyGameEngine):$/;"	m	class:PersonModel
+__init__	app/models/room_model.py	/^    def __init__(self, map_, coordonates, room, pyGameEngine):$/;"	m	class:RoomModel
+__init__	app/pygame_engine/game_engine.py	/^    def __init__(self):$/;"	m	class:PyGameEngine
+__init__	app/views/map_view.py	/^    def __init__(self, mapModel):$/;"	m	class:MapView
+__init__	app/views/object_view.py	/^    def __init__(self, objectModel):$/;"	m	class:ObjectView
+__init__	app/views/person_view.py	/^    def __init__(self, guardModel):$/;"	m	class:GuardView
+__init__	app/views/person_view.py	/^    def __init__(self,heroModel):$/;"	m	class:HeroView
+__init__	app/views/room_view.py	/^    def __init__(self, roomModel):$/;"	m	class:RoomView
+__init__	app/views/sprites.py	/^    def __init__(self, _map):$/;"	m	class:GuardSprite
+__init__	app/views/sprites.py	/^    def __init__(self, _map):$/;"	m	class:HeroSprite
+__init__	app/views/sprites.py	/^    def __init__(self, _map):$/;"	m	class:ObjectSprite
+__init__	app/views/sprites.py	/^    def __init__(self, _map):$/;"	m	class:RoomSprite
+__init__	app/views/sprites.py	/^    def __init__(self, mapModel):$/;"	m	class:MapSprite
+__init__	app/views/view.py	/^    def __init__(self, model):$/;"	m	class:View
+__init__	test/pygame_demo.py	/^    def __init__(self, idd):$/;"	m	class:Labyrinth.Wall
+__init__	test/pygame_demo.py	/^  def __init__(self, group):$/;"	m	class:Labyrinth
+__init__	test/pygame_demo.py	/^  def __init__(self, window, img, posit):$/;"	m	class:Hero
+_black	app/models/model.py	/^    _black = (0,0,0)$/;"	v	class:Model
+_black	app/views/sprites.py	/^    _black = (0,0,0)$/;"	v	class:MapSprite
 _directions	app/components/room.py	/^    _directions = ("north", "east", "south", "west")$/;"	v	class:Room
 _directions	app/models/model.py	/^    _directions = ("north", "east", "south", "west")$/;"	v	class:Model
 _endSleepîngTime	app/models/person_model.py	/^    _endSleepîngTime = time()$/;"	v	class:GuardModel
 _full_close	app/components/room.py	/^    _full_close = (True,True,True,True,True,True,True,True)$/;"	v	class:Room
+_height	app/models/model.py	/^    _height = 600$/;"	v	class:Model
+_height	app/pygame_engine/game_engine.py	/^    _height = 800$/;"	v	class:PyGameEngine
+_height	app/views/map_view.py	/^    _height = 600$/;"	v	class:MapView
+_height	app/views/sprites.py	/^    _height = 600$/;"	v	class:MapSprite
 _logoFile	app/components/object.py	/^    _logoFile = ""$/;"	v	class:Object
 _mapCoordonates	app/models/object_model.py	/^    _mapCoordonates = ()       # tuple of integers as line and row$/;"	v	class:ObjectModel
 _mapCoordonates	app/models/person_model.py	/^    _mapCoordonates = { }   # (line:integer, row:integer)$/;"	v	class:PersonModel
+_map_bg	app/views/map_view.py	/^    _map_bg= (0,240,50)$/;"	v	class:MapView
 _name	app/components/object.py	/^    _name = ""$/;"	v	class:Object
 _name	app/components/person.py	/^    _name = ""$/;"	v	class:Person
 _objects	app/models/person_model.py	/^    _objects = []        # [ ObjectModel ]$/;"	v	class:HeroModel
+_red	app/models/model.py	/^    _red = (255,0,0)$/;"	v	class:Model
+_red	app/views/sprites.py	/^    _red = (255,0,0)$/;"	v	class:MapSprite
 _roomCoordonates	app/models/object_model.py	/^    _roomCoordonates = ()      # tuple of integers as line and row$/;"	v	class:ObjectModel
 _roomCoordonates	app/models/person_model.py	/^    _roomCoordonates = { } $/;"	v	class:PersonModel
-_rooms	app/components/map.py	/^    _rooms = { }    # { (row,column): Room }$/;"	v	class:Map
+_roomLength	app/views/room_view.py	/^    _roomLength = 580   # 70 * 8 + 2 * 10 = 580$/;"	v	class:RoomView
 _sLookingAt	app/components/person.py	/^    _sLookingAt =""$/;"	v	class:Person
 _sides	app/models/model.py	/^    _sides = ("top", "right", "bottom", "left")$/;"	v	class:Model
+_wallEigthsPart	app/views/room_view.py	/^    _wallEigthsPart = 70    # (580 - 2*10) \/ 8 = 70$/;"	v	class:RoomView
+_wallMpSqLength	app/views/room_view.py	/^    _wallMpSqLength = 40$/;"	v	class:RoomView
+_wallRoomThickness	app/views/room_view.py	/^    _wallRoomThickness = 10$/;"	v	class:RoomView
+_wallSqThickness	app/views/room_view.py	/^    _wallSqThickness = 5$/;"	v	class:RoomView
 _walls	app/components/map.py	/^    _walls = { }    # { (row,column): byte }$/;"	v	class:Map
-_walls	app/components/room.py	/^    _walls = { }         # {"edge_direction": (8 boolean) }$/;"	v	class:Room
-_wallsE	app/components/map.py	/^    _wallsE = (b'\\x04',b'\\x05',b'\\x08',b'\\x09',b'\\x0b',b'\\x0c',b'\\x0d',b'\\x0f')$/;"	v	class:Map
+_walls	test/pygame_demo.py	/^  _walls = {}       # { (row, col, side): Labyrinth.Wall }$/;"	v	class:Labyrinth
+_wallsE	app/components/map.py	/^    _wallsE = (b'\\x04',b'\\x06',b'\\x08',b'\\x0a',b'\\x0b',b'\\x0d',b'\\x0e',b'\\x0f')$/;"	v	class:Map
 _wallsN	app/components/map.py	/^    _wallsN = (b'\\x02',b'\\x05',b'\\x06',b'\\x07',b'\\x0b',b'\\x0c',b'\\x0e',b'\\x0f')$/;"	v	class:Map
 _wallsS	app/components/map.py	/^    _wallsS = (b'\\x03',b'\\x07',b'\\x09',b'\\x0a',b'\\x0c',b'\\x0d',b'\\x0e',b'\\x0f')$/;"	v	class:Map
-_wallsW	app/components/map.py	/^    _wallsW = (b'\\x01',b'\\x06',b'\\x08',b'\\x0a',b'\\x0b',b'\\x0d',b'\\x0e',b'\\x0f')$/;"	v	class:Map
-appendRoom	app/components/map.py	/^    def appendRoom(self, room):$/;"	m	class:Map
+_wallsW	app/components/map.py	/^    _wallsW = (b'\\x02',b'\\x05',b'\\x08',b'\\x09',b'\\x0b',b'\\x0c',b'\\x0d',b'\\x0f')$/;"	v	class:Map
+_walls_bytes	test/pygame_demo.py	/^  _walls_bytes = {} # { (row, col): byte }$/;"	v	class:Labyrinth
+_white	app/models/model.py	/^    _white = (255,255,255)$/;"	v	class:Model
+_white	app/views/sprites.py	/^    _white = (255,255,255)$/;"	v	class:MapSprite
+_width	app/models/model.py	/^    _width = 600$/;"	v	class:Model
+_width	app/pygame_engine/game_engine.py	/^    _width = 800$/;"	v	class:PyGameEngine
+_width	app/views/map_view.py	/^    _width = 600$/;"	v	class:MapView
+_width	app/views/sprites.py	/^    _width = 600$/;"	v	class:MapSprite
+addGroupsSprites	app/pygame_engine/game_engine.py	/^    def addGroupsSprites(self, name, parent=None):$/;"	m	class:PyGameEngine
+addSpriteToGroup	app/pygame_engine/game_engine.py	/^    def addSpriteToGroup(self, sprite, groupName=None):$/;"	m	class:PyGameEngine
+adjX	test/pygame_demo.py	/^  adjX = (width - 600) \/ 2$/;"	v	class:Labyrinth
+adjY	test/pygame_demo.py	/^  adjY = (height - 600) \/ 2$/;"	v	class:Labyrinth
+black	test/pygame_demo.py	/^black = (0,0,0)$/;"	v
+canCollideWith	test/pygame_demo.py	/^  def canCollideWith(self, group):$/;"	m	class:Hero
 canMakeSleeping	app/models/person_model.py	/^    def canMakeSleeping(self):$/;"	m	class:HeroModel
 checkCoordonates	app/models/model.py	/^    def checkCoordonates(self, coordonates):$/;"	m	class:Model
 checkDirection	app/models/model.py	/^    def checkDirection(self, direction):$/;"	m	class:Model
 checkSide	app/models/model.py	/^    def checkSide(self, side):$/;"	m	class:Model
+columns	test/pygame_demo.py	/^  columns = 0$/;"	v	class:Labyrinth
+createSprite	app/views/map_view.py	/^    def createSprite(self):$/;"	m	class:MapView
+createSprite	app/views/room_view.py	/^    def createSprite(self):$/;"	m	class:RoomView
+drawMapSquare	app/views/room_view.py	/^    def drawMapSquare(self):  # tot = 40x40 (enclosure wall=5, center sq=30)$/;"	m	class:RoomView
+drawRoom	app/views/room_view.py	/^    def drawRoom(self):$/;"	m	class:RoomView
 existRoom	app/models/room_model.py	/^    def existRoom(self, coordonates):$/;"	m	class:RoomModel
 findObject	app/models/person_model.py	/^    def findObject(self, object):$/;"	m	class:HeroModel
+gameEngine	app/models/model.py	/^    def gameEngine(self):$/;"	m	class:Model
 generateUniqColor	app/models/room_model.py	/^    def generateUniqColor(self):$/;"	m	class:RoomModel
 generateWall	app/models/room_model.py	/^    def generateWall():$/;"	m	class:RoomModel
-getColor	app/components/room.py	/^    def getColor(self)$/;"	m	class:Room
+getColor	app/components/room.py	/^    def getColor(self):$/;"	m	class:Room
 getCoordonates	app/components/room.py	/^    def getCoordonates(self):$/;"	m	class:Room
 getCoordonates	app/models/object_model.py	/^    def getCoordonates(self, what):$/;"	m	class:ObjectModel
 getCoordonates	app/models/person_model.py	/^    def getCoordonates(self, what):      # current Person coordonates (room)$/;"	m	class:PersonModel
+getImage	app/models/model.py	/^    def getImage(self):$/;"	m	class:Model
+getMap	app/components/map.py	/^    def getMap(self):$/;"	m	class:Map
+getMap	app/models/map_model.py	/^    def getMap(self):$/;"	m	class:MapModel
+getModel	app/models/model.py	/^    def getModel(self):$/;"	m	class:Model
 getName	app/components/object.py	/^    def getName(self):$/;"	m	class:Object
 getName	app/components/person.py	/^    def getName(self):$/;"	m	class:Person
-getRoomAt	app/components/map.py	/^    def getRoomAt(self, room_coordonates):$/;"	m	class:Map
-getRooms	app/components/map.py	/^    def getRooms(self):$/;"	m	class:Map
-getRoomsDictionary	app/components/map.py	/^    def getRoomsDictionary(self):$/;"	m	class:Map
+getRoom	app/models/room_model.py	/^    def getRoom(self):$/;"	m	class:RoomModel
+getRoomAt	app/controllers/room_controller.py	/^    def getRoomAt(self, coordonates): $/;"	m	class:RoomController
+getRoomDictionary	app/controllers/room_controller.py	/^    def getRoomDictionary(self):$/;"	m	class:RoomController
+getRoomType	app/controllers/room_controller.py	/^    def getRoomType(self, _type, coordinates): $/;"	m	class:RoomController
+getRooms	app/controllers/room_controller.py	/^    def getRooms(self): $/;"	m	class:RoomController
 getWallFor	app/models/room_model.py	/^    def getWallFor(self, edge_side):$/;"	m	class:RoomModel
+getWallPositionFor	app/models/room_model.py	/^    def getWallPositionFor(self, edge_side):$/;"	m	class:RoomModel
+getbestHeroPosition	test/pygame_demo.py	/^  def getbestHeroPosition():$/;"	m	class:Labyrinth
 hasWallAt	app/models/map_model.py	/^    def hasWallAt(self, room_coordonates, edge_position):$/;"	m	class:MapModel
-height	test/pygame_demo.py	/^height = int(sys.argv[2])$/;"	v
-hero	test/pygame_demo.py	/^  def hero(x,y):$/;"	f	function:setupPygame	file:
-img	test/pygame_demo.py	/^img = sys.argv[3]$/;"	v
+height	test/pygame_demo.py	/^height = 0$/;"	v
+img	test/pygame_demo.py	/^img = os.path.join("img",sys.argv[3])$/;"	v
 injectVaccin	app/models/person_model.py	/^    def injectVaccin(self):$/;"	m	class:GuardModel
 isInContact	app/models/person_model.py	/^    def isInContact(self):$/;"	m	class:PersonModel
 isLookingAt	app/components/person.py	/^    def isLookingAt(self, direction):  # is looking in front of him (set where)$/;"	m	class:Person
 isLookingWhere	app/components/person.py	/^    def isLookingWhere(self):$/;"	m	class:Person
+keyPressed	app/pygame_engine/game_engine.py	/^    def keyPressed(self):$/;"	m	class:PyGameEngine
+keysDownEvents	app/pygame_engine/game_engine.py	/^    def keysDownEvents(self, event):$/;"	m	class:PyGameEngine
 listObjects	app/models/person_model.py	/^    def listObjects(self):$/;"	m	class:HeroModel
-loadMap	app/components/map.py	/^    def loadMap(self):$/;"	m	class:Map
+loadMap	app/models/map_model.py	/^    def loadMap(self):$/;"	m	class:MapModel
 loadRoom	app/components/room.py	/^    def loadRoom(self, map_):$/;"	m	class:Room
+loadRooms	app/controllers/room_controller.py	/^    def loadRooms(self, _map):$/;"	m	class:RoomController
 message	test/pygame_demo.py	/^  def message(text):$/;"	f	function:setupPygame	file:
+move	test/pygame_demo.py	/^  def move(self, dx=0, dy=0):$/;"	m	class:Hero
 oppositDirection	app/models/model.py	/^    def oppositDirection(self, direction):$/;"	m	class:Model
 oppositSide	app/models/model.py	/^    def oppositSide(self, side):$/;"	m	class:Model
 possibleRoomNear	app/models/room_model.py	/^    def possibleRoomNear(self, edge_side):$/;"	m	class:RoomModel
+printLabyrinth	test/pygame_demo.py	/^  def printLabyrinth(self): # create Sprites Walls from bytes cells codes$/;"	m	class:Labyrinth
+readLabyrinth	test/pygame_demo.py	/^  def readLabyrinth():  # load map from file to static var _walls_bytes$/;"	m	class:Labyrinth
+red	test/pygame_demo.py	/^red = (255,0,0)$/;"	v
 roomCoordonatesNear	app/models/room_model.py	/^    def roomCoordonatesNear(self, edge_side):$/;"	m	class:RoomModel
+rows	test/pygame_demo.py	/^  rows = 0$/;"	v	class:Labyrinth
 setColor	app/components/room.py	/^    def setColor(self, rgb):$/;"	m	class:Room
 setCoordonates	app/models/object_model.py	/^    def setCoordonates(self, coordonates, what):$/;"	m	class:ObjectModel
 setCoordonates	app/models/person_model.py	/^    def setCoordonates(self, coordonates, what):$/;"	m	class:PersonModel
+setHeroOnGame	app/views/person_view.py	/^    def setHeroOnGame(self):$/;"	m	class:GuardView
+setImage	app/models/model.py	/^    def setImage(self, img, color):$/;"	m	class:Model
 setLogoFile	app/components/object.py	/^    def setLogoFile(self, file):$/;"	m	class:Object
 setName	app/components/object.py	/^    def setName(self, name):$/;"	m	class:Object
 setName	app/components/person.py	/^    def setName(self, name):$/;"	m	class:Person
-setupPygame	test/pygame_demo.py	/^def setupPygame(width, height, image): $/;"	f
+setupPygame	test/pygame_demo.py	/^def setupPygame(width, height, image):$/;"	f
+start	app/pygame_engine/game_engine.py	/^    def start(self):$/;"	m	class:PyGameEngine
 trashObject	app/models/person_model.py	/^    def trashObject(self, one_object):$/;"	m	class:HeroModel
+tryTypeMV	app/controllers/room_controller.py	/^    def tryTypeMV(self, _type):# _type should be "view" or "model"$/;"	m	class:RoomController
+update	app/views/sprites.py	/^    def update(self):$/;"	m	class:MapSprite
+update	test/pygame_demo.py	/^      def update(self):$/;"	f	member:Labyrinth.Wall.__init__	file:
+update	test/pygame_demo.py	/^  def update(self):$/;"	m	class:Hero
 wallClockWisePosition	app/components/map.py	/^    def wallClockWisePosition(self,room_coordonates):$/;"	m	class:Map
+wallExist	test/pygame_demo.py	/^  def wallExist(wall):$/;"	m	class:Labyrinth
 wallPosition	app/components/map.py	/^    def wallPosition(self, room_coordonates):$/;"	m	class:Map
 wallPositions	app/components/map.py	/^    def wallPositions(self):$/;"	m	class:Map
-widht	test/pygame_demo.py	/^widht = int(sys.argv[1])$/;"	v
+white	test/pygame_demo.py	/^white = (255,255,255)$/;"	v
+width	test/pygame_demo.py	/^width = 0$/;"	v

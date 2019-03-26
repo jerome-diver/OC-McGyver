@@ -2,6 +2,7 @@
 The Person object has a game life...
 '''
 
+
 class Person:
 
     _name = ""

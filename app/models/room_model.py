@@ -10,19 +10,20 @@ from random import randint
 from copy import copy
 
 from models import Model
-from components import Room
 
 
-class RoomModel(components.Room,Model):
+class RoomModel(Room,Model):
 
-    def __init__(self, map_, coordonates):		# room is a tuple(line,row)
-        checkCoordonates(coordonates)
-        super().__init__(map_,coordonates)
-        self.setColor(genereateUniqColor(map_))
+    def __init__(self, map_, coordonates, room, pyGameEngine):
+        self.checkCoordonates(coordonates)
+        super(Room, self).__init__(map_,coordonates)		# room is a tuple(line,row)
+        super(Model, self).__init__(pyGameEngine)
+        self._room = room
+        self.setColor(generateUniqColor())
 	
 
     def existRoom(self, coordonates):
-        checkCoordonates(coordonates)
+        self.checkCoordonates(coordonates)
         return coordonates in self._mapLinked.getRoomsDictionary().keys()
 
     def possibleRoomNear(self, edge_side):
@@ -47,10 +48,11 @@ class RoomModel(components.Room,Model):
                 return (self._coordonates[0], self._coordonates[1] - 1)
 
     def getWallFor(self, edge_side):
-        checkSide(edge_side)
-        if searched_room = roomCoordonateNear(edge_side) \
+        self.checkSide(edge_side)
+        if searched_coordonates = roomCoordonateNear(edge_side) \
                 and existRoom(searched_room):
-            return self._rooms[searched_room[oppositSide(edge_side)]]
+            searched_room = self._map_linked.getRoomAt(searhed_coordonates)
+            return searched_room.getWallPositionFor(oppositSide(edge_side))
         else:
             return generateWall()
 
@@ -62,9 +64,19 @@ class RoomModel(components.Room,Model):
         return tuple(list_wall)
 
     def generateUniqColor(self):
-        while True:
+        channel = 0
+        color = [ ]
+        while channel != 3:
             color_chanel = randinit(0,255)
-            if not any(int(room.getColor().split('#')[1], 16) \
-                       - color_chanel <= 4 \
+            if not any(abs(room.getColor()[channel] - color_chanel) <= 4 \
                        for room in self._mapLinked.getRooms()):
-                return str("#" + hex(color_chanel).split('0x')[1].zfill(3))
+                color.append(color_channel)
+            channel += 1
+        return tuple(color)
+
+    def getRoom(self):
+        return self._room
+
+    def getWallPositionFor(self, edge_side):
+        self.checkSide(edge_side)
+        return self._walls[edge_side]

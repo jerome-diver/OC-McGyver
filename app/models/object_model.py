@@ -11,15 +11,16 @@ class ObjectModel(components.Object, Model):
     _roomCoordonates = ()      # tuple of integers as line and row
 
 
-    def __init__(self):
-        super.__init__()
+    def __init__(self,pyGameEngine):
+        super(Object,self).__init__()
+        super(Model,self).__init__(pyGameEngine)
 
     def setCoordonates(self, coordonates, what):
         checkCoordonates(coordonates)
         if what == "map":
             self._mapCoordonates = coordonates
         elif what == "room":
-        self._roomCoordonates = coordonates
+            self._roomCoordonates = coordonates
 
     def getCoordonates(self, what):
         if what == "map":

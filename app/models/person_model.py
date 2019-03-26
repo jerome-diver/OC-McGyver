@@ -5,16 +5,19 @@ The superclass is a Model class
 '''
 from time import time
 
+
 from models import Model
 from components import Person
 
-class PersonModel(components.Person,Model):
+
+class PersonModel(Person,Model):
 
     _mapCoordonates = { }   # (line:integer, row:integer)
     _roomCoordonates = { } 
 
-    def __init__(self):
-        super().__init__(self._direction[0])
+    def __init__(self, pyGameEngine):
+        super(Person,self).__init__(self._direction[0])
+        super(Model,self).__init__(pyGameEngine)
 
     def getCoordonates(self, what):      # current Person coordonates (room)
         checkCoordonates(coordonates)

@@ -7,6 +7,7 @@ class Object:
 
     _logoFile = ""
     _name = ""
+    
     def __init__(self):
         pass
 
