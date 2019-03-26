@@ -16,14 +16,15 @@ import binascii
 """
 define global variables catch from command line and test them
 """
-
+thisFilePath = os.path.dirname(os.path.abspath(__file__))
 img = os.path.join("img",sys.argv[3])
 width = 0
 height = 0
 
 if len(sys.argv) != 4:
-    print("you should call it like this:")
-    print("pygame_demo 600 400 my_file_absolute_name.png")
+    print("you should call it like this example:")
+    print("./pygame_demo 600 400 image_name.png")
+    print("and the png/jpeg/bmp image has to be inside ./img/ directory")
     raise Exception("You have to use correct syntax call for this command")
 if not os.path.isfile(img):
     raise Exception("last argument has to be an existing file, ",img," doesn't exist.")
@@ -58,6 +59,7 @@ class Labyrinth(pygame.sprite.Sprite):
   this room/cell. The byte code is simple and can be decrypted as a bin value.
   first unit bin is for "top" side cell/room wall, second for the left side
   wall of this cell, etc... clock-wise turn around the cell.
+  (use of static attribute reduce memory usage)
   '''
   _walls_bytes = {} # { (row, col): byte }
   _walls = {}       # { (row, col, side): Labyrinth.Wall }
@@ -66,7 +68,7 @@ class Labyrinth(pygame.sprite.Sprite):
   rows = 0
   columns = 0
 
-  def __init__(self, group):
+  def __init__(self, group):  # will use own group sprite for collisions check
     super().__init__()
     self.group = group
     self.image = pygame.Surface((600,600))
@@ -87,7 +89,7 @@ class Labyrinth(pygame.sprite.Sprite):
       Labyrinth.columns = int(Labyrinth.columns / Labyrinth.rows)
 
   @staticmethod
-  def wallExist(wall):
+  def wallExist(wall):    # check for existing same wall in the labyrinth
     if Labyrinth._walls:
       for oldWall in Labyrinth._walls.values():
         if (wall.rect.topleft == oldWall.rect.topleft) and \
@@ -96,7 +98,7 @@ class Labyrinth(pygame.sprite.Sprite):
     return False
 
   @staticmethod
-  def getbestHeroPosition():
+  def getbestHeroPosition():  # return initial best HHero position
     return (Labyrinth.rows * 40 + Labyrinth.adjX - 35, \
             Labyrinth.columns * 40 + Labyrinth.adjY  - 35)
 
@@ -108,29 +110,33 @@ class Labyrinth(pygame.sprite.Sprite):
         if int(power) == 1:
           idd = (key[0], key[1], sides[index])
           newWall = self.Wall(idd)
-          if not self.wallExist(newWall):
+          if not self.wallExist(newWall):  # do not accept doubles
             Labyrinth._walls[idd] = newWall
             self.group.add(Labyrinth._walls[idd])
     print("there is",len(Labyrinth._walls),"walls in the labyrinth")
 
   class Wall(pygame.sprite.Sprite):
-
+    '''
+    Create Wall(Sprite) object from cell's position and his own byte data
+    '''
     def __init__(self, idd):
       super().__init__()
       row, col, side = idd
-      position = (col * 40 + Labyrinth.adjX, row * 40 + Labyrinth.adjY)
+      # adapt the surface to the wall orientation
       self.image = pygame.Surface((45,5)) if side in ["top","bottom"] \
               else pygame.Surface((5,40))
-      if side in ["top","bottom"]:
-        pygame.draw.rect(self.image,red, [0,0,45,5])
-      elif side in ["left","right"]:
+      if side in ["top","bottom"]:    # horizontal walls
+        pygame.draw.rect(self.image,red,[0,0,45,5])
+      elif side in ["left","right"]:  # vertical walls
         pygame.draw.rect(self.image,red,[0,0,5,40])
-      self.rect = self.image.get_rect()
+      self.rect = self.image.get_rect()  # a sprite must have one
+      # now a wall should be positionned inside his labyrinth
+      position = (col * 40 + Labyrinth.adjX, row * 40 + Labyrinth.adjY)
       if side in ["top", "left"]:
-       self.rect.topleft = (position[0], position[1])
-      if side == "bottom":
+       self.rect.topleft = position
+      elif side == "bottom":
         self.rect.topleft = (position[0], position[1]+40)
-      if side == "right":
+      elif side == "right":
         self.rect.topleft = (position[0]+40, position[1])
 
       def update(self):
@@ -142,14 +148,15 @@ class Hero(pygame.sprite.Sprite):
     super().__init__()
     self.posX, self.posY = posit
     self.image = pygame.image.load(img)
+    # should be able to run inside the labyrinth
     self.image = pygame.transform.scale(self.image, (30,30))
-    self.rect = self.image.get_rect()
+    self.rect = self.image.get_rect() # a sprite must have one
     window.blit(self.image, (self.posX, self.posY))
 
   def move(self, dx=0, dy=0):
     self.rect.topleft = (self.posX + dx, self.posY + dy)
     willCollid = pygame.sprite.spritecollide(self, self.collideGroup, False)
-    if not willCollid:
+    if not willCollid:  # can not overlap a wall
       self.posX += dx
       self.posY += dy
 
@@ -172,7 +179,7 @@ def setupPygame(width, height, image):
   except pygame.error:
     print("can not load image",mcGyverIMG)
     raise SystemExit
-
+  # the groups of sprites for ability of collisions and more...
   rootGroup = pygame.sprite.Group()
   labyrinthGroup = pygame.sprite.Group()
   labyrinth = Labyrinth(labyrinthGroup)
@@ -181,7 +188,7 @@ def setupPygame(width, height, image):
   hero.canCollideWith(labyrinthGroup)
   rootGroup.add(hero)
 
-  def message(text):
+  def message(text):  # can create a message text to read
     font = pygame.font.Font("Ubuntu-M.ttf",12)
     surf = font.render(text, True, white)
     container = surf.get_rect()
@@ -189,7 +196,8 @@ def setupPygame(width, height, image):
     window.blit(surf, container)
     pygame.display.update()
 
-  while not crashed:
+  while not crashed:  # the game loop actions
+    # define events key bindings (no repeat bounds)
     for ev in pygame.event.get():
       if ev.type == pygame.KEYDOWN:
         print("you pressed keyboard key", pygame.key.name(ev.key))
@@ -206,6 +214,7 @@ def setupPygame(width, height, image):
           crashed = True
       elif ev.type == pygame.QUIT:
         crashed = True
+    # define key bondings holded (move actions of hero)
     key = pygame.key.get_pressed()
     if key[pygame.K_LEFT]:
       hero.move(dx = -1)
