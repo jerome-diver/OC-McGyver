@@ -147,14 +147,13 @@ class Labyrinth(pygame.sprite.Sprite):
 
 class Hero(pygame.sprite.Sprite):
 
-  def __init__(self, window, img, posit):
+  def __init__(self, img, posit):
     super().__init__()
     self.posX, self.posY = posit
     self.image = pygame.image.load(img)
     # should be able to run inside the labyrinth
     self.image = pygame.transform.scale(self.image, (30, 30))
     self.rect = self.image.get_rect()  # a sprite must have one
-    window.blit(self.image, (self.posX, self.posY))
 
   def move(self, dx=0, dy=0):
     self.rect.topleft = (self.posX + dx, self.posY + dy)
@@ -188,7 +187,7 @@ def setupPygame(width, height, image):
   labyrinthGroup = pygame.sprite.Group()
   labyrinth = Labyrinth(labyrinthGroup)
   rootGroup.add(labyrinthGroup)
-  hero = Hero(window, img, labyrinth.getbestHeroPosition())
+  hero = Hero(img, labyrinth.getbestHeroPosition())
   hero.canCollideWith(labyrinthGroup)
   rootGroup.add(hero)
 
