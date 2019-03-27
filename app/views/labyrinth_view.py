@@ -25,7 +25,6 @@ class LabyrinthView(View):
   def __init__(self, labyrinthModel, group):
     super().__init__(labyrinthModel)
     self.group = group
-    self._model = labyrinthModel
     self.image = pg.Surface((LabyrinthView._width, LabyrinthView._height))
     if not LabyrinthView._walls:    # only at first class creation time
       self.showWalls()
