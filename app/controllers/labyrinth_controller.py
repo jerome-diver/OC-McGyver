@@ -16,8 +16,8 @@ class LabyrinthController(Controller):
 
   def __init__(self, pyGameEngine):
     super().__init__(pyGameEngine)
-    self._model = LabyrinthModel(pyGameEngine)
-    self._view = LabyrinthView(self._model.getLabyrinth())
+    self._model = LabyrinthModel()
+    self._view = LabyrinthView(self._model)
 
   def hotKeys(self):
     pass

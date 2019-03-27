@@ -21,4 +21,3 @@ class View(Sprite):
   def __init__(self, model):
     super().__init__()
     self._model = model
-    self._gameEngine = model.gameEngine()

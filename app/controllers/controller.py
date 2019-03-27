@@ -8,5 +8,5 @@ import pygame
 
 class Controller:
 
-  def __init__(self):
+  def __init__(self, pyGameEngine):
     self._gameEngine = pyGameEngine

@@ -16,9 +16,8 @@ from models.model import *
 
 class LabyrinthModel(Labyrinth, Model):
 
-  def __init__(self, pyGameEngine):
-    super(Labyrinth, self).__init__()
-    super(Model, self).__init__(pyGameEngine)
+  def __init__(self):
+    super().__init__()
     if not Labyrinth._walls_bytes:  # only at first class creation time
       self.loadMap()
 
