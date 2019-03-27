@@ -18,6 +18,7 @@ class View(Sprite):
   _width = 600
   _height = 600
 
-  def __init__(self, model):
+  def __init__(self, model, gameEngine):
     super().__init__()
     self._model = model
+    self.gameEngine = gameEngine

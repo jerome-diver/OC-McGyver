@@ -33,5 +33,16 @@ class Labyrinth:
   def wallPositions():
     return Labyrinth._walls_bytes
 
+  @staticmethod
+  def wallPosition(room_coordonates):
+    return Labyrinth._walls_bytes[room_coordonates]
+
+  @staticmethod
+  def wallClockWisePosition(room_coordonates):
+    return (Labyrinth._walls_bytes[room_coordonates] in Labyrinth._wallsN,
+            Labyrinth._walls_bytes[room_coordonates] in Labyrinth._wallsE,
+            Labyrinth._walls_bytes[room_coordonates] in Labyrinth._wallsS,
+            Labyrinth._walls_bytes[room_coordonates] in Labyrinth._wallsW)
+
   def get(self):
     return self

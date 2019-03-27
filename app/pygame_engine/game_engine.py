@@ -5,20 +5,22 @@ pg engine shoudl run the game when all objects/models/view and controllers are l
 import pygame as pg
 
 
-class pgEngine():
+class PyGameEngine():
 
   _width = 800
   _height = 800
+  _black = (0, 0, 0)
 
   def __init__(self):
     pg.init()
     self._display = pg.display
-    self._window = self._display.set_mode((_width, _height))
+    self._window = self._display.set_mode((self._width, self._height))
     self._display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
     self._clk = pg.time.Clock()
     self._crashed = False
     self._posX, self.posY = 0, 0
     self._rootSpritesGroup = pg.sprite.Group()
+    self._spritesGroups = {}
 
   def start(self):
     while not self._crashed:
@@ -26,9 +28,9 @@ class pgEngine():
         if ev.type == pg.KEYDOWN:
           self.keysDownEvents(ev)
           self.keyPressed()
-          self._rootSpritesGroup.update()
           self._clk.tick(60)
-          self._window.fill(self._black)
+          self._rootSpritesGroup.update()
+          self._window.fill(PyGameEngine._black)
           self._rootSpritesGroup.draw(self._window)
           self._display.flip()
 
@@ -46,7 +48,7 @@ class pgEngine():
       self._crashed = True
     if event.key == pg.K_m:
       pass
-            # show the map
+      # show the map
 
   def keyPressed(self):
     key = pg.key.get_pressed()
@@ -60,26 +62,25 @@ class pgEngine():
       self.posY += 1
     if key[pg.K_LEFT] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
       self.posX -= 2
-    if key[pg.K_RIGHT]] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
+    if key[pg.K_RIGHT] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
       self.posX += 2
-    if key[pg.K_UP]] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
+    if key[pg.K_UP] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
       self.posY -= 2
-    if key[pg.K_DOWN]] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
+    if key[pg.K_DOWN] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
       self.posY += 2
 
   def addGroupsSprites(self, name, parent=None):
-    self._sprites[name] = pg.sprite.Group()
+    self._spritesGroups[name] = pg.sprite.Group()
     if parent == None:
-      self._rootSpritesGroup.addGroup(self._sprites[name])
+      self._rootSpritesGroup.add(self._spritesGroups[name])
     else:
-      self._sprites[parent].addGRoup(self._sprites[name])
+      self._spritesGroups[parent].add(self._spritesGroups[name])
 
   def addSpriteToGroup(self, sprite, groupName=None):
     if groupName == None:
       self._rootSpritesGroup.add(sprite)
     else:
-      self._sprites[groupName].add(sprite)
-
+      self._spritesGroups[groupName].add(sprite)
 
   def __del__(self):
     pg.quit()

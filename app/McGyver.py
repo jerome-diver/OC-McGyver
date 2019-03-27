@@ -7,8 +7,8 @@ from pygame_engine.game_engine import *
 def Main():
   gameEngine = PyGameEngine()
   mapCtrl = LabyrinthController(gameEngine)
-  personCtrl = PersonController(gameEngine)
-  objectCtrl = ObjectController(gameEngine)
+#  personCtrl = PersonController(gameEngine)
+#  objectCtrl = ObjectController(gameEngine)
   gameEngine.start()
 
 

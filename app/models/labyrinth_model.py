@@ -1,16 +1,18 @@
 '''
-MapModel is uniq and hold map datas get from ./app/map/map.txt file
-The map has walls stored by coordonates keys for binary values
-each binary value (half octet) represent a scheme of
-wall position around a room (who is a square in this map with 15x15 rooms,
-so there is 224 rooms).
-_wallsN is a tuple contain possible binary code for an existing
-north wall and so on for each direction of each room of the map.
+LabyrinthModel is embed labyrinth map datas get from
+./app/map/map.txt file and provide some Model typed methods
+to access Labyrinth object.
+The map has walls stored by coordonates keys binary values.
+Each binary value (a half octet) represent a scheme of
+wall position for one cell of the labyrinth
+(a cell is a square in this map, and there is 15x15 cells or 225 total cells).
+Each wall is constructed from these binary data stored in map.txt file.
 '''
 
 import binascii
 import os.path
 
+from components.labyrinth import *
 from models.model import *
 
 
@@ -33,7 +35,7 @@ class LabyrinthModel(Labyrinth, Model):
     elif edge_position == "west":
       return Labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsW
 
-  @statismethod
+  @staticmethod
   def wallPosition(room_coordonates):
     checkCoordonates(room_coordonates)
     return Labyrinth._walls_bytes[room_coordonates]
@@ -55,5 +57,6 @@ class LabyrinthModel(Labyrinth, Model):
         Labyrinth._rows += 1
         for column, char in enumerate(line.strip()):
           Labyrinth._columns += 1
-          self._walls_bytes[(row, column)] = binascii.unhexlify("0" + char)
-      Labyrinth._columns = int(Labyrinth.columns / Labyrinth.rows)
+          Labyrinth._walls_bytes[(row, column)
+                                 ] = binascii.unhexlify("0" + char)
+      Labyrinth._columns = int(Labyrinth._columns / Labyrinth._rows)

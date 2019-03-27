@@ -11,7 +11,6 @@ from components.labyrinth import *
 from controllers.controller import *
 from models.labyrinth_model import *
 from views.labyrinth_view import *
-from views.sprites import *
 
 
 class LabyrinthController(Controller):
@@ -19,8 +18,8 @@ class LabyrinthController(Controller):
   def __init__(self, pyGameEngine):
     super().__init__(pyGameEngine)
     self._model = LabyrinthModel()
-    labyrinthGroup = pg.sprite.Group()
-    self._view = LabyrinthView(self._model, labyrinthGroup)
+    pyGameEngine.addGroupsSprites("labyrinth")
+    self._view = LabyrinthView(self._model, pyGameEngine, "labyrinth")
 
   def hotKeys(self):
     pass

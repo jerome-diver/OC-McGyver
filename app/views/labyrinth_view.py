@@ -9,7 +9,6 @@ import pygame as pg
 from pygame.sprite import *
 
 from models.labyrinth_model import LabyrinthModel
-from views.sprites import LabyrinthSprite
 from views.view import View
 
 
@@ -19,12 +18,12 @@ class LabyrinthView(View):
   _width = 600
   _height = 600
   _labyrinth_bg = (0, 240, 50)
-  adjX = (width - 600) / 2
-  adjY = (height - 600) / 2
+  adjX = (View._width - 600) / 2
+  adjY = (View._height - 600) / 2
 
-  def __init__(self, labyrinthModel, group):
-    super().__init__(labyrinthModel)
-    self.group = group
+  def __init__(self, labyrinthModel, gameEngine, groupName):
+    super().__init__(labyrinthModel, gameEngine)
+    self.groupName = groupName
     self.image = pg.Surface((LabyrinthView._width, LabyrinthView._height))
     if not LabyrinthView._walls:    # only at first class creation time
       self.showWalls()
@@ -43,9 +42,8 @@ class LabyrinthView(View):
           return True
     return False
 
-  @staticmethod
-  def showWalls(wall):
-    for key, value in self._model.wallPositions():
+  def showWalls(self):
+    for key, value in self._model.wallPositions().items():
       sides = ("top", "right", "bottom", "left")
       bin_code = "{0:b}".format(ord(value)).zfill(4)[::-1]
       for index, power in enumerate(bin_code):
@@ -54,31 +52,31 @@ class LabyrinthView(View):
           newWall = self.Wall(idd)
           if not self.wallExist(newWall):
             LabyrinthView._walls[idd] = newWall
-            self.group.add(LabyrinthView._walls[idd])
+            self.gameEngine.addSpriteToGroup(LabyrinthView._walls[idd],
+                                             self.groupName)
     print("there is", len(LabyrinthView._walls), "walls in the labyrinth")
 
-    class Wall(Sprite):
+  class Wall(Sprite):
 
-      def __init__(self, idd):
-        super().__init__()
-        row, col, side = idd
-        self.image = pygame.Surface((45, 5))
-        if side in ["top", "bottom"] \
-            else pygame.Surface((5, 40))
-        if side in ["top", "bottom"]:    # horizontal walls
-          pygame.draw.rect(self.image, View._red, [0, 0, 45, 5])
-        elif side in ["left", "right"]:  # vertical walls
-          pygame.draw.rect(self.image, View._red, [0, 0, 5, 40])
-        self.rect = self.image.get_rect()  # a sprite must have one
-        # now a wall should be positionned inside his labyrinth
-        position = (col * 40 + LabyrinthView.adjX,
-                    row * 40 + LabyrinthView.adjY)
-        if side in ["top", "left"]:
-          self.rect.topleft = position
-        elif side == "bottom":
-          self.rect.topleft = (position[0], position[1] + 40)
-        elif side == "right":
-          self.rect.topleft = (position[0] + 40, position[1])
+    def __init__(self, idd):
+      super().__init__()
+      row, col, side = idd
+      self.image = pg.Surface((45, 5)) if side in ["top", "bottom"] \
+          else pg.Surface((5, 40))
+      if side in ["top", "bottom"]:    # horizontal walls
+        pg.draw.rect(self.image, View._red, [0, 0, 45, 5])
+      elif side in ["left", "right"]:  # vertical walls
+        pg.draw.rect(self.image, View._red, [0, 0, 5, 40])
+      self.rect = self.image.get_rect()  # a sprite must have one
+      # now a wall should be positionned inside his labyrinth
+      position = (col * 40 + LabyrinthView.adjX,
+                  row * 40 + LabyrinthView.adjY)
+      if side in ["top", "left"]:
+        self.rect.topleft = position
+      elif side == "bottom":
+        self.rect.topleft = (position[0], position[1] + 40)
+      elif side == "right":
+        self.rect.topleft = (position[0] + 40, position[1])
 
-      def update(self):
-        pass
+    def update(self):
+      pass
