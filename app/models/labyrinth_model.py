@@ -8,7 +8,8 @@ _wallsN is a tuple contain possible binary code for an existing
 north wall and so on for each direction of each room of the map.
 '''
 
-import os
+import binascii
+import os.path
 
 from models.model import *
 
@@ -18,20 +19,20 @@ class LabyrinthModel(Labyrinth, Model):
   def __init__(self, pyGameEngine):
     super(Labyrinth, self).__init__()
     super(Model, self).__init__(pyGameEngine)
-    self.loadMap()
+    if not Labyrinth._walls_bytes:  # only at first class creation time
+      self.loadMap()
 
   def hasWallAt(self, room_coordonates, edge_position):
     checkDirection(edge_position)
     checkCoordonates(room_coordonates)
-    labyrinth = self.get()
     if edge_position == "north":
-      return labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsN
+      return Labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsN
     elif edge_position == "south":
-      return labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsS
-      elif edge_position == "east":
-        return labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsE
-      elif edge_position == "west":
-        return labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsW
+      return Labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsS
+    elif edge_position == "east":
+      return Labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsE
+    elif edge_position == "west":
+      return Labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsW
 
   @statismethod
   def wallPosition(room_coordonates):
