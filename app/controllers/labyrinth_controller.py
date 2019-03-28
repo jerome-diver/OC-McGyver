@@ -16,10 +16,7 @@ class LabyrinthController(Controller):
   def __init__(self, pyGameEngine):
     super().__init__(pyGameEngine)
     self._model = LabyrinthModel()
-    pyGameEngine.addGroupsSprites("labyrinth")
-    self._view = LabyrinthView(self._model,
-                               pyGameEngine,
-                               "labyrinth")
+    self._view = LabyrinthView(self._model, pyGameEngine)
 
   def hotKeys(self):
     pass

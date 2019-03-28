@@ -12,11 +12,16 @@ Each wall is constructed from these binary data stored in map.txt file.
 import binascii
 import os.path
 
+import pygame as pg
+from pygame.sprite import *
+
 from components.labyrinth import *
 from models.model import *
 
 
 class LabyrinthModel(Labyrinth, Model):
+
+  _walls = {}       # { (row, col, side): Wall }
 
   def __init__(self):
     super().__init__()

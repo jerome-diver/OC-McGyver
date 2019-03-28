@@ -20,14 +20,15 @@ class LabyrinthView(View):
   _height = 600
   _labyrinth_bg = (0, 240, 50)
 
-  def __init__(self, labyrinthModel, gameEngine, groupName):
+  def __init__(self, labyrinthModel, gameEngine):
     super().__init__(labyrinthModel, gameEngine)
-    self.groupName = groupName
+    self.gameEngine.createGroup("labyrinth")
     self.adjX = (width - LabyrinthView._width) / 2
     self.adjY = (height - LabyrinthView._height) / 2
-    self.image = pg.Surface((LabyrinthView._width, LabyrinthView._height))
     if not LabyrinthView._walls:    # only at first class creation time
-      self.showWalls()
+      self.createWalls()
+      self.gameEngine.addSpritesToGroup(LabyrinthView._walls.values(),
+                                        "labyrinth")
 
   @staticmethod
   def getbestHeroPosition():  # return initial best HHero position
@@ -43,7 +44,7 @@ class LabyrinthView(View):
           return True
     return False
 
-  def showWalls(self):
+  def createWalls(self):
     for key, value in self._model.wallPositions().items():
       sides = ("top", "right", "bottom", "left")
       bin_code = "{0:b}".format(ord(value)).zfill(4)[::-1]
@@ -53,28 +54,25 @@ class LabyrinthView(View):
           newWall = Wall(idd, (self.adjX, self.adjY))
           if not self.wallExist(newWall):
             LabyrinthView._walls[idd] = newWall
-            self.gameEngine.addSpriteToGroup(newWall, self.groupName)
           else:
             del newWall
-    print("there is", Wall._numbers, "walls in the labyrinth")
+    print("There is", Wall._numbers, "walls in the labyrinth\n",
+          Wall._removed, "has been remouved (doubles found).")
 
 
 class Wall(Sprite):
 
   _numbers = 0
+  _removed = 0
 
   def __init__(self, idd, adj):
     super().__init__()
     Wall._numbers += 1
-    self.number = Wall._numbers
     row, col, side = idd
     self.adjX, self.adjY = adj
     self.image = pg.Surface((45, 5)) if side in ["top", "bottom"] \
         else pg.Surface((5, 40))
-    if side in ["top", "bottom"]:    # horizontal walls
-      pg.draw.rect(self.image, red, [0, 0, 45, 5])
-    elif side in ["left", "right"]:  # vertical walls
-      pg.draw.rect(self.image, red, [0, 0, 5, 40])
+    self.image.fill(red)
     self.rect = self.image.get_rect()  # a sprite must have one
     # now a wall should be positionned inside his labyrinth
     position = (col * 40 + self.adjX,
@@ -88,6 +86,7 @@ class Wall(Sprite):
 
   def __del__(self):
     Wall._numbers -= 1
+    Wall._removed += 1
 
   def update(self):
     pass
