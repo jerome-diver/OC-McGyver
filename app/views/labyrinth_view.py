@@ -54,13 +54,19 @@ class LabyrinthView(View):
           if not self.wallExist(newWall):
             LabyrinthView._walls[idd] = newWall
             self.gameEngine.addSpriteToGroup(newWall, self.groupName)
-    print("there is", len(LabyrinthView._walls), "walls in the labyrinth")
+          else:
+            del newWall
+    print("there is", Wall._numbers, "walls in the labyrinth")
 
 
 class Wall(Sprite):
 
+  _numbers = 0
+
   def __init__(self, idd, adj):
     super().__init__()
+    Wall._numbers += 1
+    self.number = Wall._numbers
     row, col, side = idd
     self.adjX, self.adjY = adj
     self.image = pg.Surface((45, 5)) if side in ["top", "bottom"] \
@@ -79,6 +85,9 @@ class Wall(Sprite):
       self.rect.topleft = (position[0], position[1] + 40)
     elif side == "right":
       self.rect.topleft = (position[0] + 40, position[1])
+
+  def __del__(self):
+    Wall._numbers -= 1
 
   def update(self):
     pass
