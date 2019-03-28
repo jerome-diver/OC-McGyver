@@ -5,8 +5,6 @@ Controller for Map who load map and his rooms.
 import os
 import sys
 
-import pygame as pg
-
 from components.labyrinth import *
 from controllers.controller import *
 from models.labyrinth_model import *
@@ -19,7 +17,9 @@ class LabyrinthController(Controller):
     super().__init__(pyGameEngine)
     self._model = LabyrinthModel()
     pyGameEngine.addGroupsSprites("labyrinth")
-    self._view = LabyrinthView(self._model, pyGameEngine, "labyrinth")
+    self._view = LabyrinthView(self._model,
+                               pyGameEngine,
+                               "labyrinth")
 
   def hotKeys(self):
     pass

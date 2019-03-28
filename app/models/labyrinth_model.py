@@ -52,6 +52,7 @@ class LabyrinthModel(Labyrinth, Model):
   def loadMap():
     cwd = os.path.dirname(os.path.abspath(__file__))
     file = os.path.join(cwd, "../map/map.txt")
+    print(file)
     with open(file, "r") as mapFile:
       for row, line in enumerate(mapFile):
         Labyrinth._rows += 1

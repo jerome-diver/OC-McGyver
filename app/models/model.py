@@ -9,13 +9,13 @@ import os
 from pygame.sprite import *
 
 
-class Model(Sprite):
+class Model():
 
   _directions = ("north", "east", "south", "west")
   _sides = ("top", "right", "bottom", "left")
 
   def __init__(self):
-    super().__init__()
+    pass
 
   def checkCoordonates(self, coordonates):
     line = (coordonates[0] >= 0 and coordonates[0] <= 7)

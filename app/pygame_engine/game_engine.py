@@ -4,35 +4,36 @@ pg engine shoudl run the game when all objects/models/view and controllers are l
 
 import pygame as pg
 
+from settings import *
+
 
 class PyGameEngine():
 
-  _width = 800
-  _height = 800
-  _black = (0, 0, 0)
-
   def __init__(self):
-    pg.init()
-    self._display = pg.display
-    self._window = self._display.set_mode((self._width, self._height))
-    self._display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
-    self._clk = pg.time.Clock()
     self._crashed = False
     self._posX, self.posY = 0, 0
-    self._rootSpritesGroup = pg.sprite.Group()
     self._spritesGroups = {}
+    pg.init()
+    self._display = pg.display
+    self._window = self._display.set_mode((width, height))
+    self._display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
+    self._clk = pg.time.Clock()
+    self._rootSpritesGroup = pg.sprite.Group()
 
   def start(self):
     while not self._crashed:
       for ev in pg.event.get():
         if ev.type == pg.KEYDOWN:
           self.keysDownEvents(ev)
-          self.keyPressed()
-          self._clk.tick(60)
-          self._rootSpritesGroup.update()
-          self._window.fill(PyGameEngine._black)
-          self._rootSpritesGroup.draw(self._window)
-          self._display.flip()
+        if ev.type == pg.QUIT:
+          self._crashed = True
+      self.keyPressed()
+      self._clk.tick(50)
+      self.updateSpritesGroups()
+      self._window.fill(black)
+      self._rootSpritesGroup.draw(self._window)
+      pg.display.flip()
+    pg.quit()
 
   def keysDownEvents(self, event):
     if event.key == pg.K_LEFT:
@@ -81,6 +82,12 @@ class PyGameEngine():
       self._rootSpritesGroup.add(sprite)
     else:
       self._spritesGroups[groupName].add(sprite)
+
+  def updateSpritesGroups(self):
+    for group in self._spritesGroups.values():
+      group.update()
+      group.draw(self._window)
+    self._rootSpritesGroup.update()
 
   def __del__(self):
     pg.quit()
