@@ -26,6 +26,7 @@ class LabyrinthModel(Labyrinth, Model):
     super().__init__()
     self._walls = []       # [ Wall ]
     self._rowsColumns = ()
+    self._exitCoordonates = None
     self._name = "labyrinth"
     self.loadMap()
 
@@ -60,23 +61,29 @@ class LabyrinthModel(Labyrinth, Model):
             self._l._walls_bytes[room_coordonates] in Labyrinth._wallsW)
 
   def getbestHeroPosition(self):  # return initial best HHero position
-    return (int(self._rowsColumns[0] * 40 + adjX - 35),
-            int(self._rowsColumns[1] * 40 + adjY - 33))
+    return (int((self._rowsColumns[0] - 1) * 40 + adjX + 7),
+            int((self._rowsColumns[1] - 1) * 40 + adjY + 7))
 
   def getGuardPosition(self):
-    return (250, 150)
+    return (self._exitCoordonates[0], self._exitCoordonates[1])
 
   def loadMap(self):
-    row, col = 0, 0
+    _row, _col = 0, 0
     with open(labyrinthFile, "r") as mapFile:
       for row, line in enumerate(mapFile):
-        row += 1
-        col = 0
+        _row += 1
+        _col = 0
         for column, char in enumerate(line.strip()):
-          col += 1
+          _col += 1
           self._walls_bytes[(row, column)
                             ] = binascii.unhexlify("0" + char)
-    self._rowsColumns = (row, col)
+    self._rowsColumns = (_row, _col)
 
   def getWalls(self):
     return self._walls
+
+  def setExitCoordonates(self, row, col):
+    print("Coordonates for guard:\n\trow:", row, "\n\tcol:",
+          col, "\n\tadjX:", adjX, "\n\tadjY:", adjY)
+    self._exitCoordonates = (int(col * 40 + adjX + 8),
+                             int(row * 40 + adjY))

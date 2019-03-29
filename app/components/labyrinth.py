@@ -53,12 +53,12 @@ class Wall(Sprite):  # wall is a part view of a byte cell from Labyrinth()
     row, col, side = idd
     self.adjX, self.adjY = adj
     self.image = pg.Surface((45, 5)) if side in ["top", "bottom"] \
-        else pg.Surface((5, 40))
+        else pg.Surface((5, 45))
     self.image.fill(labyrinthWallColor)
     self.rect = self.image.get_rect()  # a sprite must have one
     # now a wall should be positionned inside his labyrinth
     position = (col * 40 + self.adjX,
-                row * 40 + self.adjY - 40)
+                row * 40 + self.adjY)
     if side in ["top", "left"]:
       self.rect.topleft = position
     elif side == "bottom":
