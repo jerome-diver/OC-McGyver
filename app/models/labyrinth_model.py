@@ -65,7 +65,7 @@ class LabyrinthModel(Labyrinth, Model):
             int((self._rowsColumns[1] - 1) * 40 + adjY + 7))
 
   def getGuardPosition(self):
-    return (self._exitCoordonates[0], self._exitCoordonates[1])
+    return self._exitCoordonates
 
   def loadMap(self):
     _row, _col = 0, 0
@@ -83,7 +83,5 @@ class LabyrinthModel(Labyrinth, Model):
     return self._walls
 
   def setExitCoordonates(self, row, col):
-    print("Coordonates for guard:\n\trow:", row, "\n\tcol:",
-          col, "\n\tadjX:", adjX, "\n\tadjY:", adjY)
     self._exitCoordonates = (int(col * 40 + adjX + 8),
                              int(row * 40 + adjY))
