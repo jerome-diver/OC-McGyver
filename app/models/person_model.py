@@ -1,75 +1,47 @@
 '''
 Model of Person and specific Person like Hero or Guard,
- who have some specific features added. 
+ who have some specific features added.
 The superclass is a Model class
 '''
 from time import time
 
-
-from models import Model
-from components import Person
-
-
-class PersonModel(Person,Model):
-
-    _mapCoordonates = { }   # (line:integer, row:integer)
-    _roomCoordonates = { } 
-
-    def __init__(self, pyGameEngine):
-        super(Person,self).__init__(self._direction[0])
-        super(Model,self).__init__(pyGameEngine)
-
-    def getCoordonates(self, what):      # current Person coordonates (room)
-        checkCoordonates(coordonates)
-        if what == "map":
-            return (self._mapCoordonates["line"], \
-                    self._mapCoordonates["row"])
-        elif what == "room":
-            return (self._roomCoordonates["line"], \
-                    self._roomCoordonates["row"])
-
-    def setCoordonates(self, coordonates, what):
-        checkCoordonates(coordonates)
-        elif what == "room":
-            self._roomCoordonates["line"] = coordonates[0]
-            self._roomCoordonates["row"] = coordonates[1]
-        if what == "map":
-        self._mapCoordonates["line"] = coordonates[0]
-        self._mapCoordonates["row"] = coordonates[1]
-
-    def isInContact(self):
-        return False
-
-class GuardModel(PersonModel):
-
-    _endSleepîngTime = time()
-
-    def __init__(self):
-        super().__init__(self)
-        self.setName("Johnny Johnny")
-
-    def injectVaccin(self):
-        self._endSleepingTime = time()
+from components.person import Guard, Hero
+from models.model import Model
 
 
-class HeroModel(PersonModel):
+class GuardModel(Guard, Model):
 
-    _objects = []        # [ ObjectModel ]
+  def __init__(self):
+    super().__init__(name="Johnny Johnny")
+    self._endSleepîngTime = 0
 
-    def __init__(self):
-        super().__init__(self)
-        self.setName(self,"Mac Gyver")
+  def vaccinInjected(self):
+    self._endSleepingTime = 0
 
-    def listObjects(self):
-        return self._objects
 
-    def findObject(self, object):
-        if obj in self._objects:
-            return obj
+class HeroModel(Hero, Model):
 
-    def trashObject(self, one_object):
-        if obj in self._objects:
-            self._objects.delete(one_object)
+  def __init__(self, controller):
+    Hero.__init__(self, controller=controller, name="MacGyver")
+    Model.__init__(self)
+    self._objects = []  # list of Object() found
 
-    def canMakeSleeping(self):
-        return len(self._objects) >= 3
+  def getObjects(self):
+    return self._objects
+
+  def getObject(self, object):
+    if obj in self._objects:
+      return obj
+
+  def addObject(self, object):
+    if len(self._objects) <= 3:
+      self._objects.append(object)
+      return True
+    return False
+
+  def trashObject(self, one_object):
+    if obj in self._objects:
+      self._objects.delete(one_object)
+
+  def canMakeSleeping(self):
+    return len(self._objects) >= 3

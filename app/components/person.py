@@ -1,15 +1,18 @@
 '''
-The Person object has a game life...
+The Person object has a boring gamer life...
+The Hero object's one has a little bit action to provide in the controller
 '''
+
+import pygame as pg
+from pygame.sprite import Sprite
+
+from settings import *
 
 
 class Person:
 
-  _name = ""
-  _sLookingAt = ""
-
-  def __init__(self, looking_where):
-    isLookingAt(looking_where)
+  def __init__(self,  name):
+    self._name = name
 
   def getName(self):
     return self._name
@@ -17,40 +20,60 @@ class Person:
   def setName(self, name):
     self._name = name
 
-  def isLookingWhere(self):
-    return self._isLookingAt
 
-  def isLookingAt(self, direction):  # is looking in front of him (set where)
-    checkDirection(direction)
-    self._isLookingAt = direction
+class Hero(Person, Sprite):
 
-
-class Hero(Sprite):
-
-  def __init_(self):
-    super().__init__()
+  def __init__(self, controller, name):
+    Person.__init__(self, name)
+    Sprite.__init__(self)
+    self._controller = controller
+    self._posX, self._posY = (0, 0)
+    self._collidGroups = {}
+    try:
+      self.image = pg.image.load(heroFile).convert()
+    except pg.error:
+      print("can not load image:", heroFile)
+      raise SystemExit
+    self.image = pg.transform.scale(self.image, (30, 30))
+    self.rect = self.image.get_rect()
 
   def update(self):
-    self.keyPressed()
+    # what's need to get control goes in the controller
+    self._controller.keyPressed(self)
 
   def move(self, dx=0, dy=0):
+    self.rect.topleft = (self._posX + dx, self._posY + dy)
+    collisions = {}
+    for name, group in self._collidGroups.items():
+      collisions[name] = pg.sprite.spritecollide(self, group, False)
+    if not "labyrinth" in collisions:
+      self._posX += dx
+      self._posY += dy
+    if "guard" in collisions:
+      pass
+
+  def canCollidWith(self, name, group):
+    self._collidGroups[name] = group
+
+  def getHero(self):
+    return self
+
+  def setPosition(self, pos):
+    self.posX, self.posY = pos
+
+
+class Guard(Person, Sprite):
+
+  def __init__(self, controller, name):
+    super().__init__(name=name)
+    self._controller = controller
+    try:
+      self.image = pg.image.load(guardFile).convert()
+    except pg.error:
+      print("can not load guard file:", guardFile)
+      raise SystemExit
+    self.image = pg.transform.scale(self.image, (30, 30))
+    self.rect = self.image.get_rect()
+
+  def update(self):
     pass
-    
-  def keyPressed(self):
-    key = pg.key.get_pressed()
-    if key[pg.K_LEFT]:
-      self.move(dx -= 1)
-    if key[pg.K_RIGHT]:
-      self.move(dx += 1)
-    if key[pg.K_UP]:
-      self.move(dy -= 1)
-    if key[pg.K_DOWN]:
-      self.move(dy += 1)
-    if key[pg.K_LEFT] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      self.move(dx -= 2)
-    if key[pg.K_RIGHT] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      self.move(dx += 2)
-    if key[pg.K_UP] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      self.move(dy -= 2)
-    if key[pg.K_DOWN] and (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      self.move(dy += 2)

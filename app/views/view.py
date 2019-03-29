@@ -6,17 +6,12 @@ who is also injherited from Sprite class
 So... this is a Sprite too
 """
 
-from pygame.sprite import *
-
 from settings import *
 
 
-class View(Sprite):
+class View():
 
-  _width = 600
-  _height = 600
-
-  def __init__(self, model, gameEngine):
-    super().__init__()
+  def __init__(self, controller,  model, gameEngine):
+    self._controller = controller
     self._model = model
-    self.gameEngine = gameEngine
+    self._gameEngine = gameEngine

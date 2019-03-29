@@ -17,52 +17,60 @@ from pygame.sprite import *
 
 from components.labyrinth import *
 from models.model import *
+from settings import *
 
 
 class LabyrinthModel(Labyrinth, Model):
 
-  _walls = {}       # { (row, col, side): Wall }
-
   def __init__(self):
     super().__init__()
-    if not Labyrinth._walls_bytes:  # only at first class creation time
-      self.loadMap()
+    self._walls = []       # [ Wall ]
+    self._rowsColumns = ()
+    self.loadMap()
 
   def hasWallAt(self, room_coordonates, edge_position):
     checkDirection(edge_position)
     checkCoordonates(room_coordonates)
     if edge_position == "north":
-      return Labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsN
+      return self._labyrinth.wallPosition(room_coordonates) \
+          in Labyrinth._wallsN
     elif edge_position == "south":
-      return Labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsS
+      return self._labyrinth.wallPosition(room_coordonates) \
+          in Labyrinth._wallsS
     elif edge_position == "east":
-      return Labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsE
+      return self._labyrinth.wallPosition(room_coordonates) \
+          in Labyrinth._wallsE
     elif edge_position == "west":
-      return Labyrinth.wallPosition(room_coordonates) in Labyrinth._wallsW
+      return self._labyrinth.wallPosition(room_coordonates) \
+          in Labyrinth._wallsW
 
-  @staticmethod
-  def wallPosition(room_coordonates):
+  def wallPosition(self, room_coordonates):
     checkCoordonates(room_coordonates)
-    return Labyrinth._walls_bytes[room_coordonates]
+    return self._labyrinth.wallsPosition(room_coordonates)
 
-  @staticmethod
-  def wallClockWisePosition(room_coordonates):
+  def wallClockWisePosition(self, room_coordonates):
     checkCoordonates(room_coordonates)
-    return (Labyrinth._walls_bytes[room_coordonates] in Labyrinth._wallsN,
-            Labyrinth._walls_bytes[room_coordonates] in Labyrinth._wallsE,
-            Labyrinth._walls_bytes[room_coordonates] in Labyrinth._wallsS,
-            Labyrinth._walls_bytes[room_coordonates] in Labyrinth._wallsW)
+    return (self._l._walls_bytes[room_coordonates] in Labyrinth._wallsN,
+            self._l._walls_bytes[room_coordonates] in Labyrinth._wallsE,
+            self._l._walls_bytes[room_coordonates] in Labyrinth._wallsS,
+            self._l._walls_bytes[room_coordonates] in Labyrinth._wallsW)
 
-  @staticmethod
-  def loadMap():
-    cwd = os.path.dirname(os.path.abspath(__file__))
-    file = os.path.join(cwd, "../map/map.txt")
-    print(file)
-    with open(file, "r") as mapFile:
+  def getbestHeroPosition(self):  # return initial best HHero position
+    return (self._rowsColumns[0] * 40 + adjX - 35,
+            self._rowsColumns[1] * 40 + adjY - 35)
+
+  def loadMap(self):
+    row, col = 0, 0
+    print(labyrinthFile)
+    with open(labyrinthFile, "r") as mapFile:
       for row, line in enumerate(mapFile):
-        Labyrinth._rows += 1
+        row += 1
+        col = 0
         for column, char in enumerate(line.strip()):
-          Labyrinth._columns += 1
-          Labyrinth._walls_bytes[(row, column)
-                                 ] = binascii.unhexlify("0" + char)
-      Labyrinth._columns = int(Labyrinth._columns / Labyrinth._rows)
+          col += 1
+          self._walls_bytes[(row, column)
+                            ] = binascii.unhexlify("0" + char)
+    self._rowsColumns = (row, col)
+
+  def getWalls(self):
+    return self._walls

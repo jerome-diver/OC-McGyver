@@ -9,7 +9,7 @@ def Main():
   gameEngine = PyGameEngine()
   # create controllers for objects to construct inside the game
   labyrinthCtrl = LabyrinthController(gameEngine)
-#  personCtrl = PersonController(gameEngine)
+  personCtrl = PersonController(labyrinthCtrl, gameEngine)
 #  objectCtrl = ObjectController(gameEngine)
   # start the game
   gameEngine.start()

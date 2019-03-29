@@ -19,7 +19,9 @@ class PyGameEngine():
     self._window = self._display.set_mode((width, height))
     self._display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
     self._clk = pg.time.Clock()
-    self._rootSpritesGroup = pg.sprite.Group()
+
+  def __del__(self):
+    pg.quit()
 
   def start(self):
     while not self._crashed:
@@ -51,5 +53,5 @@ class PyGameEngine():
       group.update()
       group.draw(self._window)
 
-  def __del__(self):
-    pg.quit()
+  def getGroup(self, name):
+    return self._spritesGroups[name]

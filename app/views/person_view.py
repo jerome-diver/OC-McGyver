@@ -1,19 +1,19 @@
-from views import View
+from views.view import View
 
 
 class GuardView(View):
 
-    def __init__(self, guardModel):
-        super().__init__(guardModel)
-
-    def setHeroOnGame(self):
-        # load image from app/img/MacGyver.png
-        cwd = os.path.dirname(__file__)
-        img = os.path.join(cwd, "img/MacGyver.png")
-        self._model.setImage(img)
+  def __init__(self, guardModel):
+    super().__init__(guardModel)
 
 
 class HeroView(View):
 
-    def __init__(self,heroModel):
-        super().__init__(heroModel)
+  def __init__(self, controller, model, gameEngine):
+    super().__init__(controller, model, gameEngine)
+    self._gameEngine.createGroup("hero")
+    hero = self._model.getHero()
+    hero.setPosition(
+        self._controller.getLabyrinthModel().getbestHeroPosition())
+    self._gameEngine.addSpritesToGroup([hero], "hero")
+    hero.canCollidWith("labyrinth", self._gameEngine.getGroup("labyrinth"))
