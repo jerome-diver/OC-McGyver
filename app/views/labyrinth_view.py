@@ -3,11 +3,6 @@ The specific view of the map.
 This load image of map inside the game view
 '''
 
-import os
-
-import pygame as pg
-from pygame.sprite import *
-
 from components.labyrinth import Wall
 from models.labyrinth_model import LabyrinthModel
 from settings import *
@@ -19,7 +14,6 @@ class LabyrinthView(View):
   def __init__(self, controller, model, gameEngine):
     super().__init__(controller, model, gameEngine)
     self.createWalls()
-    self._gameEngine.createGroup("labyrinth")
     self._gameEngine.addSpritesToGroup(self._model.getWalls(),
                                        "labyrinth")
 

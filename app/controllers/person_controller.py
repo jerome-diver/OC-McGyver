@@ -18,6 +18,8 @@ class PersonController(Controller):
     self._labyrinthModel = labyrinthModel
     self._heroModel = HeroModel(self)
     self._heroView = HeroView(self, self._heroModel, pyGameEngine)
+    self._guardModel = GuardModel(self)
+    self._guardView = GuardView(self, self._guardModel, pyGameEngine)
 
   def keyPressed(self, person):
     key = pg.key.get_pressed()

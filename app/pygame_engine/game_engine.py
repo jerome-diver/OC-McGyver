@@ -42,6 +42,7 @@ class PyGameEngine():
         self._crashed = True
 
   def createGroup(self, name):
+    print("created group:", name)
     self._spritesGroups[name] = pg.sprite.Group()
 
   def addSpritesToGroup(self, sprites, groupName):

@@ -26,7 +26,11 @@ class LabyrinthModel(Labyrinth, Model):
     super().__init__()
     self._walls = []       # [ Wall ]
     self._rowsColumns = ()
+    self._name = "labyrinth"
     self.loadMap()
+
+  def getName(self):
+    return self._name
 
   def hasWallAt(self, room_coordonates, edge_position):
     checkDirection(edge_position)
@@ -58,6 +62,9 @@ class LabyrinthModel(Labyrinth, Model):
   def getbestHeroPosition(self):  # return initial best HHero position
     return (int(self._rowsColumns[0] * 40 + adjX - 35),
             int(self._rowsColumns[1] * 40 + adjY - 35))
+
+  def getGuardPosition(self):
+    return (250, 150)
 
   def loadMap(self):
     row, col = 0, 0

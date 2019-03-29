@@ -15,3 +15,4 @@ class View():
     self._controller = controller
     self._model = model
     self._gameEngine = gameEngine
+    self._gameEngine.createGroup(self._model.getName())

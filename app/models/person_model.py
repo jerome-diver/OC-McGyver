@@ -3,7 +3,6 @@ Model of Person and specific Person like Hero or Guard,
  who have some specific features added.
 The superclass is a Model class
 '''
-from time import time
 
 from components.person import Guard, Hero
 from models.model import Model
@@ -11,18 +10,22 @@ from models.model import Model
 
 class GuardModel(Guard, Model):
 
-  def __init__(self):
-    super().__init__(name="Johnny Johnny")
-    self._endSleepîngTime = 0
+  def __init__(self, controller):
+    Guard.__init__(self, controller, "guard")
+    Model.__init__(self)
+    self._sleeping = False
 
   def vaccinInjected(self):
-    self._endSleepingTime = 0
+    self._sleeping = True
+
+  def isSleeping(self):
+    return self._sleeping
 
 
 class HeroModel(Hero, Model):
 
   def __init__(self, controller):
-    Hero.__init__(self, controller=controller, name="MacGyver")
+    Hero.__init__(self, controller, "hero")
     Model.__init__(self)
     self._objects = []  # list of Object() found
 

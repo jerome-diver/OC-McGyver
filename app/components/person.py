@@ -11,8 +11,11 @@ from settings import *
 
 class Person:
 
-  def __init__(self,  name):
+  def __init__(self, controller, name):
+    self._controller = controller
     self._name = name
+    self._posX, self._posY = (0, 0)
+    self._collidGroups = {}
 
   def getName(self):
     return self._name
@@ -20,15 +23,18 @@ class Person:
   def setName(self, name):
     self._name = name
 
+  def setPosition(self, pos):
+    self._posX, self._posY = pos
+
+  def canCollidWith(self, name, group):
+    self._collidGroups[name] = group
+
 
 class Hero(Person, Sprite):
 
   def __init__(self, controller, name):
-    Person.__init__(self, name)
+    Person.__init__(self, controller, name)
     Sprite.__init__(self)
-    self._controller = controller
-    self._posX, self._posY = (0, 0)
-    self._collidGroups = {}
     try:
       self.image = pg.image.load(heroFile).convert()
     except pg.error:
@@ -53,21 +59,15 @@ class Hero(Person, Sprite):
     if "guard" in collisions:
       pass
 
-  def canCollidWith(self, name, group):
-    self._collidGroups[name] = group
-
   def getHero(self):
     return self
-
-  def setPosition(self, pos):
-    self._posX, self._posY = pos
 
 
 class Guard(Person, Sprite):
 
   def __init__(self, controller, name):
-    super().__init__(name=name)
-    self._controller = controller
+    Person.__init__(self, controller, name)
+    Sprite.__init__(self)
     try:
       self.image = pg.image.load(guardFile).convert()
     except pg.error:
@@ -77,4 +77,7 @@ class Guard(Person, Sprite):
     self.rect = self.image.get_rect()
 
   def update(self):
-    pass
+    self.rect.topleft = (self._posX, self._posY)
+
+  def getGuard(self):
+    return self
