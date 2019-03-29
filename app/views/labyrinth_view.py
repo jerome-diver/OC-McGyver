@@ -44,15 +44,11 @@ class LabyrinthView(View):
           Wall._removed, "has been remouved (doubles found).")
 
   def findExitPosition(self, key, index):
-    # first row, top side wall
-    if key[0] == 0 and index == 0:
-      self._model.setExitCoordonates(0, key[1])
-    if key[1] == (self._model._rowsColumns[1] - 1) and index == 1:
-      self._model.setExitCoordonates(0, key[1])
-    # first column, left side wall
-    if key[1] == 0 and index == 3:
-      self._model.setExitCoordonates(key[0], 0)
-    # last row, bottom side wall
-    if key[0] == (self._model._rowsColumns[0] - 1) and index == 2:
-      self._model.setExitCoordonates(key[0], 0)
-    # last column, right side wall
+    # i test only the concerned peripheral's cells AND externals walls:
+    # first row, last column, last row and first column (clock wise from top
+    # AND for each, clk wise from top side wall index: 0 -> 3 are tested
+    if (key[0] == 0 and index == 0) or \
+       (key[1] == (self._model._rowsColumns[1] - 1) and index == 1) or \
+       (key[0] == (self._model._rowsColumns[0] - 1) and index == 2) or \
+       (key[1] == 0 and index == 3):
+      self._model.setExitCoordonates(key[0], key[1])
