@@ -39,6 +39,7 @@ class Hero(Person, Sprite):
 
   def update(self):
     # what's need to get control goes in the controller
+    self.rect.topleft = (self._posX, self._posY)
     self._controller.keyPressed(self)
 
   def move(self, dx=0, dy=0):
@@ -59,7 +60,7 @@ class Hero(Person, Sprite):
     return self
 
   def setPosition(self, pos):
-    self.posX, self.posY = pos
+    self._posX, self._posY = pos
 
 
 class Guard(Person, Sprite):

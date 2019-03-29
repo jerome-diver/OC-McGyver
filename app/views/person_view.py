@@ -13,6 +13,8 @@ class HeroView(View):
     super().__init__(controller, model, gameEngine)
     self._gameEngine.createGroup("hero")
     hero = self._model.getHero()
+    print("best position for hero is",
+          self._controller.getLabyrinthModel().getbestHeroPosition())
     hero.setPosition(
         self._controller.getLabyrinthModel().getbestHeroPosition())
     self._gameEngine.addSpritesToGroup([hero], "hero")

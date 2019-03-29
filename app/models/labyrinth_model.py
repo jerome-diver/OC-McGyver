@@ -56,8 +56,8 @@ class LabyrinthModel(Labyrinth, Model):
             self._l._walls_bytes[room_coordonates] in Labyrinth._wallsW)
 
   def getbestHeroPosition(self):  # return initial best HHero position
-    return (self._rowsColumns[0] * 40 + adjX - 35,
-            self._rowsColumns[1] * 40 + adjY - 35)
+    return (int(self._rowsColumns[0] * 40 + adjX - 35),
+            int(self._rowsColumns[1] * 40 + adjY - 35))
 
   def loadMap(self):
     row, col = 0, 0

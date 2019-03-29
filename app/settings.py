@@ -20,5 +20,5 @@ labyrinthWallColor = (70, 240, 50)
 Variables to be calculate from constante provide up there.
 Do not touch this please.
 """
-adjX = (width - labyrinthWidth) / 2
-adjY = (height - labyrinthHeight) / 2
+adjX = int(width - labyrinthWidth) / 2
+adjY = int(height - labyrinthHeight) / 2
