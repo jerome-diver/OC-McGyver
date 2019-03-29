@@ -53,9 +53,10 @@ class Hero(Person, Sprite):
     collisions = {}
     for name, group in self._collidGroups.items():
       collisions[name] = pg.sprite.spritecollide(self, group, False)
-    if not "labyrinth" in collisions:
-      self._posX += dx
-      self._posY += dy
+    if "labyrinth" in collisions.keys():
+      if not collisions["labyrinth"]:
+        self._posX += dx
+        self._posY += dy
     if "guard" in collisions:
       pass
 

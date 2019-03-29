@@ -61,14 +61,13 @@ class LabyrinthModel(Labyrinth, Model):
 
   def getbestHeroPosition(self):  # return initial best HHero position
     return (int(self._rowsColumns[0] * 40 + adjX - 35),
-            int(self._rowsColumns[1] * 40 + adjY - 35))
+            int(self._rowsColumns[1] * 40 + adjY - 33))
 
   def getGuardPosition(self):
     return (250, 150)
 
   def loadMap(self):
     row, col = 0, 0
-    print(labyrinthFile)
     with open(labyrinthFile, "r") as mapFile:
       for row, line in enumerate(mapFile):
         row += 1

@@ -33,7 +33,6 @@ class HeroView(View):
 
   def __init__(self, controller, model, gameEngine):
     super().__init__(controller, model, gameEngine)
-    self._gameEngine.createGroup("hero")
     labyrinthModel = self._controller.getLabyrinthModel()
     hero = self._model.getHero()
     print("best position for hero is",
