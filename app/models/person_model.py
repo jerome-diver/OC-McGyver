@@ -15,7 +15,7 @@ class GuardModel(Guard, Model):
     Model.__init__(self)
     self._sleeping = False
 
-  def vaccinInjected(self):
+  def injectPill(self):
     self._sleeping = True
 
   def isSleeping(self):

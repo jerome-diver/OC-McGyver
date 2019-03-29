@@ -56,3 +56,6 @@ class PyGameEngine():
 
   def getGroup(self, name):
     return self._spritesGroups[name]
+
+  def endGame(self):
+    self._crashed = False

@@ -50,15 +50,7 @@ class Hero(Person, Sprite):
 
   def move(self, dx=0, dy=0):
     self.rect.topleft = (self._posX + dx, self._posY + dy)
-    collisions = {}
-    for name, group in self._collidGroups.items():
-      collisions[name] = pg.sprite.spritecollide(self, group, False)
-    if "labyrinth" in collisions.keys():
-      if not collisions["labyrinth"]:
-        self._posX += dx
-        self._posY += dy
-    if "guard" in collisions:
-      pass
+    self._controller.manageCollisions(self, self._collidGroups, (dx, dy))
 
   def getHero(self):
     return self
