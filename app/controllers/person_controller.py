@@ -20,53 +20,29 @@ class PersonController(Controller):
     self._heroView = HeroView(self, self._heroModel, pyGameEngine)
     self._guardModel = GuardModel(self)
     self._guardView = GuardView(self, self._guardModel, pyGameEngine)
-
     self.settingCollisions()
 
   def settingCollisions(self):
     hero = self._heroModel.getHero()
-    guard = self._guardModel.getGuard()
     hero.canCollidWith("labyrinth", self._gameEngine.getGroup("labyrinth"))
     hero.canCollidWith("guard", self._gameEngine.getGroup("guard"))
-    guard.canCollidWith("hero", self._gameEngine.getGroup("hero"))
 
-  def keyPressed(self, person):
-    key = pg.key.get_pressed()
-    if key[pg.K_LEFT]:
-      person.move(dx=-1)
-    if key[pg.K_RIGHT]:
-      person.move(dx=1)
-    if key[pg.K_UP]:
-      person.move(dy=-1)
-    if key[pg.K_DOWN]:
-      person.move(dy=1)
-    if key[pg.K_LEFT] and \
-       (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      person.move(dx=-2)
-    if key[pg.K_RIGHT] and \
-       (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      person.move(dx=2)
-    if key[pg.K_UP] and \
-       (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      person.move(dy=-2)
-    if key[pg.K_DOWN] and \
-       (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      person.move(dy=2)
-
-  def manageCollisions(self, caller, collidGroups, askMove):
+  def manageCollisions(self, caller, collidGroups, posit):
     collisions = {}
     issue = False
     for name, group in collidGroups.items():
       collisions[name] = pg.sprite.spritecollide(caller, group, False)
     if "labyrinth" in collisions.keys():
       if not collisions["labyrinth"]:
-        caller._posX += askMove[0]
-        caller._posY += askMove[1]
+        caller._posX += posit[0]
+        caller._posY += posit[1]
     if "guard" in collisions.keys():
+      print("have guard group exist")
       if collisions["guard"]:
+        print("have a real collision with the guard")
         issue = self.conflictualContact()
-      if issue == False:
-        self._gameEngine.endGame()
+        if issue == False:
+          self._gameEngine.endGame()
 
   def getLabyrinthModel(self):
     return self._labyrinthModel

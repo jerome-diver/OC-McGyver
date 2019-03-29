@@ -22,11 +22,10 @@ class GuardView(View):
     super().__init__(controller, model, gameEngine)
     guard = self._model.getGuard()
     labyrinthModel = self._controller.getLabyrinthModel()
-    print("The guard has to hold position in front of the exit, this position is",
+    print("The guard stay in front of the exit at position",
           labyrinthModel.getGuardPosition())
     guard.setPosition(labyrinthModel.getGuardPosition())
     self._gameEngine.addSpritesToGroup([guard], "guard")
-    guard.canCollidWith("hero", self._gameEngine.getGroup("hero"))
 
 
 class HeroView(View):
@@ -39,4 +38,3 @@ class HeroView(View):
           labyrinthModel.getbestHeroPosition())
     hero.setPosition(labyrinthModel.getbestHeroPosition())
     self._gameEngine.addSpritesToGroup([hero], "hero")
-    hero.canCollidWith("labyrinth", self._gameEngine.getGroup("labyrinth"))
