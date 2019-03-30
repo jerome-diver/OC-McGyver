@@ -8,10 +8,10 @@ import pygame as pg
 
 class Controller:
 
-  def __init__(self, pyGameEngine):
-    self._gameEngine = pyGameEngine
+  def __init__(self, game_engine):
+    self._game_engine = game_engine
 
-  def keyPressed(self, person):
+  def key_pressed(self, person):
     key = pg.key.get_pressed()
     if key[pg.K_LEFT]:
       person.move(dx=-1)

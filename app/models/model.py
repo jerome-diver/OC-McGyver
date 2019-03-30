@@ -17,21 +17,21 @@ class Model():
   def __init__(self):
     pass
 
-  def checkCoordonates(self, coordonates):
+  def check_coordonates(self, coordonates):
     line = (coordonates[0] >= 0 and coordonates[0] <= 7)
     row = (coordonates[1] >= 0 and coordonates[1] <= 7)
     if not (line and row):
       raise Exception("Coordonates are wrong")
 
-  def checkDirection(self, direction):
+  def check_direction(self, direction):
     if direction not in self._directions:
       raise Exception("direction syntax is wrong")
 
-  def checkSide(self, side):
+  def check_side(self, side):
     if side not in self._sides:
       raise Exception("side syntax is wrong")
 
-  def oppositDirection(self, direction):
+  def opposit_direction(self, direction):
     if direction == "north":
       return "south"
     if direction == "south":
@@ -41,7 +41,7 @@ class Model():
     if direction == "west":
       return "east"
 
-  def oppositSide(self, side):
+  def opposit_side(self, side):
     if side == "top":
       return "bottom"
     if side == "bottom":
@@ -51,12 +51,12 @@ class Model():
     if side == "right":
       return "left"
 
-  def getModel(self):
+  def get_model(self):
     return self
 
-  def setImage(self, img, color):
+  def set_image(self, img, color):
     self._image = img
     self._image.fill(color)
 
-  def getImage(self):
+  def get_image(self):
     return self._image

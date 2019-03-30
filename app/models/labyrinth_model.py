@@ -25,63 +25,63 @@ class LabyrinthModel(Labyrinth, Model):
   def __init__(self):
     super().__init__()
     self._walls = []       # [ Wall ]
-    self._rowsColumns = ()
-    self._exitCoordonates = None
+    self._rows_columns = ()
+    self._exit_coordonates = None
     self._name = "labyrinth"
-    self.loadMap()
+    self.load_map()
 
-  def getName(self):
+  def get_name(self):
     return self._name
 
-  def hasWallAt(self, room_coordonates, edge_position):
-    checkDirection(edge_position)
-    checkCoordonates(room_coordonates)
+  def has_wall_at(self, room_coordonates, edge_position):
+    check_direction(edge_position)
+    check_coordonates(room_coordonates)
     if edge_position == "north":
-      return self._labyrinth.wallPosition(room_coordonates) \
-          in Labyrinth._wallsN
+      return self._labyrinth.wall_position(room_coordonates) \
+          in Labyrinth._walls_N
     elif edge_position == "south":
-      return self._labyrinth.wallPosition(room_coordonates) \
-          in Labyrinth._wallsS
+      return self._labyrinth.wall_position(room_coordonates) \
+          in Labyrinth._walls_S
     elif edge_position == "east":
-      return self._labyrinth.wallPosition(room_coordonates) \
-          in Labyrinth._wallsE
+      return self._labyrinth.wall_position(room_coordonates) \
+          in Labyrinth._walls_E
     elif edge_position == "west":
-      return self._labyrinth.wallPosition(room_coordonates) \
-          in Labyrinth._wallsW
+      return self._labyrinth.wall_position(room_coordonates) \
+          in Labyrinth._walls_W
 
-  def wallPosition(self, room_coordonates):
-    checkCoordonates(room_coordonates)
-    return self._labyrinth.wallsPosition(room_coordonates)
+  def wall_position(self, room_coordonates):
+    check_coordonates(room_coordonates)
+    return self._labyrinth.walls_position(room_coordonates)
 
-  def wallClockWisePosition(self, room_coordonates):
-    checkCoordonates(room_coordonates)
-    return (self._l._walls_bytes[room_coordonates] in Labyrinth._wallsN,
-            self._l._walls_bytes[room_coordonates] in Labyrinth._wallsE,
-            self._l._walls_bytes[room_coordonates] in Labyrinth._wallsS,
-            self._l._walls_bytes[room_coordonates] in Labyrinth._wallsW)
+  def wall_clock_wise_position(self, room_coordonates):
+    check_coordonates(room_coordonates)
+    return (self._l._walls_bytes[room_coordonates] in Labyrinth._walls_N,
+            self._l._walls_bytes[room_coordonates] in Labyrinth._walls_E,
+            self._l._walls_bytes[room_coordonates] in Labyrinth._walls_S,
+            self._l._walls_bytes[room_coordonates] in Labyrinth._walls_W)
 
-  def getbestHeroPosition(self):  # return initial best HHero position
-    return (int((self._rowsColumns[0] - 1) * 40 + adjX + 7),
-            int((self._rowsColumns[1] - 1) * 40 + adjY + 7))
+  def get_best_hero_position(self):  # return initial best HHero position
+    return (int((self._rows_columns[0] - 1) * 40 + ADJ_X + 7),
+            int((self._rows_columns[1] - 1) * 40 + ADJ_Y + 7))
 
-  def getGuardPosition(self):
-    return self._exitCoordonates
+  def get_guard_position(self):
+    return self._exit_coordonates
 
-  def loadMap(self):
+  def load_map(self):
     _row, _col = 0, 0
-    with open(labyrinthFile, "r") as mapFile:
-      for row, line in enumerate(mapFile):
+    with open(LABYRINTH_FILE, "r") as file:
+      for row, line in enumerate(file):
         _row += 1
         _col = 0
         for column, char in enumerate(line.strip()):
           _col += 1
           self._walls_bytes[(row, column)
                             ] = binascii.unhexlify("0" + char)
-    self._rowsColumns = (_row, _col)
+    self._rows_columns = (_row, _col)
 
-  def getWalls(self):
+  def get_walls(self):
     return self._walls
 
-  def setExitCoordonates(self, row, col):
-    self._exitCoordonates = (int(col * 40 + adjX + 8),
-                             int(row * 40 + adjY))
+  def set_exit_coordonates(self, row, col):
+    self._exit_coordonates = (int(col * 40 + ADJ_X + 8),
+                              int(row * 40 + ADJ_Y))

@@ -9,21 +9,17 @@ from controllers import Controller
 
 class ObjectController(Controller):
 
-  def __init__(self, labyrinthModel, pyGameEngine):
-    self().__init__(pyGameEngine)
-    self._labyrinthModel = labyrinthModel
-    self._objectModel = ObjectModel(self)
-    self._objectViex = ObjectView(self, self._objectModel, pyGameEngine)
-    self.settingCollisions()
-    self.setPositionsObjects()
+  def __init__(self, labyrinth_model, game_engine):
+    self().__init__(game_engine)
+    self._labyrinth_model = labyrinth_model
+    self._object_model = ObjectModel(self)
+    self._object_view = ObjectView(self, self._object_model, game_engine)
+    self.setting_collisions()
 
-  def settingCollisions(self):
-    objects = self._objectModel.getObjects()
+  def setting_collisions(self):
+    objects = self._objectModel.get_objects()
     for object in objects:
-      object.canCollidWith("hero", self._gameEngine.getGroup("hero"))
+      object.can_collid_with("hero", self._game_engine.get_group("hero"))
 
-  def manageCollisions(self, caller):
+  def manage_collisions(self, caller):
     collisions = {}
-
-  def setPositionsObjects(self):
-    pass

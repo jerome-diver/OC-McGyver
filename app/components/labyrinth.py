@@ -14,14 +14,14 @@ from settings import *
 
 class Labyrinth:
 
-  _wallsN = (b'\x01', b'\x05', b'\x06', b'\x07',
-             b'\x0b', b'\x0c', b'\x0e', b'\x0f')
-  _wallsW = (b'\x02', b'\x05', b'\x08', b'\x09',
-             b'\x0b', b'\x0c', b'\x0d', b'\x0f')
-  _wallsS = (b'\x03', b'\x07', b'\x09', b'\x0a',
-             b'\x0c', b'\x0d', b'\x0e', b'\x0f')
-  _wallsE = (b'\x04', b'\x06', b'\x08', b'\x0a',
-             b'\x0b', b'\x0d', b'\x0e', b'\x0f')
+  _walls_N = (b'\x01', b'\x05', b'\x06', b'\x07',
+              b'\x0b', b'\x0c', b'\x0e', b'\x0f')
+  _walls_W = (b'\x02', b'\x05', b'\x08', b'\x09',
+              b'\x0b', b'\x0c', b'\x0d', b'\x0f')
+  _walls_S = (b'\x03', b'\x07', b'\x09', b'\x0a',
+              b'\x0c', b'\x0d', b'\x0e', b'\x0f')
+  _walls_E = (b'\x04', b'\x06', b'\x08', b'\x0a',
+              b'\x0b', b'\x0d', b'\x0e', b'\x0f')
 
   def __init__(self):
     self._walls_bytes = {}    # { (row,column): byte }
@@ -32,10 +32,10 @@ class Labyrinth:
         del(self.__dict__[attr_keys])
         print(self.__class__.__name__, "attributes has has been deleted")
 
-  def wallPositions(self):
+  def wall_positions(self):
     return self._walls_bytes
 
-  def wallsPosition(self, room_coordonates):
+  def walls_position(self, room_coordonates):
     return self._walls_bytes[room_coordonates]
 
   def get(self):
@@ -51,14 +51,14 @@ class Wall(Sprite):  # wall is a part view of a byte cell from Labyrinth()
     super().__init__()
     Wall._numbers += 1
     row, col, side = idd
-    self.adjX, self.adjY = adj
+    self.adj_x, self.adj_y = adj
     self.image = pg.Surface((45, 5)) if side in ["top", "bottom"] \
         else pg.Surface((5, 45))
-    self.image.fill(labyrinthWallColor)
+    self.image.fill(LABYRINTH_WALL_COLOR)
     self.rect = self.image.get_rect()  # a sprite must have one
     # now a wall should be positionned inside his labyrinth
-    position = (col * 40 + self.adjX,
-                row * 40 + self.adjY)
+    position = (col * 40 + self.adj_x,
+                row * 40 + self.adj_y)
     if side in ["top", "left"]:
       self.rect.topleft = position
     elif side == "bottom":

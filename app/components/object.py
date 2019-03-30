@@ -18,11 +18,11 @@ class Object(Sprite):
     # depend of the kind of object to create (there is only 3 possibilities)
     # we have to know which one image to show for each of them
     if name == "pill":
-      img = pillFile
+      img = PILL_FILE
     elif name == "needle":
-      img = needleFile
+      img = NEEDLE_FILE
     elif name == "diluent":
-      img = diluentFile
+      img = DILUENT_FILE
     # but we have to check this file is readable and accepted by pygame too
     try:
       self.image = pg.image.load(img).convert()
@@ -37,7 +37,7 @@ class Object(Sprite):
     if self.counter == 20:
       self.counter = 0
       # the controller will make this job (MVC)
-      self._controller.manageCollisions(self)
+      self._controller.manage_collisions(self)
 
   """
   the controller or the view can do these following's jobs...
@@ -50,11 +50,11 @@ class Object(Sprite):
   and that is too much for just this little jobs
   """
 
-  def setPosition(self, pos):
-    self._posX, self._posY = pos
+  def set_position(self, pos):
+    self._pos_x, self._pos_y = pos
 
-  def canCollidWith(self, name, group):
-    self._collidGroups[name] = group
+  def can_collid_with(self, name, group):
+    self._collid_groups[name] = group
 
-  def getName(self):
+  def get_name(self):
     return self._name

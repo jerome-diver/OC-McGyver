@@ -9,10 +9,10 @@ from views.labyrinth_view import *
 
 class LabyrinthController(Controller):
 
-  def __init__(self, pyGameEngine):
-    super().__init__(pyGameEngine)
+  def __init__(self, game_engine):
+    super().__init__(game_engine)
     self._model = LabyrinthModel()
-    self._view = LabyrinthView(self, self._model, pyGameEngine)
+    self._view = LabyrinthView(self, self._model, game_engine)
 
-  def getModel(self):
+  def get_model(self):
     return self._model

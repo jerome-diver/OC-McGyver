@@ -20,7 +20,7 @@ class ObjectModel(Model):
   def __init__(self, controller):
     super().__init__()
     self._objects = {}      # { "name": Object } (must have 3 keys maximum)
-    self._canMakeSleep = False
+    self._can_make_sleep = False
     # now it's time to create specifics Object
     # and in the same time, store them inside the model attributes
     # self._objects dictionary
@@ -33,21 +33,24 @@ class ObjectModel(Model):
   # and store this position
   # (this method is the way to set position of one of them)
   def setCoordonates(self, coordonates, which):
-    checkCoordonates(coordonates)
+    check_coordonates(coordonates)
     # no one know which method will be choosed to target the object
     # so let's find if this is an Object argument or a string name
     if isinstance(which, str):
       self._objects[which]._coordonates = coordonates
     if isinstance(which, Object):
-      which.setCoordinates(coordinates)
+      which.set_coordinates(coordinates)
 
-  def getCoordonates(self, which):
+  def get_coordonates(self, which):
     if isinstance(which, str):
       return self._objects[which]
     if isinstance(which, Object):
-      return which.getCoordinates()
+      return which.get_coordinates()
 
   # the controller later will want to use each objects...
   # then it will ask for them, let's give him a way to haev them all
-  def getObjects(self):
+  def get_objects(self):
     return self._objects
+
+  def set_positions_objects(self):
+    pass

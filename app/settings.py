@@ -1,27 +1,27 @@
 import os
 
-width = 800
-height = 800
-black = (0, 0, 0)
-white = (255, 255, 255)
-red = (255, 0, 0)
-green = (0, 255, 0)
-blue = (0, 0, 255)
-cwd = os.path.dirname(os.path.abspath(__file__))
-labyrinthFile = os.path.join(cwd, "map/map.txt")
-heroFile = os.path.join(cwd, "img/MacGyver.png")
-guardFile = os.path.join(cwd, "img/guard.png")
-pillFile = os.path.join(cwd, "img/magic powder modified.png")
-diluentFile = os.path.join(cwd, "img/ether modified.png")
-needleFile = os.path.join(cwd, "img/seringue modified.png")
-labyrinthWidth = 600
-labyrinthHeight = 600
-labyrinthWallColor = (70, 240, 50)
+WIDTH = 800
+HEIGHT = 800
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+CWD = os.path.dirname(os.path.abspath(__file__))
+LABYRINTH_FILE = os.path.join(CWD, "map/map.txt")
+HERO_FILE = os.path.join(CWD, "img/MacGyver.png")
+GUARD_FILE = os.path.join(CWD, "img/guard.png")
+PILL_FILE = os.path.join(CWD, "img/magic powder modified.png")
+DILUENT_FILE = os.path.join(CWD, "img/ether modified.png")
+NEEDDLE_FILE = os.path.join(CWD, "img/seringue modified.png")
+LABYRINTH_WIDTH = 600
+LABYRINTH_HEIGHT = 600
+LABYRINTH_WALL_COLOR = (70, 240, 50)
 
 
 """
 Variables to be calculate from constante provide up there.
 Do not touch this please.
 """
-adjX = int(width - labyrinthWidth) / 2
-adjY = int(height - labyrinthHeight) / 2
+ADJ_X = int(WIDTH - LABYRINTH_WIDTH) / 2
+ADJ_Y = int(HEIGHT - LABYRINTH_HEIGHT) / 2

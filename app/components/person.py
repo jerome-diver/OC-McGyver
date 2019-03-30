@@ -16,24 +16,24 @@ class Person:
   def __init__(self, controller, name):
     self._controller = controller
     self._name = name
-    self._posX, self._posY = (0, 0)
-    self._collidGroups = {}
+    self._pos_x, self._pos_y = (0, 0)
+    self._collid_groups = {}
 
-  def getName(self):
+  def get_name(self):
     return self._name
 
-  def setName(self, name):
+  def set_name(self, name):
     self._name = name
 
-  def setPosition(self, pos):
-    self._posX, self._posY = pos
+  def set_position(self, pos):
+    self._pos_x, self._pos_y = pos
 
   # it is possible there to create a collision event to be handle by
   # the controller manageCollisions() method
   # it is also possible to make this method
   # inside the view or the controller
-  def canCollidWith(self, name, group):
-    self._collidGroups[name] = group
+  def can_collid_with(self, name, group):
+    self._collid_groups[name] = group
 
 
 """
@@ -59,9 +59,9 @@ class Hero(Person, Sprite):
     Person.__init__(self, controller, name)
     Sprite.__init__(self)
     try:
-      self.image = pg.image.load(heroFile).convert()
+      self.image = pg.image.load(HERO_FILE).convert()
     except pg.error:
-      print("can not load image:", heroFile)
+      print("can not load image:", HERO_FILE)
       raise SystemExit
     self.image = pg.transform.scale(self.image, (30, 30))
     self.rect = self.image.get_rect()
@@ -69,14 +69,14 @@ class Hero(Person, Sprite):
   def update(self):
     # what's need to get control goes in the controller
     # but because of pygame way to do, it start there first...
-    self.rect.topleft = (self._posX, self._posY)
-    self._controller.keyPressed(self)
+    self.rect.topleft = (self._pos_x, self._pos_y)
+    self._controller.key_pressed(self)
 
   def move(self, dx=0, dy=0):
-    self.rect.topleft = (self._posX + dx, self._posY + dy)
-    self._controller.manageCollisions(self, self._collidGroups, (dx, dy))
+    self.rect.topleft = (self._pos_x + dx, self._pos_y + dy)
+    self._controller.manage_collisions(self, self._collid_groups, (dx, dy))
 
-  def getHero(self):
+  def get_hero(self):
     return self
 
 
@@ -86,15 +86,15 @@ class Guard(Person, Sprite):
     Person.__init__(self, controller, name)
     Sprite.__init__(self)
     try:
-      self.image = pg.image.load(guardFile).convert()
+      self.image = pg.image.load(GUARD_FILE).convert()
     except pg.error:
-      print("can not load guard file:", guardFile)
+      print("can not load guard file:", GUARD_FILE)
       raise SystemExit
     self.image = pg.transform.scale(self.image, (30, 30))
     self.rect = self.image.get_rect()
 
   def update(self):
-    self.rect.topleft = (self._posX, self._posY)
+    self.rect.topleft = (self._pos_x, self._pos_y)
 
-  def getGuard(self):
+  def get_guard(self):
     return self

@@ -18,23 +18,21 @@ from views.view import View
 
 class GuardView(View):
 
-  def __init__(self, controller, model, gameEngine):
-    super().__init__(controller, model, gameEngine)
-    guard = self._model.getGuard()
-    labyrinthModel = self._controller.getLabyrinthModel()
-    print("The guard stay in front of the exit at position",
-          labyrinthModel.getGuardPosition())
-    guard.setPosition(labyrinthModel.getGuardPosition())
-    self._gameEngine.addSpritesToGroup([guard], "guard")
+  def __init__(self, controller, model, game_engine):
+    super().__init__(controller, model, game_engine)
+    guard = self._model.get_guard()
+    labyrinth_model = self._controller.get_labyrinth_model()
+    guard.set_position(labyrinth_model.get_guard_position())
+    self._game_engine.add_sprites_to_group([guard], "guard")
 
 
 class HeroView(View):
 
-  def __init__(self, controller, model, gameEngine):
-    super().__init__(controller, model, gameEngine)
-    labyrinthModel = self._controller.getLabyrinthModel()
-    hero = self._model.getHero()
+  def __init__(self, controller, model, game_engine):
+    super().__init__(controller, model, game_engine)
+    labyrinth_model = self._controller.get_labyrinth_model()
+    hero = self._model.get_hero()
     print("best position for hero is",
-          labyrinthModel.getbestHeroPosition())
-    hero.setPosition(labyrinthModel.getbestHeroPosition())
-    self._gameEngine.addSpritesToGroup([hero], "hero")
+          labyrinth_model.get_best_hero_position())
+    hero.set_position(labyrinth_model.get_best_hero_position())
+    self._game_engine.add_sprites_to_group([hero], "hero")

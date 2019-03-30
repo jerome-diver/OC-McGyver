@@ -15,10 +15,10 @@ class GuardModel(Guard, Model):
     Model.__init__(self)
     self._sleeping = False
 
-  def injectPill(self):
+  def inject_pill(self):
     self._sleeping = True
 
-  def isSleeping(self):
+  def is_sleeping(self):
     return self._sleeping
 
 
@@ -29,22 +29,22 @@ class HeroModel(Hero, Model):
     Model.__init__(self)
     self._objects = []  # list of Object() found
 
-  def getObjects(self):
+  def get_objects(self):
     return self._objects
 
-  def getObject(self, object):
+  def get_object(self, object):
     if obj in self._objects:
       return obj
 
-  def addObject(self, object):
+  def add_object(self, object):
     if len(self._objects) <= 3:
       self._objects.append(object)
       return True
     return False
 
-  def trashObject(self, one_object):
+  def trash_object(self, one_object):
     if obj in self._objects:
       self._objects.delete(one_object)
 
-  def canMakeSleeping(self):
+  def can_make_sleeping(self):
     return len(self._objects) >= 3
