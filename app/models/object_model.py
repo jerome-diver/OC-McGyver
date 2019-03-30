@@ -21,9 +21,21 @@ class ObjectModel(Model):
     super().__init__()
     self._objects = {}      # { "name": Object } (must have 3 keys maximum)
     self._canMakeSleep = False
+    # now it's time to create specifics Object
+    # and in the same time, store them inside the model attributes
+    # self._objects dictionary
+    self._objects["pill"] = Object(self._controller, "pill")
+    self._objects["needle"] = Object(self._controller, "needle")
+    self._objects["diluent"] = Object(self._controller, "diluent")
 
+  # it should have a time where the Objects need to find
+  # a position in the labyrinth
+  # and store this position
+  # (this method is the way to set position of one of them)
   def setCoordonates(self, coordonates, which):
     checkCoordonates(coordonates)
+    # no one know which method will be choosed to target the object
+    # so let's find if this is an Object argument or a string name
     if isinstance(which, str):
       self._objects[which]._coordonates = coordonates
     if isinstance(which, Object):
@@ -34,3 +46,8 @@ class ObjectModel(Model):
       return self._objects[which]
     if isinstance(which, Object):
       return which.getCoordinates()
+
+  # the controller later will want to use each objects...
+  # then it will ask for them, let's give him a way to haev them all
+  def getObjects(self):
+    return self._objects

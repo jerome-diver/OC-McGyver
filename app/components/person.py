@@ -1,6 +1,8 @@
 '''
 The Person object has a boring gamer life...
 The Hero object's one has a little bit action to provide in the controller
+But the Person base class care about set collisions handler
+and usual's attributes eventually
 '''
 
 import pygame as pg
@@ -26,8 +28,29 @@ class Person:
   def setPosition(self, pos):
     self._posX, self._posY = pos
 
+  # it is possible there to create a collision event to be handle by
+  # the controller manageCollisions() method
+  # it is also possible to make this method
+  # inside the view or the controller
   def canCollidWith(self, name, group):
     self._collidGroups[name] = group
+
+
+"""
+This Hero class is also a Sprite pygame class inherited from.
+A Sprite is a container who handle the view
+and must have minimum 2 attributs:
+    self.image  (for handle image view)
+    self.rect   (for handle position of this image)
+
+The pygame idea is to create a surface
+(who is also an image you can draw on)
+then you can have this sprite to put inside a sprite-group
+for handle events collisions or what ever it will happen in the game
+
+This Sprite Hero class for example, who is also a Person,
+can move and can react to collisions events
+"""
 
 
 class Hero(Person, Sprite):
@@ -45,6 +68,7 @@ class Hero(Person, Sprite):
 
   def update(self):
     # what's need to get control goes in the controller
+    # but because of pygame way to do, it start there first...
     self.rect.topleft = (self._posX, self._posY)
     self._controller.keyPressed(self)
 

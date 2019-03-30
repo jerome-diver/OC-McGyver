@@ -15,6 +15,7 @@ class ObjectController(Controller):
     self._objectModel = ObjectModel(self)
     self._objectViex = ObjectView(self, self._objectModel, pyGameEngine)
     self.settingCollisions()
+    self.setPositionsObjects()
 
   def settingCollisions(self):
     objects = self._objectModel.getObjects()
@@ -23,3 +24,6 @@ class ObjectController(Controller):
 
   def manageCollisions(self, caller):
     collisions = {}
+
+  def setPositionsObjects(self):
+    pass
