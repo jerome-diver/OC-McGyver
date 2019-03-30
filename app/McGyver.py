@@ -10,6 +10,8 @@ def Main():
   # create controllers for objects to construct inside the game
   labyrinthCtrl = LabyrinthController(gameEngine)
   personCtrl = PersonController(labyrinthCtrl.getModel(), gameEngine)
+  # this is not finish, i have to implement some controllers methods
+  # and test this Object codes. Then it should be finish for the project
   objectCtrl = ObjectController(labyrinthCtrl.getModel(), gameEngine)
   # start the game
   gameEngine.start()
