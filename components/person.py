@@ -16,8 +16,14 @@ class Person:
   def __init__(self, controller, name):
     self._controller = controller
     self._name = name
-    self._pos_x, self._pos_y = (0, 0)
-    self._collid_groups = {}
+    self._pos = None          # screen position in pixels (x,y)
+    self._coordonates = None  # cells position (row,col)
+
+  def set_position(self, pos):
+    self._pos = pos
+
+  def set_coordonates(self, coordonates):
+    self._coordonates = coordonates
 
   def get_name(self):
     return self._name
@@ -25,19 +31,10 @@ class Person:
   def set_name(self, name):
     self._name = name
 
-  def set_position(self, pos):
-    self._pos_x, self._pos_y = pos
-
-  # it is possible there to create a collision event to be handle by
-  # the controller manageCollisions() method
-  # it is also possible to make this method
-  # inside the view or the controller
-  def can_collid_with(self, name, group):
-    self._collid_groups[name] = group
-
 
 """
-This Hero class is also a Sprite pygame class inherited from.
+These Hero and Guerd class are also Sprites pygame class inherited from.
+
 A Sprite is a container who handle the view
 and must have minimum 2 attributs:
     self.image  (for handle image view)
@@ -45,19 +42,21 @@ and must have minimum 2 attributs:
 
 The pygame idea is to create a surface
 (who is also an image you can draw on)
-then you can have this sprite to put inside a sprite-group
+then you can put this sprite inside a sprite-group
 for handle events collisions or what ever it will happen in the game
 
-This Sprite Hero class for example, who is also a Person,
-can move and can react to collisions events
+These Guard and Hero class for example, who are also Person and Collider,
+can move and can react to collisions events and store groups they can 
+collid with by the Collider class
 """
 
 
 class Hero(Person, Sprite):
 
-  def __init__(self, controller, name):
-    Person.__init__(self, controller, name)
+  def __init__(self, controller):
+    Person.__init__(self, controller, "hero")
     Sprite.__init__(self)
+    self._objects = 0  # nomber of objects found
     try:
       self.image = pg.image.load(HERO_FILE).convert()
     except pg.error:
@@ -69,21 +68,25 @@ class Hero(Person, Sprite):
   def update(self):
     # what's need to get control goes in the controller
     # but because of pygame way to do, it start there first...
-    self.rect.topleft = (self._pos_x, self._pos_y)
+    self.rect.topleft = self._pos
     self._controller.key_pressed(self)
 
   def move(self, dx=0, dy=0):
-    self.rect.topleft = (self._pos_x + dx, self._pos_y + dy)
-    self._controller.manage_collisions(self, self._collid_groups, (dx, dy))
+    self.rect.topleft = (self._pos[0] + dx, self._pos[1] + dy)
+    self._controller.manage_collisions(self, dx, dy)
 
   def get_hero(self):
     return self
 
+  def add_object(self):
+    if self._objects < 3:
+      self._objects += 1
+      print("added one object, hero has:", self._objects, "objects")
 
 class Guard(Person, Sprite):
 
-  def __init__(self, controller, name):
-    Person.__init__(self, controller, name)
+  def __init__(self, controller):
+    Person.__init__(self, controller, "guard")
     Sprite.__init__(self)
     try:
       self.image = pg.image.load(GUARD_FILE).convert()
@@ -94,7 +97,7 @@ class Guard(Person, Sprite):
     self.rect = self.image.get_rect()
 
   def update(self):
-    self.rect.topleft = (self._pos_x, self._pos_y)
+    self.rect.topleft = self._pos
 
   def get_guard(self):
     return self

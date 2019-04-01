@@ -38,7 +38,7 @@ class LabyrinthView(View):
           else:
             del new_wall
         else:
-          if not self._model._exit_coordonates:
+          if not self._model._exit_position:
             self.find_exit_position(key, index)
     print("There is", Wall._numbers, "walls in the labyrinth\n",
           Wall._removed, "has been remouved (doubles found).")

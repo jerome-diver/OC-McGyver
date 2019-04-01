@@ -8,8 +8,9 @@ import pygame as pg
 
 class Controller:
 
-  def __init__(self, game_engine):
+  def __init__(self, game_engine, labyrinth_ctrl=None):
     self._game_engine = game_engine
+    self._labyrinth_ctrl = labyrinth_ctrl
 
   def key_pressed(self, person):
     key = pg.key.get_pressed()
@@ -33,3 +34,7 @@ class Controller:
     if key[pg.K_DOWN] and \
        (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
       person.move(dy=2)
+
+  def get_labyrinth_model(self):
+    return self._labyrinth_ctrl._model
+

@@ -9,8 +9,12 @@ def Main():
   game_engine = PyGameEngine()
   # create controllers for objects to construct inside the game
   labyrinth_ctrl = LabyrinthController(game_engine)
-  person_ctrl = PersonController(labyrinth_ctrl.get_model(), game_engine)
-  #object_ctrl = ObjectController(labyrinth_ctrl.getModel(), game_engine)
+  guard_ctrl = GuardController(labyrinth_ctrl,game_engine)
+  hero_ctrl = HeroController(labyrinth_ctrl, guard_ctrl, game_engine)
+  object_ctrl = ObjectController(labyrinth_ctrl, \
+                                 hero_ctrl, guard_ctrl, \
+                                 game_engine)
+  hero_ctrl.setting_collisions()
   # start the game
   game_engine.start()
 

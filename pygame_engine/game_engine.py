@@ -3,20 +3,26 @@ pg engine shoudl run the game when all objects/models/view and controllers are l
 '''
 
 import pygame as pg
+from pygame.sprite import Group
 
 from settings import *
+
+
+class SpritesGroupNamed(Group):
+
+  def __init__(self, name):
+    super().__init__()
+    self._name = name
 
 
 class PyGameEngine():
 
   def __init__(self):
     self._crashed = False
-    self._sprites_groups = {}
-    self.hero = None
+    self._sprites_groups = []
     pg.init()
-    self._display = pg.display
-    self._window = self._display.set_mode((WIDTH, HEIGHT))
-    self._display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
+    self._window = pg.display.set_mode((WIDTH, HEIGHT))
+    pg.display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
     self._clk = pg.time.Clock()
 
   def __del__(self):
@@ -42,19 +48,24 @@ class PyGameEngine():
 
   def create_group(self, name):
     print("created group:", name)
-    self._sprites_groups[name] = pg.sprite.Group()
+    self._sprites_groups.append(SpritesGroupNamed(name))
 
   def add_sprites_to_group(self, sprites, group_name):
-    for sprite in sprites:
-      self._sprites_groups[group_name].add(sprite)
+    for group in self._sprites_groups:
+      if  group._name == group_name:
+        for sprite in sprites:
+          group.add(sprite)
 
   def update_sprites_groups(self):
-    for group in self._sprites_groups.values():
+    for group in self._sprites_groups:
       group.update()
       group.draw(self._window)
 
   def get_group(self, name):
-    return self._sprites_groups[name]
+    for group in self._sprites_groups:
+      if group._name == name:
+        return group
+    return None
 
   def end_game(self):
     self._crashed = True

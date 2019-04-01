@@ -38,9 +38,6 @@ class Labyrinth:
   def walls_position(self, room_coordonates):
     return self._walls_bytes[room_coordonates]
 
-  def get(self):
-    return self
-
 
 class Wall(Sprite):  # wall is a part view of a byte cell from Labyrinth()
 
@@ -51,14 +48,14 @@ class Wall(Sprite):  # wall is a part view of a byte cell from Labyrinth()
     super().__init__()
     Wall._numbers += 1
     row, col, side = idd
-    self.adj_x, self.adj_y = adj
+    self.adjust = adj
     self.image = pg.Surface((45, 5)) if side in ["top", "bottom"] \
         else pg.Surface((5, 45))
     self.image.fill(LABYRINTH_WALL_COLOR)
     self.rect = self.image.get_rect()  # a sprite must have one
     # now a wall should be positionned inside his labyrinth
-    position = (col * 40 + self.adj_x,
-                row * 40 + self.adj_y)
+    position = (col * 40 + self.adjust[0],
+                row * 40 + self.adjust[1])
     if side in ["top", "left"]:
       self.rect.topleft = position
     elif side == "bottom":
