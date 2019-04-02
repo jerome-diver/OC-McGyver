@@ -29,7 +29,6 @@ class Collider():
                                                    if_collid)
 
   def manage_collisions(self, caller, *args):
-    collisions = []
     for group, actions in self._collided_groups_actions.items():
       do_kill, if_collid = actions[1], actions[2]
       collisions = pg.sprite.spritecollide(caller, group, do_kill)

@@ -4,6 +4,7 @@ pg engine shoudl run the game when all objects/models/view and controllers are l
 
 import pygame as pg
 from pygame.sprite import Group
+import time
 
 from settings import *
 
@@ -30,6 +31,8 @@ class PyGameEngine():
 
   def start(self):
     while not self._crashed:
+      #self.print_message("press \"q\" for exit the game",
+      #                   (0,0), 'topright', 12, WHITE)
       self.keys_down_events()
       self._clk.tick(50)
       self._window.fill(BLACK)
@@ -67,5 +70,27 @@ class PyGameEngine():
         return group
     return None
 
+  def message(self, text, size, color, x=None, y=None):
+    lines = text.splitlines()
+    font = pg.font.Font("fonts/Ubuntu-M.ttf", size)
+    for i, l in enumerate(lines):
+      if x == None:
+        x = int((WIDTH - font.size(l)[0]) / 2)
+      if y == None:
+        y = int((HEIGHT - font.size(text)[1]) / 2)
+      self._window.blit(font.render(l, 0, color),
+                        (x, y - font.get_linesize() * i))
+
+  def actions_delayed(self,tempo,
+                      action_start=None, sa_args=None,
+                      action_end=None, e_args=None):
+    if action_start:
+      action_start(*sa_args) if sa_args else action_start()
+      pg.display.update()
+    time.sleep(tempo)
+    if action_end:
+      action_end(*e_args) if e_args else action_end()
+
   def end_game(self):
-    self._crashed = True
+     self._crashed = True
+

@@ -4,8 +4,6 @@ in the game.
 This class hold action's control for them.
 '''
 
-import pygame as pg
-
 from controllers.controller import Controller
 from controllers.collider_controller import Collider
 from models.person_model import *
@@ -34,8 +32,14 @@ class HeroController(Controller, Collider):
   def get_hero(self):
     return self._model.get_hero()
 
-  def get_guard(self):
-    return self._model.get_guard()
+  def check_exit(self):
+    if self._model._pos[0] < ADJ_X or self._model._pos[1] < ADJ_Y:
+      en = self._game_engine
+      text = "You win !\n\nMac Gyver can go back home now...\n\nBye bye..."
+      en.actions_delayed(tempo=5,
+                         action_start=en.message,
+                         sa_args=(text, 38, GREEN),
+                         action_end=en.end_game, e_args=None)
 
   def labyrinth_collision(self, caller, dx, dy):
     pos = (caller._pos[0] + dx, caller._pos[1] + dy)
@@ -50,10 +54,21 @@ class HeroController(Controller, Collider):
       pos = (caller._pos[0] + dx, caller._pos[1] + dy)
       caller._pos = pos
     else:
-      self._game_engine.end_game()
+      text = "You loose !\n\nGAME OVER"
+      en = self._game_engine
+      en.actions_delayed(tempo=5,
+                         action_start=en.message,
+                         sa_args=(text, 38, RED),
+                         action_end= en.end_game, e_args=None)
+      #self._game_engine.game_over()
 
   def object_collision(self, caller, *args):
     caller.add_object()
+    en = self._game_engine
+    text = "Yeh... you get an other one object"
+    en.actions_delayed(tempo=2,
+                       action_start=en.message,
+                       sa_args=(text, 38, GREEN, None, 0))
 
 
 class GuardController(Controller):
@@ -62,4 +77,8 @@ class GuardController(Controller):
     super().__init__(game_engine, labyrinth_ctrl)
     self._model = GuardModel(self)
     self._view = GuardView(self, self._model, game_engine)
+
+  def get_guard(self):
+    return self._model.get_guard()
+
 

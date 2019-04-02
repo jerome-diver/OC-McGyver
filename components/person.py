@@ -74,6 +74,7 @@ class Hero(Person, Sprite):
   def move(self, dx=0, dy=0):
     self.rect.topleft = (self._pos[0] + dx, self._pos[1] + dy)
     self._controller.manage_collisions(self, dx, dy)
+    self._controller.check_exit()
 
   def get_hero(self):
     return self

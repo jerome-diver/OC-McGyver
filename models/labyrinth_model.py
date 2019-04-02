@@ -56,10 +56,29 @@ class LabyrinthModel(Labyrinth, Model):
         _col = 0
         for column, char in enumerate(line.strip()):
           _col += 1
-          self._walls_bytes[(row, column)
-          ] = binascii.unhexlify("0" + char)
+          self._walls_bytes[(row, column)] = binascii.unhexlify("0" + char)
     self._rows_columns = (_row, _col)
 
   def get_walls(self):
     return self._walls
 
+  def get_wall(self, coordonates):
+    row, col = coordonates
+    for wall in self._walls:
+      if wall.col == col and wall.row == row:
+        return wall
+    return None
+
+  def get_closed_walls(self):
+    closed_walls = []
+    for coordonates, byte in self._walls_bytes.items():
+      if byte == b'\x0f':
+        closed_walls.append(self.get_wall(coordonates))
+    return closed_walls
+
+  def get_coordonates_of_wall(self, wall):
+    find_coordonates = None
+    for w in self._walls:
+      if w == wall:
+        find_coordonates = (w.row, w.col)
+    return find_coordonates
