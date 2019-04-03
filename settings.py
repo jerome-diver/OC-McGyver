@@ -17,8 +17,8 @@ NEEDLE_FILE = os.path.join(CWD, "img/seringue modified.png")
 LABYRINTH_WIDTH = 600
 LABYRINTH_HEIGHT = 600
 LABYRINTH_WALL_COLOR = (70, 240, 50)
-MAX_TIMER_GAME = 300  # in seconds
-
+MAX_TIMER_GAME = 120                   #  in seconds
+JINGLE_FILE = os.path.join(CWD, 'music/Mac Gyver theme.mp3')
 
 """
 Variables to be calculate from constante provide up there.
