@@ -7,7 +7,9 @@ It get the name of the Sprite also
 
 import pygame as pg
 
-class Collider():
+from washer import Washer
+
+class Collider(Washer):
 
   def __init__(self, game_engine):
     self._game_engine = game_engine

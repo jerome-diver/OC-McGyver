@@ -26,12 +26,6 @@ class Labyrinth:
   def __init__(self):
     self._walls_bytes = {}    # { (row,column): byte }
 
-  def __del__(self):
-    if self.__dict__:
-      for attr_keys in list(self.__dict__.keys()):
-        del(self.__dict__[attr_keys])
-        print(self.__class__.__name__, "attributes has has been deleted")
-
   def wall_positions(self):
     return self._walls_bytes
 

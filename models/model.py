@@ -6,10 +6,11 @@ model from MVC design pattern
 import binascii
 import os
 
+from washer import Washer
 from pygame.sprite import *
 
 
-class Model():
+class Model(Washer):
 
   _directions = ("north", "east", "south", "west")
   _sides = ("top", "right", "bottom", "left")

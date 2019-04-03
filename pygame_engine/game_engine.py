@@ -7,16 +7,17 @@ from pygame.sprite import Group
 import time
 
 from settings import *
+from washer import Washer
 
 
-class SpritesGroupNamed(Group):
+class SpritesGroupNamed(Group, Washer):
 
   def __init__(self, name):
     super().__init__()
     self._name = name
 
 
-class PyGameEngine():
+class PyGameEngine(Washer):
 
   def __init__(self):
     self._crashed = False
@@ -25,9 +26,6 @@ class PyGameEngine():
     self._window = pg.display.set_mode((WIDTH, HEIGHT))
     pg.display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
     self._clk = pg.time.Clock()
-
-  def __del__(self):
-    pg.quit()
 
   def start(self):
     while not self._crashed:
@@ -71,13 +69,21 @@ class PyGameEngine():
     return None
 
   def message(self, text, size, color, x=None, y=None):
+    x_arg, y_arg = False, False
+    if x != None:
+      x_arg = True
+    if y != None:
+      y_arg = True
     lines = text.splitlines()
     font = pg.font.Font("fonts/Ubuntu-M.ttf", size)
     for i, l in enumerate(lines):
-      if x == None:
+      if not x_arg:
         x = int((WIDTH - font.size(l)[0]) / 2)
-      if y == None:
+      if not y_arg:
         y = int((HEIGHT - font.size(text)[1]) / 2)
+      print ("text position:\n\tindex:", i,
+             "\n\tline:", l,
+             "\n\tsize: x =", x, "| y =", y)
       self._window.blit(font.render(l, 0, color),
                         (x, y - font.get_linesize() * i))
 

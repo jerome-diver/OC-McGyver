@@ -2,11 +2,11 @@
 Superclass Controller embed
 model from MVC design pattern
 """
-
 import pygame as pg
 
+from washer import Washer
 
-class Controller:
+class Controller(Washer):
 
   def __init__(self, game_engine, labyrinth_ctrl=None):
     self._game_engine = game_engine

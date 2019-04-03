@@ -6,9 +6,9 @@ who is also inherited from Sprite class
 """
 
 from models.object_model import ObjectModel
+from washer import Washer
 
-
-class View():
+class View(Washer):
 
   def __init__(self, controller,  model, game_engine):
     self._controller = controller
