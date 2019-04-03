@@ -62,10 +62,14 @@ class HeroController(Controller, Collider):
   def object_collision(self, caller, *args):
     caller.add_object(args[2])
     en = self._game_engine
-    text = "Yeh... you get an other the " + args[2]._name
-    en.actions_delayed(tempo=2,
+    text = "Perfect !\n" \
+           "Now, you get the power \n" \
+           "to make sleeping everybody..."
+    if len(caller._objects) < 3:
+      text = "Yeah... you get the " + args[2]._name
+    en.actions_delayed(tempo=5,
                        action_start=en.message,
-                       sa_args=(text, 38, GREEN, None, 0))
+                       sa_args=(text, 38, BLUE, None, None))
     self._view.show_objects_collected(self._model._objects)
 
 

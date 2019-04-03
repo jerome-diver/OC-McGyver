@@ -32,21 +32,26 @@ class LabyrinthView(View):
   def create_walls(self):
     for key, value in self._model.wall_positions().items():
       sides = ("top", "right", "bottom", "left")
+      # format the char to be a representation of
+      # binary code with 4 default chars long
       bin_code = "{0:b}".format(ord(value)).zfill(4)[::-1]
+      # split it with index
       for index, bit in enumerate(bin_code):
-        if bit == "1":
+        if bit == "1":    # bit high mean that ther is a wall there
           idd = (key[0], key[1], sides[index])
           new_wall = Wall(idd, (ADJ_X, ADJ_Y))
+          # we add it only if it doesn't exist allready
           if not self.wall_exist(new_wall):
             self._model._walls.append(new_wall)
           else:
             del new_wall
-        else:
+        else:       # bit down => no wall there
+          # if the exit is not define allready
           if not self._model._exit_position:
+            # try to find if this wall is the exit of the labyrinth
             self.find_exit_position(key, index)
-    print("There is", Wall._numbers, "walls in the labyrinth\n",
-          Wall._removed, "has been remouved (doubles found).")
 
+  # is it an exit there ?
   def find_exit_position(self, key, index):
     # i test only the concerned peripheral's cells AND externals walls:
     # first row, last column, last row and first column (clock wise from top
@@ -57,6 +62,7 @@ class LabyrinthView(View):
        (key[1] == 0 and index == 3):
       self._model.set_exit_coordonates(key[0], key[1])
 
+  # print the timer of the labyrinth game
   def show_timer(self):
     timer = MAX_TIMER_GAME - (int(time.time()) -
                               LabyrinthView.start_time)
@@ -64,6 +70,8 @@ class LabyrinthView(View):
     y_pos = HEIGHT - 50
     self._game_engine.message(text, 24, WHITE, 20, y_pos)
 
+  # send the timer rint to background action as long as
+  # the game as the timer max time is define
   def start_timer(self):
     en = self._game_engine
     en.actions_delayed(tempo = MAX_TIMER_GAME,

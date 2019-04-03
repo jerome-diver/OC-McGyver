@@ -11,6 +11,7 @@ from pygame.sprite import Sprite
 from settings import *
 
 
+# common attributes and methods for Guard and Hero
 class Person:
 
   def __init__(self, controller, name):
@@ -61,9 +62,8 @@ class Hero(Person, Sprite):
     self.image = pg.transform.scale(self.image, (30, 30))
     self.rect = self.image.get_rect()
 
+  # the sprite need it for update things
   def update(self):
-    # what's need to get control goes in the controller
-    # but because of pygame way to do, it start there first...
     self.rect.topleft = self._pos
     self._controller.key_pressed(self)
 
@@ -75,6 +75,7 @@ class Hero(Person, Sprite):
   def get_hero(self):
     return self
 
+  # the objects we find... we hold them in an attribute list
   def add_object(self, obj):
     if len(self._objects) < 3:
       self._objects.append(obj)

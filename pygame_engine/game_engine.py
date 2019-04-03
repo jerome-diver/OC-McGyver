@@ -36,7 +36,7 @@ class PyGameEngine(Washer):
       # when with push down a key (one time event)
       self.keys_down_events()
       # the frequency in FPS
-      self._clk.tick(120)
+      self._clk.tick(60)
       # the first black background to refresh
       # (it repaint the screen for the next print)
       self._window.fill(BLACK)
@@ -93,7 +93,7 @@ class PyGameEngine(Washer):
       y_arg = True
     lines = text.splitlines()
     font = pg.font.Font("fonts/Ubuntu-M.ttf", size)
-    for i, l in enumerate(lines):
+    for i, l in enumerate(reversed(lines)):
       if not x_arg:
         # in the center
         x = int((WIDTH - font.size(l)[0]) / 2)
