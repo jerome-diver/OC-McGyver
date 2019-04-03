@@ -5,181 +5,186 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
-ADJ_X	app/settings.py	/^ADJ_X = int(WIDTH - LABYRINTH_WIDTH) \/ 2$/;"	v
-ADJ_Y	app/settings.py	/^ADJ_Y = int(HEIGHT - LABYRINTH_HEIGHT) \/ 2$/;"	v
-BLACK	app/settings.py	/^BLACK = (0, 0, 0)$/;"	v
-BLUE	app/settings.py	/^BLUE = (0, 0, 255)$/;"	v
-CWD	app/settings.py	/^CWD = os.path.dirname(os.path.abspath(__file__))$/;"	v
-Controller	app/controllers/controller.py	/^class Controller:$/;"	c
-DILUENT_FILE	app/settings.py	/^DILUENT_FILE = os.path.join(CWD, "img\/ether modified.png")$/;"	v
-GREEN	app/settings.py	/^GREEN = (0, 255, 0)$/;"	v
-GUARD_FILE	app/settings.py	/^GUARD_FILE = os.path.join(CWD, "img\/guard.png")$/;"	v
-Guard	app/components/person.py	/^class Guard(Person, Sprite):$/;"	c
-GuardModel	app/models/person_model.py	/^class GuardModel(Guard, Model):$/;"	c
-GuardView	app/views/person_view.py	/^class GuardView(View):$/;"	c
-HEIGHT	app/settings.py	/^HEIGHT = 800$/;"	v
-HERO_FILE	app/settings.py	/^HERO_FILE = os.path.join(CWD, "img\/MacGyver.png")$/;"	v
-Hero	app/components/person.py	/^class Hero(Person, Sprite):$/;"	c
+ADJ_X	settings.py	/^ADJ_X = int(WIDTH - LABYRINTH_WIDTH) \/ 2$/;"	v
+ADJ_Y	settings.py	/^ADJ_Y = int(HEIGHT - LABYRINTH_HEIGHT) \/ 2$/;"	v
+BLACK	settings.py	/^BLACK = (0, 0, 0)$/;"	v
+BLUE	settings.py	/^BLUE = (0, 0, 255)$/;"	v
+CWD	settings.py	/^CWD = os.path.dirname(os.path.abspath(__file__))$/;"	v
+Collider	controllers/collider_controller.py	/^class Collider():$/;"	c
+Controller	controllers/controller.py	/^class Controller:$/;"	c
+DILUENT_FILE	settings.py	/^DILUENT_FILE = os.path.join(CWD, "img\/ether modified.png")$/;"	v
+GREEN	settings.py	/^GREEN = (0, 255, 0)$/;"	v
+GUARD_FILE	settings.py	/^GUARD_FILE = os.path.join(CWD, "img\/guard.png")$/;"	v
+Guard	components/person.py	/^class Guard(Person, Sprite):$/;"	c
+GuardController	controllers/person_controller.py	/^class GuardController(Controller):$/;"	c
+GuardModel	models/person_model.py	/^class GuardModel(Guard, Model):$/;"	c
+GuardView	views/person_view.py	/^class GuardView(View):$/;"	c
+HEIGHT	settings.py	/^HEIGHT = 800$/;"	v
+HERO_FILE	settings.py	/^HERO_FILE = os.path.join(CWD, "img\/MacGyver.png")$/;"	v
+Hero	components/person.py	/^class Hero(Person, Sprite):$/;"	c
 Hero	test/pygame_demo.py	/^class Hero(pygame.sprite.Sprite):$/;"	c
-HeroModel	app/models/person_model.py	/^class HeroModel(Hero, Model):$/;"	c
-HeroView	app/views/person_view.py	/^class HeroView(View):$/;"	c
-LABYRINTH_FILE	app/settings.py	/^LABYRINTH_FILE = os.path.join(CWD, "map\/map.txt")$/;"	v
-LABYRINTH_HEIGHT	app/settings.py	/^LABYRINTH_HEIGHT = 600$/;"	v
-LABYRINTH_WALL_COLOR	app/settings.py	/^LABYRINTH_WALL_COLOR = (70, 240, 50)$/;"	v
-LABYRINTH_WIDTH	app/settings.py	/^LABYRINTH_WIDTH = 600$/;"	v
-Labyrinth	app/components/labyrinth.py	/^class Labyrinth:$/;"	c
+HeroController	controllers/person_controller.py	/^class HeroController(Controller, Collider):$/;"	c
+HeroModel	models/person_model.py	/^class HeroModel(Hero, Model):$/;"	c
+HeroView	views/person_view.py	/^class HeroView(View):$/;"	c
+LABYRINTH_FILE	settings.py	/^LABYRINTH_FILE = os.path.join(CWD, "map\/map.txt")$/;"	v
+LABYRINTH_HEIGHT	settings.py	/^LABYRINTH_HEIGHT = 600$/;"	v
+LABYRINTH_WALL_COLOR	settings.py	/^LABYRINTH_WALL_COLOR = (70, 240, 50)$/;"	v
+LABYRINTH_WIDTH	settings.py	/^LABYRINTH_WIDTH = 600$/;"	v
+Labyrinth	components/labyrinth.py	/^class Labyrinth:$/;"	c
 Labyrinth	test/pygame_demo.py	/^class Labyrinth(pygame.sprite.Sprite):$/;"	c
-LabyrinthController	app/controllers/labyrinth_controller.py	/^class LabyrinthController(Controller):$/;"	c
-LabyrinthModel	app/models/labyrinth_model.py	/^class LabyrinthModel(Labyrinth, Model):$/;"	c
-LabyrinthView	app/views/labyrinth_view.py	/^class LabyrinthView(View):$/;"	c
-Main	app/McGyver.py	/^def Main():$/;"	f
-Model	app/models/model.py	/^class Model():$/;"	c
-NEEDDLE_FILE	app/settings.py	/^NEEDDLE_FILE = os.path.join(CWD, "img\/seringue modified.png")$/;"	v
+LabyrinthController	controllers/labyrinth_controller.py	/^class LabyrinthController(Controller):$/;"	c
+LabyrinthModel	models/labyrinth_model.py	/^class LabyrinthModel(Labyrinth, Model):$/;"	c
+LabyrinthView	views/labyrinth_view.py	/^class LabyrinthView(View):$/;"	c
+Main	mac_gyver.py	/^def Main():$/;"	f
+Model	models/model.py	/^class Model():$/;"	c
+NEEDLE_FILE	settings.py	/^NEEDLE_FILE = os.path.join(CWD, "img\/seringue modified.png")$/;"	v
 OC-McGyver	README.md	/^# OC-McGyver$/;"	c
-Object	app/components/object.py	/^class Object(Sprite):$/;"	c
-ObjectController	app/controllers/object_controller.py	/^class ObjectController(Controller):$/;"	c
-ObjectModel	app/models/object_model.py	/^class ObjectModel(Model):$/;"	c
-ObjectView	app/views/object_view.py	/^class ObjectView(View):$/;"	c
-PILL_FILE	app/settings.py	/^PILL_FILE = os.path.join(CWD, "img\/magic powder modified.png")$/;"	v
-Person	app/components/person.py	/^class Person:$/;"	c
-PersonController	app/controllers/person_controller.py	/^class PersonController(Controller):$/;"	c
-PyGameEngine	app/pygame_engine/game_engine.py	/^class PyGameEngine():$/;"	c
-RED	app/settings.py	/^RED = (255, 0, 0)$/;"	v
+Object	components/object.py	/^class Object(Sprite):$/;"	c
+ObjectController	controllers/object_controller.py	/^class ObjectController(Controller):$/;"	c
+ObjectModel	models/object_model.py	/^class ObjectModel(Model):$/;"	c
+ObjectView	views/object_view.py	/^class ObjectView(View):$/;"	c
+PILL_FILE	settings.py	/^PILL_FILE = os.path.join(CWD, "img\/magic powder modified.png")$/;"	v
+Person	components/person.py	/^class Person:$/;"	c
+PyGameEngine	pygame_engine/game_engine.py	/^class PyGameEngine():$/;"	c
+RED	settings.py	/^RED = (255, 0, 0)$/;"	v
+SpritesGroupNamed	pygame_engine/game_engine.py	/^class SpritesGroupNamed(Group):$/;"	c
+The code	README.md	/^## The code$/;"	s
 The game story	README.md	/^## The game story$/;"	s
-The game's tools used	README.md	/^## The game's tools used$/;"	s
+The game's Python version and libraries used	README.md	/^## The game's Python version and libraries used$/;"	s
 The game's type	README.md	/^### The game's type$/;"	S
-View	app/views/view.py	/^class View():$/;"	c
-WHITE	app/settings.py	/^WHITE = (255, 255, 255)$/;"	v
-WIDTH	app/settings.py	/^WIDTH = 800$/;"	v
-Wall	app/components/labyrinth.py	/^class Wall(Sprite):  # wall is a part view of a byte cell from Labyrinth()$/;"	c
+View	views/view.py	/^class View():$/;"	c
+WHITE	settings.py	/^WHITE = (255, 255, 255)$/;"	v
+WIDTH	settings.py	/^WIDTH = 800$/;"	v
+Wall	components/labyrinth.py	/^class Wall(Sprite):  # wall is a part view of a byte cell from Labyrinth()$/;"	c
 Wall	test/pygame_demo.py	/^  class Wall(pygame.sprite.Sprite):$/;"	c	class:Labyrinth
-__del__	app/components/labyrinth.py	/^  def __del__(self):$/;"	m	class:Labyrinth
-__del__	app/components/labyrinth.py	/^  def __del__(self):$/;"	m	class:Wall
-__del__	app/pygame_engine/game_engine.py	/^  def __del__(self):$/;"	m	class:PyGameEngine
-__init__	app/components/labyrinth.py	/^  def __init__(self):$/;"	m	class:Labyrinth
-__init__	app/components/labyrinth.py	/^  def __init__(self, idd, adj):$/;"	m	class:Wall
-__init__	app/components/object.py	/^  def __init__(self, controller, name):$/;"	m	class:Object
-__init__	app/components/person.py	/^  def __init__(self, controller, name):$/;"	m	class:Guard
-__init__	app/components/person.py	/^  def __init__(self, controller, name):$/;"	m	class:Hero
-__init__	app/components/person.py	/^  def __init__(self, controller, name):$/;"	m	class:Person
-__init__	app/controllers/controller.py	/^  def __init__(self, game_engine):$/;"	m	class:Controller
-__init__	app/controllers/labyrinth_controller.py	/^  def __init__(self, game_engine):$/;"	m	class:LabyrinthController
-__init__	app/controllers/object_controller.py	/^  def __init__(self, labyrinth_model, game_engine):$/;"	m	class:ObjectController
-__init__	app/controllers/person_controller.py	/^  def __init__(self, labyrinth_model, game_engine):$/;"	m	class:PersonController
-__init__	app/models/labyrinth_model.py	/^  def __init__(self):$/;"	m	class:LabyrinthModel
-__init__	app/models/model.py	/^  def __init__(self):$/;"	m	class:Model
-__init__	app/models/object_model.py	/^  def __init__(self, controller):$/;"	m	class:ObjectModel
-__init__	app/models/person_model.py	/^  def __init__(self, controller):$/;"	m	class:GuardModel
-__init__	app/models/person_model.py	/^  def __init__(self, controller):$/;"	m	class:HeroModel
-__init__	app/pygame_engine/game_engine.py	/^  def __init__(self):$/;"	m	class:PyGameEngine
-__init__	app/views/labyrinth_view.py	/^  def __init__(self, controller, model, game_engine):$/;"	m	class:LabyrinthView
-__init__	app/views/object_view.py	/^  def __init__(self, object_model):$/;"	m	class:ObjectView
-__init__	app/views/person_view.py	/^  def __init__(self, controller, model, game_engine):$/;"	m	class:GuardView
-__init__	app/views/person_view.py	/^  def __init__(self, controller, model, game_engine):$/;"	m	class:HeroView
-__init__	app/views/view.py	/^  def __init__(self, controller,  model, game_engine):$/;"	m	class:View
+__del__	components/labyrinth.py	/^  def __del__(self):$/;"	m	class:Labyrinth
+__del__	components/labyrinth.py	/^  def __del__(self):$/;"	m	class:Wall
+__del__	pygame_engine/game_engine.py	/^  def __del__(self):$/;"	m	class:PyGameEngine
+__init__	components/labyrinth.py	/^  def __init__(self):$/;"	m	class:Labyrinth
+__init__	components/labyrinth.py	/^  def __init__(self, idd, adj):$/;"	m	class:Wall
+__init__	components/object.py	/^  def __init__(self, name):$/;"	m	class:Object
+__init__	components/person.py	/^  def __init__(self, controller):$/;"	m	class:Guard
+__init__	components/person.py	/^  def __init__(self, controller):$/;"	m	class:Hero
+__init__	components/person.py	/^  def __init__(self, controller, name):$/;"	m	class:Person
+__init__	controllers/collider_controller.py	/^  def __init__(self, game_engine):$/;"	m	class:Collider
+__init__	controllers/controller.py	/^  def __init__(self, game_engine, labyrinth_ctrl=None):$/;"	m	class:Controller
+__init__	controllers/labyrinth_controller.py	/^  def __init__(self, game_engine):$/;"	m	class:LabyrinthController
+__init__	controllers/object_controller.py	/^  def __init__(self, labyrinth_ctrl, hero_ctrl, guard_ctrl, \\$/;"	m	class:ObjectController
+__init__	controllers/person_controller.py	/^  def __init__(self, labyrinth_ctrl, game_engine):$/;"	m	class:GuardController
+__init__	controllers/person_controller.py	/^  def __init__(self, labyrinth_ctrl, guard_ctrl, game_engine):$/;"	m	class:HeroController
+__init__	models/labyrinth_model.py	/^  def __init__(self):$/;"	m	class:LabyrinthModel
+__init__	models/object_model.py	/^  def __init__(self):$/;"	m	class:ObjectModel
+__init__	models/person_model.py	/^  def __init__(self, controller):$/;"	m	class:GuardModel
+__init__	models/person_model.py	/^  def __init__(self, controller):$/;"	m	class:HeroModel
+__init__	pygame_engine/game_engine.py	/^  def __init__(self):$/;"	m	class:PyGameEngine
+__init__	pygame_engine/game_engine.py	/^  def __init__(self, name):$/;"	m	class:SpritesGroupNamed
 __init__	test/pygame_demo.py	/^    def __init__(self, idd):$/;"	m	class:Labyrinth.Wall
 __init__	test/pygame_demo.py	/^  def __init__(self, group):  # will use own group sprite for collisions check$/;"	m	class:Labyrinth
 __init__	test/pygame_demo.py	/^  def __init__(self, img, posit):$/;"	m	class:Hero
-_directions	app/models/model.py	/^  _directions = ("north", "east", "south", "west")$/;"	v	class:Model
-_numbers	app/components/labyrinth.py	/^  _numbers = 0$/;"	v	class:Wall
-_removed	app/components/labyrinth.py	/^  _removed = 0$/;"	v	class:Wall
-_sides	app/models/model.py	/^  _sides = ("top", "right", "bottom", "left")$/;"	v	class:Model
+__init__	views/labyrinth_view.py	/^  def __init__(self, controller, model, game_engine):$/;"	m	class:LabyrinthView
+__init__	views/object_view.py	/^  def __init__(self, controller, model, game_engine):$/;"	m	class:ObjectView
+__init__	views/person_view.py	/^  def __init__(self, controller, model, game_engine):$/;"	m	class:GuardView
+__init__	views/person_view.py	/^  def __init__(self, controller, model, game_engine):$/;"	m	class:HeroView
+__init__	views/view.py	/^  def __init__(self, controller,  model, game_engine):$/;"	m	class:View
+_collid_groups	components/object.py	/^  _collid_groups = []$/;"	v	class:Object
+_directions	models/model.py	/^  _directions = ("north", "east", "south", "west")$/;"	v	class:Model
+_numbers	components/labyrinth.py	/^  _numbers = 0$/;"	v	class:Wall
+_removed	components/labyrinth.py	/^  _removed = 0$/;"	v	class:Wall
+_sides	models/model.py	/^  _sides = ("top", "right", "bottom", "left")$/;"	v	class:Model
 _walls	test/pygame_demo.py	/^  _walls = {}       # { (row, col, side): Labyrinth.Wall }$/;"	v	class:Labyrinth
-_walls_E	app/components/labyrinth.py	/^  _walls_E = (b'\\x04', b'\\x06', b'\\x08', b'\\x0a',$/;"	v	class:Labyrinth
-_walls_N	app/components/labyrinth.py	/^  _walls_N = (b'\\x01', b'\\x05', b'\\x06', b'\\x07',$/;"	v	class:Labyrinth
-_walls_S	app/components/labyrinth.py	/^  _walls_S = (b'\\x03', b'\\x07', b'\\x09', b'\\x0a',$/;"	v	class:Labyrinth
-_walls_W	app/components/labyrinth.py	/^  _walls_W = (b'\\x02', b'\\x05', b'\\x08', b'\\x09',$/;"	v	class:Labyrinth
+_walls_E	components/labyrinth.py	/^  _walls_E = (b'\\x04', b'\\x06', b'\\x08', b'\\x0a',$/;"	v	class:Labyrinth
+_walls_N	components/labyrinth.py	/^  _walls_N = (b'\\x01', b'\\x05', b'\\x06', b'\\x07',$/;"	v	class:Labyrinth
+_walls_S	components/labyrinth.py	/^  _walls_S = (b'\\x03', b'\\x07', b'\\x09', b'\\x0a',$/;"	v	class:Labyrinth
+_walls_W	components/labyrinth.py	/^  _walls_W = (b'\\x02', b'\\x05', b'\\x08', b'\\x09',$/;"	v	class:Labyrinth
 _walls_bytes	test/pygame_demo.py	/^  _walls_bytes = {}  # { (row, col): byte }$/;"	v	class:Labyrinth
-add_object	app/models/person_model.py	/^  def add_object(self, object):$/;"	m	class:HeroModel
-add_sprites_to_group	app/pygame_engine/game_engine.py	/^  def add_sprites_to_group(self, sprites, group_name):$/;"	m	class:PyGameEngine
+actions_delayed	pygame_engine/game_engine.py	/^  def actions_delayed(self,tempo,$/;"	m	class:PyGameEngine
+add_object	components/person.py	/^  def add_object(self):$/;"	m	class:Hero
+add_sprites_to_group	pygame_engine/game_engine.py	/^  def add_sprites_to_group(self, sprites, group_name):$/;"	m	class:PyGameEngine
 adjX	test/pygame_demo.py	/^  adjX = (width - 600) \/ 2$/;"	v	class:Labyrinth
 adjY	test/pygame_demo.py	/^  adjY = (height - 600) \/ 2$/;"	v	class:Labyrinth
 black	test/pygame_demo.py	/^black = (0, 0, 0)$/;"	v
+blacklisted_coordonates	views/object_view.py	/^  def blacklisted_coordonates(self):$/;"	m	class:ObjectView
 canCollideWith	test/pygame_demo.py	/^  def canCollideWith(self, group):$/;"	m	class:Hero
-can_collid_with	app/components/object.py	/^  def can_collid_with(self, name, group):$/;"	m	class:Object
-can_collid_with	app/components/person.py	/^  def can_collid_with(self, name, group):$/;"	m	class:Person
-can_make_sleeping	app/models/person_model.py	/^  def can_make_sleeping(self):$/;"	m	class:HeroModel
-check_coordonates	app/models/model.py	/^  def check_coordonates(self, coordonates):$/;"	m	class:Model
-check_direction	app/models/model.py	/^  def check_direction(self, direction):$/;"	m	class:Model
-check_side	app/models/model.py	/^  def check_side(self, side):$/;"	m	class:Model
+can_collid_with	controllers/collider_controller.py	/^  def can_collid_with(self, group):$/;"	m	class:Collider
+can_make_sleeping	models/person_model.py	/^  def can_make_sleeping(self):$/;"	m	class:HeroModel
+check_coordonates	models/model.py	/^  def check_coordonates(self, coordonates):$/;"	m	class:Model
+check_exit	controllers/person_controller.py	/^  def check_exit(self):$/;"	m	class:HeroController
 columns	test/pygame_demo.py	/^  rows, columns = 0, 0$/;"	v	class:Labyrinth
-conflictual_contact	app/controllers/person_controller.py	/^  def conflictual_contact(self):$/;"	m	class:PersonController
-create_group	app/pygame_engine/game_engine.py	/^  def create_group(self, name):$/;"	m	class:PyGameEngine
-create_walls	app/views/labyrinth_view.py	/^  def create_walls(self):$/;"	m	class:LabyrinthView
-end_game	app/pygame_engine/game_engine.py	/^  def end_game(self):$/;"	m	class:PyGameEngine
-find_exit_position	app/views/labyrinth_view.py	/^  def find_exit_position(self, key, index):$/;"	m	class:LabyrinthView
-get	app/components/labyrinth.py	/^  def get(self):$/;"	m	class:Labyrinth
-get_best_hero_position	app/models/labyrinth_model.py	/^  def get_best_hero_position(self):  # return initial best HHero position$/;"	m	class:LabyrinthModel
-get_coordonates	app/models/object_model.py	/^  def get_coordonates(self, which):$/;"	m	class:ObjectModel
-get_group	app/pygame_engine/game_engine.py	/^  def get_group(self, name):$/;"	m	class:PyGameEngine
-get_guard	app/components/person.py	/^  def get_guard(self):$/;"	m	class:Guard
-get_guard_position	app/models/labyrinth_model.py	/^  def get_guard_position(self):$/;"	m	class:LabyrinthModel
-get_hero	app/components/person.py	/^  def get_hero(self):$/;"	m	class:Hero
-get_hero	app/controllers/person_controller.py	/^  def get_hero(self):$/;"	m	class:PersonController
-get_image	app/models/model.py	/^  def get_image(self):$/;"	m	class:Model
-get_labyrinth_model	app/controllers/person_controller.py	/^  def get_labyrinth_model(self):$/;"	m	class:PersonController
-get_model	app/controllers/labyrinth_controller.py	/^  def get_model(self):$/;"	m	class:LabyrinthController
-get_model	app/models/model.py	/^  def get_model(self):$/;"	m	class:Model
-get_name	app/components/object.py	/^  def get_name(self):$/;"	m	class:Object
-get_name	app/components/person.py	/^  def get_name(self):$/;"	m	class:Person
-get_name	app/models/labyrinth_model.py	/^  def get_name(self):$/;"	m	class:LabyrinthModel
-get_object	app/models/person_model.py	/^  def get_object(self, object):$/;"	m	class:HeroModel
-get_objects	app/models/object_model.py	/^  def get_objects(self):$/;"	m	class:ObjectModel
-get_objects	app/models/person_model.py	/^  def get_objects(self):$/;"	m	class:HeroModel
-get_walls	app/models/labyrinth_model.py	/^  def get_walls(self):$/;"	m	class:LabyrinthModel
+create_group	pygame_engine/game_engine.py	/^  def create_group(self, name):$/;"	m	class:PyGameEngine
+create_walls	views/labyrinth_view.py	/^  def create_walls(self):$/;"	m	class:LabyrinthView
+end_game	pygame_engine/game_engine.py	/^  def end_game(self):$/;"	m	class:PyGameEngine
+find_exit_position	views/labyrinth_view.py	/^  def find_exit_position(self, key, index):$/;"	m	class:LabyrinthView
+generate_random_coordonates	views/object_view.py	/^  def generate_random_coordonates(self):$/;"	m	class:ObjectView
+get_closed_walls	models/labyrinth_model.py	/^  def get_closed_walls(self):$/;"	m	class:LabyrinthModel
+get_coordonates_of_wall	models/labyrinth_model.py	/^  def get_coordonates_of_wall(self, wall):$/;"	m	class:LabyrinthModel
+get_exit_coordonates	models/labyrinth_model.py	/^  def get_exit_coordonates(self):$/;"	m	class:LabyrinthModel
+get_exit_position	models/labyrinth_model.py	/^  def get_exit_position(self):$/;"	m	class:LabyrinthModel
+get_group	pygame_engine/game_engine.py	/^  def get_group(self, name):$/;"	m	class:PyGameEngine
+get_guard	components/person.py	/^  def get_guard(self):$/;"	m	class:Guard
+get_guard	controllers/person_controller.py	/^  def get_guard(self):$/;"	m	class:GuardController
+get_hero	components/person.py	/^  def get_hero(self):$/;"	m	class:Hero
+get_labyrinth_model	controllers/controller.py	/^  def get_labyrinth_model(self):$/;"	m	class:Controller
+get_name	components/person.py	/^  def get_name(self):$/;"	m	class:Person
+get_name	models/labyrinth_model.py	/^  def get_name(self):$/;"	m	class:LabyrinthModel
+get_objects	models/object_model.py	/^  def get_objects(self):$/;"	m	class:ObjectModel
+get_wall	models/labyrinth_model.py	/^  def get_wall(self, coordonates):$/;"	m	class:LabyrinthModel
+get_walls	models/labyrinth_model.py	/^  def get_walls(self):$/;"	m	class:LabyrinthModel
 getbestHeroPosition	test/pygame_demo.py	/^  def getbestHeroPosition():  # return initial best HHero position$/;"	m	class:Labyrinth
-has_wall_at	app/models/labyrinth_model.py	/^  def has_wall_at(self, room_coordonates, edge_position):$/;"	m	class:LabyrinthModel
+guard_collision	controllers/person_controller.py	/^  def guard_collision(self, caller, dx, dy):$/;"	m	class:HeroController
 height	test/pygame_demo.py	/^height = 0$/;"	v
 img	test/pygame_demo.py	/^img = os.path.join("img", sys.argv[3])$/;"	v
-inject_pill	app/models/person_model.py	/^  def inject_pill(self):$/;"	m	class:GuardModel
-is_sleeping	app/models/person_model.py	/^  def is_sleeping(self):$/;"	m	class:GuardModel
-key_pressed	app/controllers/controller.py	/^  def key_pressed(self, person):$/;"	m	class:Controller
-keys_down_events	app/pygame_engine/game_engine.py	/^  def keys_down_events(self):$/;"	m	class:PyGameEngine
-load_map	app/models/labyrinth_model.py	/^  def load_map(self):$/;"	m	class:LabyrinthModel
-manage_collisions	app/controllers/object_controller.py	/^  def manage_collisions(self, caller):$/;"	m	class:ObjectController
-manage_collisions	app/controllers/person_controller.py	/^  def manage_collisions(self, caller, collid_groups, posit):$/;"	m	class:PersonController
+inject_pill	models/person_model.py	/^  def inject_pill(self):$/;"	m	class:GuardModel
+is_sleeping	models/person_model.py	/^  def is_sleeping(self):$/;"	m	class:GuardModel
+key_pressed	controllers/controller.py	/^  def key_pressed(self, person):$/;"	m	class:Controller
+keys_down_events	pygame_engine/game_engine.py	/^  def keys_down_events(self):$/;"	m	class:PyGameEngine
+labyrinth_collision	controllers/person_controller.py	/^  def labyrinth_collision(self, caller, dx, dy):$/;"	m	class:HeroController
+load_map	models/labyrinth_model.py	/^  def load_map(self):$/;"	m	class:LabyrinthModel
+manage_collisions	controllers/collider_controller.py	/^  def manage_collisions(self, caller, *args):$/;"	m	class:Collider
+message	pygame_engine/game_engine.py	/^  def message(self, text, size, color, x=None, y=None):$/;"	m	class:PyGameEngine
 message	test/pygame_demo.py	/^  def message(text):  # can create a message text to read$/;"	f	function:setupPygame	file:
-move	app/components/person.py	/^  def move(self, dx=0, dy=0):$/;"	m	class:Hero
+move	components/person.py	/^  def move(self, dx=0, dy=0):$/;"	m	class:Hero
 move	test/pygame_demo.py	/^  def move(self, dx=0, dy=0):$/;"	m	class:Hero
-opposit_direction	app/models/model.py	/^  def opposit_direction(self, direction):$/;"	m	class:Model
-opposit_side	app/models/model.py	/^  def opposit_side(self, side):$/;"	m	class:Model
-pg	app/components/labyrinth.py	/^import pygame as pg$/;"	I
-pg	app/components/object.py	/^import pygame as pg$/;"	I
-pg	app/components/person.py	/^import pygame as pg$/;"	I
-pg	app/controllers/controller.py	/^import pygame as pg$/;"	I
-pg	app/controllers/object_controller.py	/^import pygame as pg$/;"	I
-pg	app/controllers/person_controller.py	/^import pygame as pg$/;"	I
-pg	app/models/labyrinth_model.py	/^import pygame as pg$/;"	I
-pg	app/pygame_engine/game_engine.py	/^import pygame as pg$/;"	I
+object_collision	controllers/person_controller.py	/^  def object_collision(self, caller, *args):$/;"	m	class:HeroController
+pg	components/labyrinth.py	/^import pygame as pg$/;"	I
+pg	components/object.py	/^import pygame as pg$/;"	I
+pg	components/person.py	/^import pygame as pg$/;"	I
+pg	controllers/collider_controller.py	/^import pygame as pg$/;"	I
+pg	controllers/controller.py	/^import pygame as pg$/;"	I
+pg	controllers/object_controller.py	/^import pygame as pg$/;"	I
+pg	models/labyrinth_model.py	/^import pygame as pg$/;"	I
+pg	pygame_engine/game_engine.py	/^import pygame as pg$/;"	I
 printLabyrinth	test/pygame_demo.py	/^  def printLabyrinth(self):  # create Sprites Walls from bytes cells codes$/;"	m	class:Labyrinth
 readLabyrinth	test/pygame_demo.py	/^  def readLabyrinth():  # load map from file to static var _walls_bytes$/;"	m	class:Labyrinth
 red	test/pygame_demo.py	/^red = (255, 0, 0)$/;"	v
 rows	test/pygame_demo.py	/^  rows, columns = 0, 0$/;"	v	class:Labyrinth
-setCoordonates	app/models/object_model.py	/^  def setCoordonates(self, coordonates, which):$/;"	m	class:ObjectModel
-set_exit_coordonates	app/models/labyrinth_model.py	/^  def set_exit_coordonates(self, row, col):$/;"	m	class:LabyrinthModel
-set_image	app/models/model.py	/^  def set_image(self, img, color):$/;"	m	class:Model
-set_name	app/components/person.py	/^  def set_name(self, name):$/;"	m	class:Person
-set_position	app/components/object.py	/^  def set_position(self, pos):$/;"	m	class:Object
-set_position	app/components/person.py	/^  def set_position(self, pos):$/;"	m	class:Person
-set_positions_objects	app/models/object_model.py	/^  def set_positions_objects(self):$/;"	m	class:ObjectModel
-setting_collisions	app/controllers/object_controller.py	/^  def setting_collisions(self):$/;"	m	class:ObjectController
-setting_collisions	app/controllers/person_controller.py	/^  def setting_collisions(self):$/;"	m	class:PersonController
+set_coordonates	components/object.py	/^  def set_coordonates(self, coordonates):$/;"	m	class:Object
+set_coordonates	components/person.py	/^  def set_coordonates(self, coordonates):$/;"	m	class:Person
+set_exit_coordonates	models/labyrinth_model.py	/^  def set_exit_coordonates(self, row, col):$/;"	m	class:LabyrinthModel
+set_exit_position	models/labyrinth_model.py	/^  def set_exit_position(self, row, col):$/;"	m	class:LabyrinthModel
+set_position	components/object.py	/^  def set_position(self, position):$/;"	m	class:Object
+set_position	components/person.py	/^  def set_position(self, pos):$/;"	m	class:Person
+set_position	models/object_model.py	/^  def set_position(self, coordonates, obj):$/;"	m	class:ObjectModel
+set_position	models/person_model.py	/^  def set_position(self, coordonates):$/;"	m	class:HeroModel
+set_position	models/person_model.py	/^  def set_position(self, position):$/;"	m	class:GuardModel
+setting_collisions	controllers/object_controller.py	/^  def setting_collisions(self):$/;"	m	class:ObjectController
+setting_collisions	controllers/person_controller.py	/^  def setting_collisions(self):$/;"	m	class:HeroController
+setting_collisions_for	controllers/collider_controller.py	/^  def setting_collisions_for(self, target, order,$/;"	m	class:Collider
+setting_position	views/person_view.py	/^  def setting_position(self):$/;"	m	class:GuardView
+setting_position	views/person_view.py	/^  def setting_position(self):$/;"	m	class:HeroView
+setting_positions	views/object_view.py	/^  def setting_positions(self):$/;"	m	class:ObjectView
 setupPygame	test/pygame_demo.py	/^def setupPygame(width, height, image):$/;"	f
-start	app/pygame_engine/game_engine.py	/^  def start(self):$/;"	m	class:PyGameEngine
+start	pygame_engine/game_engine.py	/^  def start(self):$/;"	m	class:PyGameEngine
 thisFilePath	test/pygame_demo.py	/^thisFilePath = os.path.dirname(os.path.abspath(__file__))$/;"	v
-trash_object	app/models/person_model.py	/^  def trash_object(self, one_object):$/;"	m	class:HeroModel
-upadate	app/components/object.py	/^  def upadate(self):$/;"	m	class:Object
-update	app/components/labyrinth.py	/^  def update(self):$/;"	m	class:Wall
-update	app/components/person.py	/^  def update(self):$/;"	m	class:Guard
-update	app/components/person.py	/^  def update(self):$/;"	m	class:Hero
+update	components/labyrinth.py	/^  def update(self):$/;"	m	class:Wall
+update	components/object.py	/^  def update(self):$/;"	m	class:Object
+update	components/person.py	/^  def update(self):$/;"	m	class:Guard
+update	components/person.py	/^  def update(self):$/;"	m	class:Hero
 update	test/pygame_demo.py	/^      def update(self):$/;"	f	member:Labyrinth.Wall.__init__	file:
 update	test/pygame_demo.py	/^  def update(self):$/;"	m	class:Hero
-update_sprites_groups	app/pygame_engine/game_engine.py	/^  def update_sprites_groups(self):$/;"	m	class:PyGameEngine
+update_sprites_groups	pygame_engine/game_engine.py	/^  def update_sprites_groups(self):$/;"	m	class:PyGameEngine
 wallExist	test/pygame_demo.py	/^  def wallExist(wall):    # check for existing same wall in the labyrinth$/;"	m	class:Labyrinth
-wall_clock_wise_position	app/models/labyrinth_model.py	/^  def wall_clock_wise_position(self, room_coordonates):$/;"	m	class:LabyrinthModel
-wall_exist	app/views/labyrinth_view.py	/^  def wall_exist(self, wall):$/;"	m	class:LabyrinthView
-wall_position	app/models/labyrinth_model.py	/^  def wall_position(self, room_coordonates):$/;"	m	class:LabyrinthModel
-wall_positions	app/components/labyrinth.py	/^  def wall_positions(self):$/;"	m	class:Labyrinth
-walls_position	app/components/labyrinth.py	/^  def walls_position(self, room_coordonates):$/;"	m	class:Labyrinth
+wall_exist	views/labyrinth_view.py	/^  def wall_exist(self, wall):$/;"	m	class:LabyrinthView
+wall_positions	components/labyrinth.py	/^  def wall_positions(self):$/;"	m	class:Labyrinth
+walls_position	components/labyrinth.py	/^  def walls_position(self, room_coordonates):$/;"	m	class:Labyrinth
 white	test/pygame_demo.py	/^white = (255, 255, 255)$/;"	v
 width	test/pygame_demo.py	/^width = 0$/;"	v
