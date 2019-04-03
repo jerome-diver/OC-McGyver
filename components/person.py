@@ -28,10 +28,6 @@ class Person:
   def get_name(self):
     return self._name
 
-  def set_name(self, name):
-    self._name = name
-
-
 """
 These Hero and Guerd class are also Sprites pygame class inherited from.
 
@@ -56,7 +52,7 @@ class Hero(Person, Sprite):
   def __init__(self, controller):
     Person.__init__(self, controller, "hero")
     Sprite.__init__(self)
-    self._objects = 0  # nomber of objects found
+    self._objects = 0  # number of objects found
     try:
       self.image = pg.image.load(HERO_FILE).convert()
     except pg.error:

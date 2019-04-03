@@ -29,9 +29,6 @@ class HeroController(Controller, Collider):
                                 self.object_collision,
                                 do_kill=True)
 
-  def get_hero(self):
-    return self._model.get_hero()
-
   def check_exit(self):
     if self._model._pos[0] < ADJ_X or self._model._pos[1] < ADJ_Y:
       en = self._game_engine

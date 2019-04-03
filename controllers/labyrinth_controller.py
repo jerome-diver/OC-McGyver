@@ -13,6 +13,3 @@ class LabyrinthController(Controller):
     super().__init__(game_engine)
     self._model = LabyrinthModel()
     self._view = LabyrinthView(self, self._model, game_engine)
-
-  def get_model(self):
-    return self._model
