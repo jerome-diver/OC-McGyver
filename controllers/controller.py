@@ -15,25 +15,25 @@ class Controller(Washer):
   def key_pressed(self, person):
     key = pg.key.get_pressed()
     if key[pg.K_LEFT]:
-      person.move(dx=-1)
+      person.move(dx=-2)
     if key[pg.K_RIGHT]:
-      person.move(dx=1)
+      person.move(dx=2)
     if key[pg.K_UP]:
-      person.move(dy=-1)
+      person.move(dy=-2)
     if key[pg.K_DOWN]:
-      person.move(dy=1)
+      person.move(dy=2)
     if key[pg.K_LEFT] and \
        (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      person.move(dx=-2)
+      person.move(dx=-4)
     if key[pg.K_RIGHT] and \
        (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      person.move(dx=2)
+      person.move(dx=4)
     if key[pg.K_UP] and \
        (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      person.move(dy=-2)
+      person.move(dy=-4)
     if key[pg.K_DOWN] and \
        (key[pg.K_LSHIFT] or key[pg.K_RSHIFT]):
-      person.move(dy=2)
+      person.move(dy=4)
 
   def get_labyrinth_model(self):
     return self._labyrinth_ctrl._model

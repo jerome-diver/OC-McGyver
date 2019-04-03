@@ -36,3 +36,14 @@ class HeroView(View):
     hero_coordonates = self._model._coordonates
     self._model.set_position(hero_coordonates)
 
+  def show_objects_collected(self, objects):
+    en = self._game_engine
+    text = "Objects list: "
+    y_pos = HEIGHT - 75
+    for i, obj in enumerate(objects):
+      if i != 0:
+        text += ", "
+      text += obj._name
+    en.actions_delayed(tempo=MAX_TIMER_GAME,
+                       action_start=en.message,
+                       sa_args=(text, 24, WHITE, 20, y_pos))

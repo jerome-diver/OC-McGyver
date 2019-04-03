@@ -33,7 +33,7 @@ class PyGameEngine(Washer):
       #self.print_message("press \"q\" for exit the game",
       #                   (0,0), 'topright', 12, WHITE)
       self.keys_down_events()
-      self._clk.tick(50)
+      self._clk.tick(30)
       self._window.fill(BLACK)
       self.update_sprites_groups()
       self.exec_jobs_background()
@@ -91,8 +91,9 @@ class PyGameEngine(Washer):
                       action_end=None, e_args=None):
     new_background_job = {}
     if action_start:
-      new_background_job["start_job"] = { "action": action_start,
-                                          "args": sa_args }
+      new_background_job["start_job"] = { "action": action_start }
+      if sa_args:
+        new_background_job["start_job"]["args"] = sa_args
       new_background_job["time_start"] = int(time.time())
       new_background_job["delay"] = tempo
       if action_end:

@@ -18,6 +18,7 @@ class HeroController(Controller, Collider):
     self._guard_ctrl = guard_ctrl
     self._model = HeroModel(self)
     self._view = HeroView(self, self._model, game_engine)
+    self._view.show_objects_collected([])
 
   def setting_collisions(self):
     self.setting_collisions_for("labyrinth",
@@ -57,7 +58,6 @@ class HeroController(Controller, Collider):
                          action_start=en.message,
                          sa_args=(text, 38, RED),
                          action_end= en.end_game, e_args=None)
-      #self._game_engine.game_over()
 
   def object_collision(self, caller, *args):
     caller.add_object(args[2])
@@ -66,6 +66,7 @@ class HeroController(Controller, Collider):
     en.actions_delayed(tempo=2,
                        action_start=en.message,
                        sa_args=(text, 38, GREEN, None, 0))
+    self._view.show_objects_collected(self._model._objects)
 
 
 class GuardController(Controller):

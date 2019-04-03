@@ -3,19 +3,23 @@ The specific view of the map.
 This load image of map inside the game view
 '''
 
+import time
+
 from components.labyrinth import Wall
-from models.labyrinth_model import LabyrinthModel
 from settings import *
 from views.view import View
 
 
 class LabyrinthView(View):
 
+  start_time = int(time.time())
+
   def __init__(self, controller, model, game_engine):
     super().__init__(controller, model, game_engine)
     self.create_walls()
     self._game_engine.add_sprites_to_group(self._model.get_walls(),
                                            "labyrinth")
+    self.start_timer()
 
   def wall_exist(self, wall):
     if len(self._model._walls) != 0:
@@ -52,3 +56,19 @@ class LabyrinthView(View):
        (key[0] == (self._model._rows_columns[0] - 1) and index == 2) or \
        (key[1] == 0 and index == 3):
       self._model.set_exit_coordonates(key[0], key[1])
+
+  def show_timer(self):
+    timer = MAX_TIMER_GAME - (int(time.time()) -
+                              LabyrinthView.start_time)
+    text = "time left: " + str(timer) + " seconds"
+    y_pos = HEIGHT - 50
+    self._game_engine.message(text, 24, WHITE, 20, y_pos)
+
+  def start_timer(self):
+    en = self._game_engine
+    en.actions_delayed(tempo = MAX_TIMER_GAME,
+                       action_start=self.show_timer,
+                       action_end=en.end_game,
+                       e_args=None)
+
+
