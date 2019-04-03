@@ -9,7 +9,11 @@ class Washer:
 
   def __del__(self):
     if self.__dict__:
-      print("from", self.__class__.__name__)
-      for attr_keys in list(self.__dict__.keys()):
-        print("\t => ", attr_keys, "attributes has been deleted")
+      print(" ==> ", end = '')
+      print("attributes deleted inside",
+            self.__class__.__name__, "[", end = '')
+      for i, attr_keys in enumerate(list(self.__dict__.keys())):
+        print(",", end = '') if i != 0 else print("", end='')
+        print(attr_keys, end = '')
         del(self.__dict__[attr_keys])
+      print("]")

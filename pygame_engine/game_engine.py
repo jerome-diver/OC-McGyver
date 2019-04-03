@@ -22,6 +22,7 @@ class PyGameEngine(Washer):
   def __init__(self):
     self._crashed = False
     self._sprites_groups = []
+    self._background_jobs = []
     pg.init()
     self._window = pg.display.set_mode((WIDTH, HEIGHT))
     pg.display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
@@ -35,6 +36,7 @@ class PyGameEngine(Washer):
       self._clk.tick(50)
       self._window.fill(BLACK)
       self.update_sprites_groups()
+      self.exec_jobs_background()
       pg.display.flip()
     pg.quit()
 
@@ -90,12 +92,40 @@ class PyGameEngine(Washer):
   def actions_delayed(self,tempo,
                       action_start=None, sa_args=None,
                       action_end=None, e_args=None):
+    new_background_job = {}
     if action_start:
-      action_start(*sa_args) if sa_args else action_start()
-      pg.display.update()
-    time.sleep(tempo)
-    if action_end:
-      action_end(*e_args) if e_args else action_end()
+      new_background_job["start_job"] = { "action": action_start,
+                                          "args": sa_args }
+      new_background_job["time_start"] = int(time.time())
+      new_background_job["delay"] = tempo
+      #action_start(*sa_args) if sa_args else action_start()
+      #pg.display.update()
+      if action_end:
+  #    action_end(*e_args) if e_args else action_end()
+        new_background_job["end_job"] = {"action": action_end }
+        if e_args:
+          new_background_job["end_job"]["args"] = e_args
+      self._background_jobs.append(new_background_job)
+
+  def exec_jobs_background(self):
+    finished_jobs = []
+    if self._background_jobs:
+      for index, job in enumerate(self._background_jobs):
+        if "args" in job["start_job"]:
+          job["start_job"]["action"](*job["start_job"]["args"])
+        else:
+          job["start_job"]["action"]()
+        now = int(time.time())
+        if job["delay"] <= now - job["time_start"]:
+          finished_jobs.append(index)
+          if "end_job" in job:
+            if "args" in job["end_job"]:
+              job["end_job"]["action"](*job["end_job"]["args"])
+            else:
+              job["end_job"]["action"]()
+        pg.display.update()
+      for job_to_remove in finished_jobs:
+        del self._background_jobs[job_to_remove]
 
   def end_game(self):
      self._crashed = True
