@@ -10,8 +10,8 @@ ADJ_Y	settings.py	/^ADJ_Y = int(HEIGHT - LABYRINTH_HEIGHT) \/ 2$/;"	v
 BLACK	settings.py	/^BLACK = (0, 0, 0)$/;"	v
 BLUE	settings.py	/^BLUE = (0, 0, 255)$/;"	v
 CWD	settings.py	/^CWD = os.path.dirname(os.path.abspath(__file__))$/;"	v
-Collider	controllers/collider_controller.py	/^class Collider():$/;"	c
-Controller	controllers/controller.py	/^class Controller:$/;"	c
+Collider	controllers/collider_controller.py	/^class Collider(Washer):$/;"	c
+Controller	controllers/controller.py	/^class Controller(Washer):$/;"	c
 DILUENT_FILE	settings.py	/^DILUENT_FILE = os.path.join(CWD, "img\/ether modified.png")$/;"	v
 GREEN	settings.py	/^GREEN = (0, 255, 0)$/;"	v
 GUARD_FILE	settings.py	/^GUARD_FILE = os.path.join(CWD, "img\/guard.png")$/;"	v
@@ -26,40 +26,43 @@ Hero	test/pygame_demo.py	/^class Hero(pygame.sprite.Sprite):$/;"	c
 HeroController	controllers/person_controller.py	/^class HeroController(Controller, Collider):$/;"	c
 HeroModel	models/person_model.py	/^class HeroModel(Hero, Model):$/;"	c
 HeroView	views/person_view.py	/^class HeroView(View):$/;"	c
+JINGLE_FILE	settings.py	/^JINGLE_FILE = os.path.join(CWD, 'music\/Mac Gyver theme.mp3')$/;"	v
 LABYRINTH_FILE	settings.py	/^LABYRINTH_FILE = os.path.join(CWD, "map\/map.txt")$/;"	v
 LABYRINTH_HEIGHT	settings.py	/^LABYRINTH_HEIGHT = 600$/;"	v
-LABYRINTH_WALL_COLOR	settings.py	/^LABYRINTH_WALL_COLOR = (70, 240, 50)$/;"	v
+LABYRINTH_WALL_COLOR	settings.py	/^LABYRINTH_WALL_COLOR = (14, 249, 195)$/;"	v
 LABYRINTH_WIDTH	settings.py	/^LABYRINTH_WIDTH = 600$/;"	v
 Labyrinth	components/labyrinth.py	/^class Labyrinth:$/;"	c
 Labyrinth	test/pygame_demo.py	/^class Labyrinth(pygame.sprite.Sprite):$/;"	c
 LabyrinthController	controllers/labyrinth_controller.py	/^class LabyrinthController(Controller):$/;"	c
 LabyrinthModel	models/labyrinth_model.py	/^class LabyrinthModel(Labyrinth, Model):$/;"	c
 LabyrinthView	views/labyrinth_view.py	/^class LabyrinthView(View):$/;"	c
+MAX_TIMER_GAME	settings.py	/^MAX_TIMER_GAME = 120                   #  in seconds$/;"	v
 Main	mac_gyver.py	/^def Main():$/;"	f
-Model	models/model.py	/^class Model():$/;"	c
+Model	models/model.py	/^class Model(Washer):$/;"	c
 NEEDLE_FILE	settings.py	/^NEEDLE_FILE = os.path.join(CWD, "img\/seringue modified.png")$/;"	v
 OC-McGyver	README.md	/^# OC-McGyver$/;"	c
+ORANGE	settings.py	/^ORANGE = (249, 112, 14)$/;"	v
 Object	components/object.py	/^class Object(Sprite):$/;"	c
 ObjectController	controllers/object_controller.py	/^class ObjectController(Controller):$/;"	c
 ObjectModel	models/object_model.py	/^class ObjectModel(Model):$/;"	c
 ObjectView	views/object_view.py	/^class ObjectView(View):$/;"	c
 PILL_FILE	settings.py	/^PILL_FILE = os.path.join(CWD, "img\/magic powder modified.png")$/;"	v
 Person	components/person.py	/^class Person:$/;"	c
-PyGameEngine	pygame_engine/game_engine.py	/^class PyGameEngine():$/;"	c
+PyGameEngine	pygame_engine/game_engine.py	/^class PyGameEngine(Washer):$/;"	c
 RED	settings.py	/^RED = (255, 0, 0)$/;"	v
-SpritesGroupNamed	pygame_engine/game_engine.py	/^class SpritesGroupNamed(Group):$/;"	c
+SpritesGroupNamed	pygame_engine/game_engine.py	/^class SpritesGroupNamed(Group, Washer):$/;"	c
 The code	README.md	/^## The code$/;"	s
 The game story	README.md	/^## The game story$/;"	s
 The game's Python version and libraries used	README.md	/^## The game's Python version and libraries used$/;"	s
 The game's type	README.md	/^### The game's type$/;"	S
-View	views/view.py	/^class View():$/;"	c
+View	views/view.py	/^class View(Washer):$/;"	c
 WHITE	settings.py	/^WHITE = (255, 255, 255)$/;"	v
 WIDTH	settings.py	/^WIDTH = 800$/;"	v
 Wall	components/labyrinth.py	/^class Wall(Sprite):  # wall is a part view of a byte cell from Labyrinth()$/;"	c
 Wall	test/pygame_demo.py	/^  class Wall(pygame.sprite.Sprite):$/;"	c	class:Labyrinth
-__del__	components/labyrinth.py	/^  def __del__(self):$/;"	m	class:Labyrinth
+Washer	washer.py	/^class Washer:$/;"	c
 __del__	components/labyrinth.py	/^  def __del__(self):$/;"	m	class:Wall
-__del__	pygame_engine/game_engine.py	/^  def __del__(self):$/;"	m	class:PyGameEngine
+__del__	washer.py	/^  def __del__(self):$/;"	m	class:Washer
 __init__	components/labyrinth.py	/^  def __init__(self):$/;"	m	class:Labyrinth
 __init__	components/labyrinth.py	/^  def __init__(self, idd, adj):$/;"	m	class:Wall
 __init__	components/object.py	/^  def __init__(self, name):$/;"	m	class:Object
@@ -98,7 +101,7 @@ _walls_S	components/labyrinth.py	/^  _walls_S = (b'\\x03', b'\\x07', b'\\x09', b
 _walls_W	components/labyrinth.py	/^  _walls_W = (b'\\x02', b'\\x05', b'\\x08', b'\\x09',$/;"	v	class:Labyrinth
 _walls_bytes	test/pygame_demo.py	/^  _walls_bytes = {}  # { (row, col): byte }$/;"	v	class:Labyrinth
 actions_delayed	pygame_engine/game_engine.py	/^  def actions_delayed(self,tempo,$/;"	m	class:PyGameEngine
-add_object	components/person.py	/^  def add_object(self):$/;"	m	class:Hero
+add_object	components/person.py	/^  def add_object(self, obj):$/;"	m	class:Hero
 add_sprites_to_group	pygame_engine/game_engine.py	/^  def add_sprites_to_group(self, sprites, group_name):$/;"	m	class:PyGameEngine
 adjX	test/pygame_demo.py	/^  adjX = (width - 600) \/ 2$/;"	v	class:Labyrinth
 adjY	test/pygame_demo.py	/^  adjY = (height - 600) \/ 2$/;"	v	class:Labyrinth
@@ -113,6 +116,7 @@ columns	test/pygame_demo.py	/^  rows, columns = 0, 0$/;"	v	class:Labyrinth
 create_group	pygame_engine/game_engine.py	/^  def create_group(self, name):$/;"	m	class:PyGameEngine
 create_walls	views/labyrinth_view.py	/^  def create_walls(self):$/;"	m	class:LabyrinthView
 end_game	pygame_engine/game_engine.py	/^  def end_game(self):$/;"	m	class:PyGameEngine
+exec_jobs_background	pygame_engine/game_engine.py	/^  def exec_jobs_background(self):$/;"	m	class:PyGameEngine
 find_exit_position	views/labyrinth_view.py	/^  def find_exit_position(self, key, index):$/;"	m	class:LabyrinthView
 generate_random_coordonates	views/object_view.py	/^  def generate_random_coordonates(self):$/;"	m	class:ObjectView
 get_closed_walls	models/labyrinth_model.py	/^  def get_closed_walls(self):$/;"	m	class:LabyrinthModel
@@ -130,7 +134,7 @@ get_objects	models/object_model.py	/^  def get_objects(self):$/;"	m	class:Object
 get_wall	models/labyrinth_model.py	/^  def get_wall(self, coordonates):$/;"	m	class:LabyrinthModel
 get_walls	models/labyrinth_model.py	/^  def get_walls(self):$/;"	m	class:LabyrinthModel
 getbestHeroPosition	test/pygame_demo.py	/^  def getbestHeroPosition():  # return initial best HHero position$/;"	m	class:Labyrinth
-guard_collision	controllers/person_controller.py	/^  def guard_collision(self, caller, dx, dy):$/;"	m	class:HeroController
+guard_collision	controllers/person_controller.py	/^  def guard_collision(self, caller, dx, dy, sprite):$/;"	m	class:HeroController
 height	test/pygame_demo.py	/^height = 0$/;"	v
 img	test/pygame_demo.py	/^img = os.path.join("img", sys.argv[3])$/;"	v
 inject_pill	models/person_model.py	/^  def inject_pill(self):$/;"	m	class:GuardModel
@@ -153,6 +157,7 @@ pg	controllers/controller.py	/^import pygame as pg$/;"	I
 pg	controllers/object_controller.py	/^import pygame as pg$/;"	I
 pg	models/labyrinth_model.py	/^import pygame as pg$/;"	I
 pg	pygame_engine/game_engine.py	/^import pygame as pg$/;"	I
+play_jingle	pygame_engine/game_engine.py	/^  def play_jingle(self):$/;"	m	class:PyGameEngine
 printLabyrinth	test/pygame_demo.py	/^  def printLabyrinth(self):  # create Sprites Walls from bytes cells codes$/;"	m	class:Labyrinth
 readLabyrinth	test/pygame_demo.py	/^  def readLabyrinth():  # load map from file to static var _walls_bytes$/;"	m	class:Labyrinth
 red	test/pygame_demo.py	/^red = (255, 0, 0)$/;"	v
@@ -173,7 +178,11 @@ setting_position	views/person_view.py	/^  def setting_position(self):$/;"	m	clas
 setting_position	views/person_view.py	/^  def setting_position(self):$/;"	m	class:HeroView
 setting_positions	views/object_view.py	/^  def setting_positions(self):$/;"	m	class:ObjectView
 setupPygame	test/pygame_demo.py	/^def setupPygame(width, height, image):$/;"	f
+show_objects_collected	views/person_view.py	/^  def show_objects_collected(self, objects):$/;"	m	class:HeroView
+show_timer	views/labyrinth_view.py	/^  def show_timer(self):$/;"	m	class:LabyrinthView
 start	pygame_engine/game_engine.py	/^  def start(self):$/;"	m	class:PyGameEngine
+start_time	views/labyrinth_view.py	/^  start_time = int(time.time())$/;"	v	class:LabyrinthView
+start_timer	views/labyrinth_view.py	/^  def start_timer(self):$/;"	m	class:LabyrinthView
 thisFilePath	test/pygame_demo.py	/^thisFilePath = os.path.dirname(os.path.abspath(__file__))$/;"	v
 update	components/labyrinth.py	/^  def update(self):$/;"	m	class:Wall
 update	components/object.py	/^  def update(self):$/;"	m	class:Object
