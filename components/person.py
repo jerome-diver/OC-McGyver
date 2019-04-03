@@ -52,7 +52,7 @@ class Hero(Person, Sprite):
   def __init__(self, controller):
     Person.__init__(self, controller, "hero")
     Sprite.__init__(self)
-    self._objects = 0  # number of objects found
+    self._objects = []  # list of objects found
     try:
       self.image = pg.image.load(HERO_FILE).convert()
     except pg.error:
@@ -75,10 +75,9 @@ class Hero(Person, Sprite):
   def get_hero(self):
     return self
 
-  def add_object(self):
-    if self._objects < 3:
-      self._objects += 1
-      print("added one object, hero has:", self._objects, "objects")
+  def add_object(self, obj):
+    if len(self._objects) < 3:
+      self._objects.append(obj)
 
 class Guard(Person, Sprite):
 

@@ -43,6 +43,7 @@ class Wall(Sprite):  # wall is a part view of a byte cell from Labyrinth()
     Wall._numbers += 1
     self.row, self.col, side = idd
     self.adjust = adj
+    self._name = "Wall"
     self.image = pg.Surface((45, 5)) if side in ["top", "bottom"] \
         else pg.Surface((5, 45))
     self.image.fill(LABYRINTH_WALL_COLOR)

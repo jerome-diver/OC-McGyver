@@ -42,7 +42,7 @@ class HeroController(Controller, Collider):
     pos = (caller._pos[0] + dx, caller._pos[1] + dy)
     caller._pos = pos
 
-  def guard_collision(self, caller, dx, dy):
+  def guard_collision(self, caller, dx, dy, sprite):
     hero = self._model
     guard = self._guard_ctrl._model
     if hero.can_make_sleeping():
@@ -60,9 +60,9 @@ class HeroController(Controller, Collider):
       #self._game_engine.game_over()
 
   def object_collision(self, caller, *args):
-    caller.add_object()
+    caller.add_object(args[2])
     en = self._game_engine
-    text = "Yeh... you get an other one object"
+    text = "Yeh... you get an other the " + args[2]._name
     en.actions_delayed(tempo=2,
                        action_start=en.message,
                        sa_args=(text, 38, GREEN, None, 0))

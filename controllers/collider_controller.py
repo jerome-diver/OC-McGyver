@@ -36,7 +36,8 @@ class Collider(Washer):
       collisions = pg.sprite.spritecollide(caller, group, do_kill)
       if if_collid:
         if len(collisions) != 0:
-          self._collided_groups_actions[group][0](caller, *args)
+          self._collided_groups_actions[group][0](caller, *args,
+                                                  collisions[0])
       else:
         if len(collisions) == 0:
           self._collided_groups_actions[group][0](caller, *args)

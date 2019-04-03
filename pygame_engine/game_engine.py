@@ -83,9 +83,6 @@ class PyGameEngine(Washer):
         x = int((WIDTH - font.size(l)[0]) / 2)
       if not y_arg:
         y = int((HEIGHT - font.size(text)[1]) / 2)
-      print ("text position:\n\tindex:", i,
-             "\n\tline:", l,
-             "\n\tsize: x =", x, "| y =", y)
       self._window.blit(font.render(l, 0, color),
                         (x, y - font.get_linesize() * i))
 
@@ -98,10 +95,7 @@ class PyGameEngine(Washer):
                                           "args": sa_args }
       new_background_job["time_start"] = int(time.time())
       new_background_job["delay"] = tempo
-      #action_start(*sa_args) if sa_args else action_start()
-      #pg.display.update()
       if action_end:
-  #    action_end(*e_args) if e_args else action_end()
         new_background_job["end_job"] = {"action": action_end }
         if e_args:
           new_background_job["end_job"]["args"] = e_args

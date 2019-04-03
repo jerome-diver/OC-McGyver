@@ -42,7 +42,7 @@ class HeroModel(Hero, Model):
     self.set_coordonates(hero_coordonates)
 
   def can_make_sleeping(self):
-    return self._objects == 3
+    return len(self._objects) == 3
 
   def set_position(self, coordonates):
     pos = (int(coordonates[0] * 40 + ADJ_X + 8),
