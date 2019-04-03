@@ -154,8 +154,6 @@ class PyGameEngine(Washer):
               job["end_job"]["action"](*job["end_job"]["args"])
             else:
               job["end_job"]["action"]()
-        # sometimes job is about to print something...
-        pg.display.update()
       # test because we don't want crash at end_game
       if self._background_jobs:
         # delete the finished jobs in the list

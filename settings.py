@@ -7,6 +7,7 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
+ORANGE = (249, 112, 14)
 CWD = os.path.dirname(os.path.abspath(__file__))
 LABYRINTH_FILE = os.path.join(CWD, "map/map.txt")
 HERO_FILE = os.path.join(CWD, "img/MacGyver.png")
@@ -16,7 +17,7 @@ DILUENT_FILE = os.path.join(CWD, "img/ether modified.png")
 NEEDLE_FILE = os.path.join(CWD, "img/seringue modified.png")
 LABYRINTH_WIDTH = 600
 LABYRINTH_HEIGHT = 600
-LABYRINTH_WALL_COLOR = (70, 240, 50)
+LABYRINTH_WALL_COLOR = (14, 249, 195)
 MAX_TIMER_GAME = 120                   #  in seconds
 JINGLE_FILE = os.path.join(CWD, 'music/Mac Gyver theme.mp3')
 
