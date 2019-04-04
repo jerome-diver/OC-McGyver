@@ -18,7 +18,7 @@ class GuardView(View):
     self.setting_position()
 
   def setting_position(self):
-    labyrinth_model = self._controller.get_labyrinth_model()
+    labyrinth_model = self._controller._model
     exit_position = labyrinth_model.get_exit_position()
     guard_position = (exit_position[0] + 8, exit_position[1])
     self._model.set_position(guard_position)
