@@ -24,6 +24,8 @@ class PyGameEngine(Washer):
     self._crashed = False       # to finish the pygame loop
     self._sprites_groups = []   # list of Sprites (to show)
     self._background_jobs = []  # list of job to run in background
+    pg.mixer.init()
+    self.volume = pg.mixer.music.get_volume()
     pg.init()
     self._window = pg.display.set_mode((WIDTH, HEIGHT))
     pg.display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
@@ -55,6 +57,8 @@ class PyGameEngine(Washer):
         if ev.key == pg.K_q:
           print("bye bye, see you soon !")
           self._crashed = True
+        if ev.key == pg.K_s:
+          self.toggle_jingle_volume()
       if ev.type == pg.QUIT:
         self._crashed = True
 
@@ -162,9 +166,16 @@ class PyGameEngine(Washer):
 
   # play the jingle music
   def play_jingle(self):
-    pg.mixer.init()
     pg.mixer.music.load(JINGLE_FILE)
     pg.mixer.music.play()
+    pg.mixer.music.set_volume(self.volume)
+
+  def toggle_jingle_volume(self):
+    volume = pg.mixer.music.get_volume()
+    if volume == 0:
+      pg.mixer.music.set_volume(self.volume)
+    else:
+      pg.mixer.music.set_volume(0)
 
   def end_game(self):
      self._crashed = True
