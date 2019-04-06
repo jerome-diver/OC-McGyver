@@ -20,5 +20,5 @@ projet 3 for OpenClassRooms Python path
 
 ## The game's Python version and libraries used
 
-   The code in Python 3.7 use pygame library (check for virtualenv files
+   The code in Python 3.7 use pygame library (check for virtualenv requirements.txt or Pipe files
    please)

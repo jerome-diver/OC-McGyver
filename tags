@@ -15,13 +15,13 @@ Controller	controllers/controller.py	/^class Controller(Washer):$/;"	c
 DILUENT_FILE	settings.py	/^DILUENT_FILE = os.path.join(CWD, "img\/ether modified.png")$/;"	v
 GREEN	settings.py	/^GREEN = (0, 255, 0)$/;"	v
 GUARD_FILE	settings.py	/^GUARD_FILE = os.path.join(CWD, "img\/guard.png")$/;"	v
-Guard	components/person.py	/^class Guard(Person, Sprite):$/;"	c
+Guard	components/person.py	/^class Guard(Person):$/;"	c
 GuardController	controllers/person_controller.py	/^class GuardController(Controller):$/;"	c
 GuardModel	models/person_model.py	/^class GuardModel(Guard, Model):$/;"	c
 GuardView	views/person_view.py	/^class GuardView(View):$/;"	c
 HEIGHT	settings.py	/^HEIGHT = 800$/;"	v
 HERO_FILE	settings.py	/^HERO_FILE = os.path.join(CWD, "img\/MacGyver.png")$/;"	v
-Hero	components/person.py	/^class Hero(Person, Sprite):$/;"	c
+Hero	components/person.py	/^class Hero(Person):$/;"	c
 Hero	test/pygame_demo.py	/^class Hero(pygame.sprite.Sprite):$/;"	c
 HeroController	controllers/person_controller.py	/^class HeroController(Controller, Collider):$/;"	c
 HeroModel	models/person_model.py	/^class HeroModel(Hero, Model):$/;"	c
@@ -47,7 +47,7 @@ ObjectController	controllers/object_controller.py	/^class ObjectController(Contr
 ObjectModel	models/object_model.py	/^class ObjectModel(Model):$/;"	c
 ObjectView	views/object_view.py	/^class ObjectView(View):$/;"	c
 PILL_FILE	settings.py	/^PILL_FILE = os.path.join(CWD, "img\/magic powder modified.png")$/;"	v
-Person	components/person.py	/^class Person:$/;"	c
+Person	components/person.py	/^class Person(Sprite):$/;"	c
 PyGameEngine	pygame_engine/game_engine.py	/^class PyGameEngine(Washer):$/;"	c
 RED	settings.py	/^RED = (255, 0, 0)$/;"	v
 SpritesGroupNamed	pygame_engine/game_engine.py	/^class SpritesGroupNamed(Group, Washer):$/;"	c
@@ -95,10 +95,6 @@ _numbers	components/labyrinth.py	/^  _numbers = 0$/;"	v	class:Wall
 _removed	components/labyrinth.py	/^  _removed = 0$/;"	v	class:Wall
 _sides	models/model.py	/^  _sides = ("top", "right", "bottom", "left")$/;"	v	class:Model
 _walls	test/pygame_demo.py	/^  _walls = {}       # { (row, col, side): Labyrinth.Wall }$/;"	v	class:Labyrinth
-_walls_E	components/labyrinth.py	/^  _walls_E = (b'\\x04', b'\\x06', b'\\x08', b'\\x0a',$/;"	v	class:Labyrinth
-_walls_N	components/labyrinth.py	/^  _walls_N = (b'\\x01', b'\\x05', b'\\x06', b'\\x07',$/;"	v	class:Labyrinth
-_walls_S	components/labyrinth.py	/^  _walls_S = (b'\\x03', b'\\x07', b'\\x09', b'\\x0a',$/;"	v	class:Labyrinth
-_walls_W	components/labyrinth.py	/^  _walls_W = (b'\\x02', b'\\x05', b'\\x08', b'\\x09',$/;"	v	class:Labyrinth
 _walls_bytes	test/pygame_demo.py	/^  _walls_bytes = {}  # { (row, col): byte }$/;"	v	class:Labyrinth
 actions_delayed	pygame_engine/game_engine.py	/^  def actions_delayed(self,tempo,$/;"	m	class:PyGameEngine
 add_object	components/person.py	/^  def add_object(self, obj):$/;"	m	class:Hero
@@ -127,7 +123,6 @@ get_group	pygame_engine/game_engine.py	/^  def get_group(self, name):$/;"	m	clas
 get_guard	components/person.py	/^  def get_guard(self):$/;"	m	class:Guard
 get_guard	controllers/person_controller.py	/^  def get_guard(self):$/;"	m	class:GuardController
 get_hero	components/person.py	/^  def get_hero(self):$/;"	m	class:Hero
-get_labyrinth_model	controllers/controller.py	/^  def get_labyrinth_model(self):$/;"	m	class:Controller
 get_name	components/person.py	/^  def get_name(self):$/;"	m	class:Person
 get_name	models/labyrinth_model.py	/^  def get_name(self):$/;"	m	class:LabyrinthModel
 get_objects	models/object_model.py	/^  def get_objects(self):$/;"	m	class:ObjectModel
@@ -194,6 +189,5 @@ update_sprites_groups	pygame_engine/game_engine.py	/^  def update_sprites_groups
 wallExist	test/pygame_demo.py	/^  def wallExist(wall):    # check for existing same wall in the labyrinth$/;"	m	class:Labyrinth
 wall_exist	views/labyrinth_view.py	/^  def wall_exist(self, wall):$/;"	m	class:LabyrinthView
 wall_positions	components/labyrinth.py	/^  def wall_positions(self):$/;"	m	class:Labyrinth
-walls_position	components/labyrinth.py	/^  def walls_position(self, room_coordonates):$/;"	m	class:Labyrinth
 white	test/pygame_demo.py	/^white = (255, 255, 255)$/;"	v
 width	test/pygame_demo.py	/^width = 0$/;"	v
