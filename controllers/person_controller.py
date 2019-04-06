@@ -31,7 +31,10 @@ class HeroController(Controller, Collider):
                                 do_kill=True)
 
   def check_exit(self):
-    if self._model._pos[0] < ADJ_X or self._model._pos[1] < ADJ_Y:
+    guard = self._guard_ctrl._model
+    if self._model._pos[0] < ADJ_X or \
+       self._model._pos[1] < ADJ_Y and \
+       guard.is_sleeping():
       en = self._game_engine
       text = "You win !\n\nMac Gyver can go back home now...\n\nBye bye..."
       en.actions_delayed(tempo=5,

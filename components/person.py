@@ -12,9 +12,10 @@ from settings import *
 
 
 # common attributes and methods for Guard and Hero
-class Person:
+class Person(Sprite):
 
   def __init__(self, controller, name):
+    super().__init__()
     self._controller = controller
     self._name = name
     self._pos = None          # screen position in pixels (x,y)
@@ -48,11 +49,10 @@ collid with by the Collider class
 """
 
 
-class Hero(Person, Sprite):
+class Hero(Person):
 
   def __init__(self, controller):
-    Person.__init__(self, controller, "hero")
-    Sprite.__init__(self)
+    super().__init__(controller, "hero")
     self._objects = []  # list of objects found
     try:
       self.image = pg.image.load(HERO_FILE).convert()
@@ -80,11 +80,10 @@ class Hero(Person, Sprite):
     if len(self._objects) < 3:
       self._objects.append(obj)
 
-class Guard(Person, Sprite):
+class Guard(Person):
 
   def __init__(self, controller):
-    Person.__init__(self, controller, "guard")
-    Sprite.__init__(self)
+    super().__init__(controller, "guard")
     try:
       self.image = pg.image.load(GUARD_FILE).convert()
     except pg.error:
