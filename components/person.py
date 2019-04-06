@@ -12,6 +12,7 @@ from settings import *
 
 
 # common attributes and methods for Guard and Hero
+# inherite from pygame.sprite.Sprite
 class Person(Sprite):
 
   def __init__(self, controller, name):
@@ -31,7 +32,8 @@ class Person(Sprite):
     return self._name
 
 """
-These Hero and Guerd class are also Sprites pygame class inherited from.
+These Hero and Guerd class are also Sprites pygame class 
+inherited from Person.
 
 A Sprite is a container who handle the view
 and must have minimum 2 attributs:
@@ -43,9 +45,10 @@ The pygame idea is to create a surface
 then you can put this sprite inside a sprite-group
 for handle events collisions or what ever it will happen in the game
 
-These Guard and Hero class for example, who are also Person and Collider,
+These Guard and Hero class for example, who are also Person,
 can move and can react to collisions events and store groups they can 
-collid with by the Collider class
+collid with by the Collider class who is linked with 
+there own controllers
 """
 
 

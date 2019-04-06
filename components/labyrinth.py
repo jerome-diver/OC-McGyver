@@ -14,23 +14,11 @@ from settings import *
 
 class Labyrinth:
 
-  _walls_N = (b'\x01', b'\x05', b'\x06', b'\x07',
-              b'\x0b', b'\x0c', b'\x0e', b'\x0f')
-  _walls_W = (b'\x02', b'\x05', b'\x08', b'\x09',
-              b'\x0b', b'\x0c', b'\x0d', b'\x0f')
-  _walls_S = (b'\x03', b'\x07', b'\x09', b'\x0a',
-              b'\x0c', b'\x0d', b'\x0e', b'\x0f')
-  _walls_E = (b'\x04', b'\x06', b'\x08', b'\x0a',
-              b'\x0b', b'\x0d', b'\x0e', b'\x0f')
-
   def __init__(self):
     self._walls_bytes = {}    # { (row,column): byte }
 
   def wall_positions(self):
     return self._walls_bytes
-
-  def walls_position(self, room_coordonates):
-    return self._walls_bytes[room_coordonates]
 
 
 class Wall(Sprite):  # wall is a part view of a byte cell from Labyrinth()
