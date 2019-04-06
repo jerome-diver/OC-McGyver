@@ -19,9 +19,9 @@ class ObjectController(Controller):
     self._guard_ctrl = guard_ctrl
     self._model = ObjectModel()
     self._view = ObjectView(self, self._model, game_engine)
-    # this one know the hero instance, because ObjectController insatnce was
+    # this one know the hero instance, because ObjectController instance was
     # create after the HeroControlleur instance... that is why he call him
-    # for explain it will collid with him probably.
+    # for explain it will collide with him probably.
     self.setting_collisions()
 
   # set hero

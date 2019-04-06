@@ -19,7 +19,6 @@ class Collider(Washer):
   # the controller
   def can_collid_with(self, group):
     self._collided_groups_actions[group] = None
-    print("can collid with:", group, "of name:", group._name)
 
   def setting_collisions_for(self, target, order,
                              do_kill=False, if_collid=True):
