@@ -66,9 +66,17 @@ class LabyrinthView(View):
   def show_timer(self):
     timer = MAX_TIMER_GAME - (int(time.time()) -
                               LabyrinthView.start_time)
-    text = "time left: " + str(timer) + " seconds"
+    text = "Remaining time:  " + str(timer) + " seconds"
     y_pos = HEIGHT - 50
     self._game_engine.message(text, 24, WHITE, 20, y_pos)
+
+  def time_out(self):
+    en = self._game_engine
+    text = "Time is over !\nYou loose."
+    en.actions_delayed(tempo=2,
+                      action_start=en.message,
+                      sa_args=(text, 38, RED),
+                      action_end=en.end_game)
 
   # send the timer rint to background action as long as
   # the game as the timer max time is define
@@ -76,7 +84,6 @@ class LabyrinthView(View):
     en = self._game_engine
     en.actions_delayed(tempo = MAX_TIMER_GAME,
                        action_start=self.show_timer,
-                       action_end=en.end_game,
-                       e_args=None)
+                       action_end=self.time_out)
 
 

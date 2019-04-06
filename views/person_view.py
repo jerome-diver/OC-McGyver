@@ -38,7 +38,7 @@ class HeroView(View):
 
   def show_objects_collected(self, objects):
     en = self._game_engine
-    text = "Objects list: "
+    text = "Objects list:          "
     y_pos = HEIGHT - 75
     for i, obj in enumerate(objects):
       if i != 0:
