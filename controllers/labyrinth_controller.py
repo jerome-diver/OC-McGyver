@@ -13,3 +13,4 @@ class LabyrinthController(Controller):
     super().__init__(game_engine)
     self._model = LabyrinthModel()
     self._view = LabyrinthView(self, self._model, game_engine)
+    self._game_engine.play_jingle()          # let's play the Mac-Gyver free jingle

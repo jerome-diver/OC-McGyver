@@ -1,4 +1,5 @@
 *.ipynb*
 .ipynb_checkpoints
+*.cprof
 __pycache__
 .idea

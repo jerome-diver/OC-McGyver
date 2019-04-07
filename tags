@@ -9,6 +9,7 @@ ADJ_X	settings.py	/^ADJ_X = int(WIDTH - LABYRINTH_WIDTH) \/ 2$/;"	v
 ADJ_Y	settings.py	/^ADJ_Y = int(HEIGHT - LABYRINTH_HEIGHT) \/ 2$/;"	v
 BLACK	settings.py	/^BLACK = (0, 0, 0)$/;"	v
 BLUE	settings.py	/^BLUE = (0, 0, 255)$/;"	v
+CLK	settings.py	/^CLK = 50    # game clock speed (try between 30 and 120)$/;"	v
 CWD	settings.py	/^CWD = os.path.dirname(os.path.abspath(__file__))$/;"	v
 Collider	controllers/collider_controller.py	/^class Collider(Washer):$/;"	c
 Controller	controllers/controller.py	/^class Controller(Washer):$/;"	c
@@ -173,12 +174,15 @@ setting_position	views/person_view.py	/^  def setting_position(self):$/;"	m	clas
 setting_position	views/person_view.py	/^  def setting_position(self):$/;"	m	class:HeroView
 setting_positions	views/object_view.py	/^  def setting_positions(self):$/;"	m	class:ObjectView
 setupPygame	test/pygame_demo.py	/^def setupPygame(width, height, image):$/;"	f
+show_key_bindings	views/labyrinth_view.py	/^  def show_key_bindings(self):$/;"	m	class:LabyrinthView
 show_objects_collected	views/person_view.py	/^  def show_objects_collected(self, objects):$/;"	m	class:HeroView
 show_timer	views/labyrinth_view.py	/^  def show_timer(self):$/;"	m	class:LabyrinthView
 start	pygame_engine/game_engine.py	/^  def start(self):$/;"	m	class:PyGameEngine
 start_time	views/labyrinth_view.py	/^  start_time = int(time.time())$/;"	v	class:LabyrinthView
 start_timer	views/labyrinth_view.py	/^  def start_timer(self):$/;"	m	class:LabyrinthView
 thisFilePath	test/pygame_demo.py	/^thisFilePath = os.path.dirname(os.path.abspath(__file__))$/;"	v
+time_out	views/labyrinth_view.py	/^  def time_out(self):$/;"	m	class:LabyrinthView
+toggle_jingle_volume	pygame_engine/game_engine.py	/^  def toggle_jingle_volume(self):$/;"	m	class:PyGameEngine
 update	components/labyrinth.py	/^  def update(self):$/;"	m	class:Wall
 update	components/object.py	/^  def update(self):$/;"	m	class:Object
 update	components/person.py	/^  def update(self):$/;"	m	class:Guard

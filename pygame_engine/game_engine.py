@@ -2,9 +2,9 @@
 pg engine shoudl run the game when all objects/models/view and controllers are loaded.
 '''
 
+import time
 import pygame as pg
 from pygame.sprite import Group
-import time
 
 from settings import *
 from washer import Washer
@@ -30,7 +30,6 @@ class PyGameEngine(Washer):
     self._window = pg.display.set_mode((WIDTH, HEIGHT))
     pg.display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
     self._clk = pg.time.Clock() # the refresh frequency counter
-    self.play_jingle()          # let's play the Mac-Gyver free jingle
 
   # the loop of execution of pygame
   def start(self):
@@ -38,7 +37,7 @@ class PyGameEngine(Washer):
       # when with push down a key (one time event)
       self.keys_down_events()
       # the frequency in FPS
-      self._clk.tick(60)
+      self._clk.tick(CLK)
       # the first black background to refresh
       # (it repaint the screen for the next print)
       self._window.fill(BLACK)
@@ -52,14 +51,14 @@ class PyGameEngine(Washer):
 
   # this is easy to read and understand, isn't it ?
   def keys_down_events(self):
-    for ev in pg.event.get():
-      if ev.type == pg.KEYDOWN:
-        if ev.key == pg.K_q:
+    for _ev in pg.event.get():
+      if _ev.type == pg.KEYDOWN:
+        if _ev.key == pg.K_q:
           print("bye bye, see you soon !")
           self._crashed = True
-        if ev.key == pg.K_s:
+        if _ev.key == pg.K_s:
           self.toggle_jingle_volume()
-      if ev.type == pg.QUIT:
+      if _ev.type == pg.QUIT:
         self._crashed = True
 
   # create the gorup of sprite and give him a name
@@ -91,39 +90,39 @@ class PyGameEngine(Washer):
   def message(self, text, size, color, x=None, y=None):
     x_arg, y_arg = False, False
     # the first time only... because after, x will have a value
-    if x != None:
+    if x is not None:
       x_arg = True
-    if y != None:
+    if y is not None:
       y_arg = True
     lines = text.splitlines()
     font = pg.font.Font("fonts/Ubuntu-M.ttf", size)
-    for i, l in enumerate(reversed(lines)):
+    for _index, _line in enumerate(reversed(lines)):
       if not x_arg:
         # in the center
-        x = int((WIDTH - font.size(l)[0]) / 2)
+        x = int((WIDTH - font.size(_line)[0]) / 2)
       if not y_arg:
         y = int((HEIGHT - font.size(text)[1]) / 2)
       # print the resulted text inside an image
-      self._window.blit(font.render(l, 0, color),
-                        (x, y - font.get_linesize() * i))
+      self._window.blit(font.render(_line, 0, color),
+                        (x, y - font.get_linesize() * _index))
 
   # i let you create the content for a delayed jobs
   # in the background there...
   # it is just about create a data formated like a list
   # of dictionaries with there own significant keys and related values
-  def actions_delayed(self,tempo,
+  def actions_delayed(self, tempo,
                       action_start=None, sa_args=None,
                       action_end=None, e_args=None):
     new_background_job = {}
     # if there is a function to call there
     if action_start:
-      new_background_job["start_job"] = { "action": action_start }
+      new_background_job["start_job"] = {"action": action_start}
       if sa_args:
         new_background_job["start_job"]["args"] = sa_args
       new_background_job["time_start"] = int(time.time())
       new_background_job["delay"] = tempo
       if action_end:
-        new_background_job["end_job"] = {"action": action_end }
+        new_background_job["end_job"] = {"action": action_end}
         if e_args:
           new_background_job["end_job"]["args"] = e_args
       # add the formed data inside the list of background jobs to do
@@ -180,4 +179,3 @@ class PyGameEngine(Washer):
   def end_game(self):
      self._crashed = True
      self._background_jobs = None
-

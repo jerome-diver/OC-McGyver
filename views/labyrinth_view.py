@@ -20,9 +20,10 @@ class LabyrinthView(View):
     self._game_engine.add_sprites_to_group(self._model.get_walls(),
                                            "labyrinth")
     self.start_timer()
+    self.show_key_bindings()
 
   def wall_exist(self, wall):
-    if len(self._model._walls) != 0:
+    if not self._model._walls:
       for old_wall in self._model.get_walls():
         if (wall.rect.topleft == old_wall.rect.topleft) and\
            (wall.rect.bottomright == old_wall.rect.bottomright):
@@ -71,19 +72,25 @@ class LabyrinthView(View):
     self._game_engine.message(text, 24, WHITE, 20, y_pos)
 
   def time_out(self):
-    en = self._game_engine
+    _en = self._game_engine
     text = "Time is over !\nYou loose."
-    en.actions_delayed(tempo=2,
-                      action_start=en.message,
+    _en.actions_delayed(tempo=2,
+                      action_start=_en.message,
                       sa_args=(text, 38, RED),
-                      action_end=en.end_game)
+                      action_end=_en.end_game)
 
   # send the timer rint to background action as long as
   # the game as the timer max time is define
   def start_timer(self):
-    en = self._game_engine
-    en.actions_delayed(tempo = MAX_TIMER_GAME,
+    _en = self._game_engine
+    _en.actions_delayed(tempo = MAX_TIMER_GAME,
                        action_start=self.show_timer,
                        action_end=self.time_out)
 
-
+  def show_key_bindings(self):
+    _en = self._game_engine
+    text = '"q" =>       quit the game\n' \
+           '"s" => mute the volume'
+    _en.actions_delayed(tempo=MAX_TIMER_GAME,
+                       action_start=_en.message,
+                       sa_args=(text, 14, WHITE, WIDTH - 150, 20))
