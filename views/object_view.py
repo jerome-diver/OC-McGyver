@@ -56,7 +56,7 @@ class ObjectView(View):
             if _object.get_coordonates():
                 targets.append(_object.get_coordonates())
         # and better if they are not just to much closer of
-        # anything or any one
+        # anything or anyone
         for target in targets:
             for i in range(-4, 4):
                 for j in range(-4, 4):

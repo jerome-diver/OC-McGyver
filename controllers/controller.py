@@ -29,22 +29,22 @@ class Controller(Washer):
         '''When a key is pressed Down'''
         _key = key.get_pressed()
         if _key[K_LEFT]:
-            person.move(dx=-2)
+            person.move(_dx=-2)
         if _key[K_RIGHT]:
-            person.move(dx=2)
+            person.move(_dx=2)
         if _key[K_UP]:
-            person.move(dy=-2)
+            person.move(_dy=-2)
         if _key[K_DOWN]:
-            person.move(dy=2)
+            person.move(_dy=2)
         if _key[K_LEFT] and \
                 (_key[K_LSHIFT] or _key[K_RSHIFT]):
-            person.move(dx=-4)
+            person.move(_dx=-4)
         if _key[K_RIGHT] and \
                 (_key[K_LSHIFT] or _key[K_RSHIFT]):
-            person.move(dx=4)
+            person.move(_dx=4)
         if _key[K_UP] and \
                 (_key[K_LSHIFT] or _key[K_RSHIFT]):
-            person.move(dy=-4)
+            person.move(_dy=-4)
         if _key[K_DOWN] and \
                 (_key[K_LSHIFT] or _key[K_RSHIFT]):
-            person.move(dy=4)
+            person.move(_dy=4)

@@ -35,7 +35,7 @@ class GameEngine(Washer):
         self.volume = pg.mixer.music.get_volume()
         pg.init()
         self._window = pg.display.set_mode((WIDTH, HEIGHT))
-        pg.display.set_caption("OpenClassRoom -- project3 -- Mac Gyver")
+        pg.display.set_caption("OpenClassRoom -- project 3 -- Mac Gyver")
         self._clk = pg.time.Clock()  # the refresh frequency counter
 
     def start(self):
@@ -142,6 +142,7 @@ class GameEngine(Washer):
                     new_background_job["end_job"]["args"] = e_args
             # add the formed data inside the list of background jobs to do
             self._background_jobs.append(new_background_job)
+            print(self._background_jobs)
 
     def exec_jobs_background(self):
         '''Execute all jobs in the background
