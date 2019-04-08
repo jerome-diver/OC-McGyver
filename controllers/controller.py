@@ -25,7 +25,8 @@ class Controller(Washer):
         '''Return LabyrinthController if himself is not LabyrinthController'''
         return self._labyrinth_ctrl
 
-    def key_pressed(self, person):
+    @staticmethod
+    def key_pressed(person):
         '''When a key is pressed Down'''
         _key = key.get_pressed()
         if _key[K_LEFT]:
