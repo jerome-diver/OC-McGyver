@@ -1,3 +1,5 @@
+'''Setting global variables file'''
+
 import os
 
 WIDTH = 800
