@@ -8,7 +8,7 @@ Auhtor: Jerome Lanteri
 
 from controllers.labyrinth_controller import LabyrinthController
 from controllers.object_controller import ObjectController
-from controllers.person_controller import *
+from controllers.person_controller import HeroController, GuardController
 from game_engine import GameEngine
 
 
@@ -20,8 +20,8 @@ def main():
     labyrinth_ctrl = LabyrinthController(game_engine)
     guard_ctrl = GuardController(labyrinth_ctrl, game_engine)
     hero_ctrl = HeroController(labyrinth_ctrl, guard_ctrl, game_engine)
-    ObjectController(labyrinth_ctrl, \
-                     hero_ctrl, guard_ctrl, \
+    ObjectController(labyrinth_ctrl,
+                     hero_ctrl, guard_ctrl,
                      game_engine)
     hero_ctrl.setting_collisions()
     # start the game

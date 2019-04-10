@@ -131,3 +131,4 @@ class Wall(Sprite):
 
     def update(self, *args):
         '''Update does nothing there'''
+

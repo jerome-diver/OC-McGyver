@@ -78,7 +78,6 @@ class GameEngine(Washer):
         to the group with the name group_name:str'''
         for group in self._sprites_groups:
             if group.get_name() == group_name:
-                #for sprite in sprites:
                 group.add(sprites)
 
     def update_sprites_groups(self):
