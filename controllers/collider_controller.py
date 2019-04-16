@@ -11,7 +11,7 @@ from washer import Washer
 
 
 class Collider(Washer):
-    '''Manage functionalities for PyGame Group/Sprites collisions'''
+    '''Manage required actions for PyGame Group/Sprites collisions'''
 
     def __init__(self, game_engine):
         self._game_engine = game_engine
