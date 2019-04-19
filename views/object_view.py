@@ -2,7 +2,7 @@
 This is an object view to be abe to show Object
 """
 
-from views.view import View, generate_random_coordonates, find_position
+from views import View, generate_random_coordonates, find_position
 
 
 class ObjectView(View):

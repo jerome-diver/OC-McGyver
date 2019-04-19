@@ -3,9 +3,9 @@ This controller care about objects and actions when it does
 collid with hero.
 """
 
-from controllers.controller import Controller
-from models.object_model import ObjectModel
-from views.object_view import ObjectView
+from controllers import Controller
+from models import ObjectModel
+from views import ObjectView
 from settings import PILL_FILE, DILUENT_FILE, NEEDLE_FILE
 
 

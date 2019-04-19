@@ -4,10 +4,10 @@ Controller for persons like Hero or guard who make them alive
 in the game. This class hold action's control for them.
 '''
 
-from controllers.controller import Controller
-from controllers.collider_controller import Collider
-from models.person_model import HeroModel, GuardModel
-from views.person_view import HeroView, GuardView
+from controllers import Controller
+from controllers import Collider
+from models import HeroModel, GuardModel
+from views import HeroView, GuardView
 from settings import ADJ_X, ADJ_Y, GREEN, RED, BLUE
 
 

@@ -4,7 +4,7 @@ from arguments provided, it create each Element with them.
 Nothing more.
 """
 
-from components.elements import Element
+from components import Element
 from washer import Washer
 
 

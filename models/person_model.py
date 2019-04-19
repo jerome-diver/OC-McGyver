@@ -2,7 +2,7 @@
 Models of Hero or Guard,
 '''
 
-from components.elements import Element, Hero
+from components import Element, Hero
 from washer import Washer
 from settings import GUARD_FILE, HERO_FILE, ADJ_X, ADJ_Y
 

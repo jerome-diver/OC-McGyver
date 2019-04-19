@@ -6,6 +6,7 @@ This one will be used to provide self._walls variable
 '''
 
 import binascii
+
 from washer import Washer
 from settings import ADJ_X, ADJ_Y, LABYRINTH_FILE
 

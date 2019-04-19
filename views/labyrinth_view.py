@@ -5,12 +5,12 @@ This load image of map inside the game view
 
 import time
 
-from components.elements import Wall
+from components import Wall
 from settings import ADJ_X, ADJ_Y, \
                     RED, WHITE, \
                     WIDTH, HEIGHT, \
                     MAX_TIMER_GAME
-from views.view import View
+from views import View
 
 
 class LabyrinthView(View):

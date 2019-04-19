@@ -6,7 +6,7 @@ and add them to there own sprite group:
 """
 
 from settings import MAX_TIMER_GAME, WHITE, HEIGHT
-from views.view import View
+from views import View
 
 
 class GuardView(View):

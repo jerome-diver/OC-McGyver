@@ -6,9 +6,9 @@ Auhtor: Jerome Lanteri
 '''
 
 
-from controllers.labyrinth_controller import LabyrinthController
-from controllers.object_controller import ObjectController
-from controllers.person_controller import HeroController, GuardController
+from controllers import LabyrinthController
+from controllers import ObjectController
+from controllers import HeroController, GuardController
 from game_engine import GameEngine
 
 

@@ -2,9 +2,9 @@
 Controller for Labyrinth who load walls and make them colliisionable
 '''
 
-from controllers.controller import Controller
-from models.labyrinth_model import LabyrinthModel
-from views.labyrinth_view import LabyrinthView
+from controllers import Controller
+from models import LabyrinthModel
+from views import LabyrinthView
 
 
 class LabyrinthController(Controller):
