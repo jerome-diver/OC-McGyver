@@ -81,7 +81,8 @@ class GameEngine(Washer):
                 group.add(sprites)
 
     def update_sprites_groups(self):
-        '''All groups of sprites are update.
+        '''All groups of spri
+        tes are update.
 
         When i update the pygame.sprite.Group, all the contained
         sprites of this group are updated.'''
@@ -141,7 +142,6 @@ class GameEngine(Washer):
                     new_background_job["end_job"]["args"] = e_args
             # add the formed data inside the list of background jobs to do
             self._background_jobs.append(new_background_job)
-            print(self._background_jobs)
 
     def exec_jobs_background(self):
         '''Execute all jobs in the background
