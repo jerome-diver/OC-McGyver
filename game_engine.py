@@ -8,7 +8,7 @@ import time
 from pygame.sprite import Group
 import pygame as pg
 
-from settings import CLK, BLACK, WIDTH, HEIGHT, JINGLE_FILE
+from settings import CLK, BLACK, WIDTH, HEIGHT, JINGLE_FILE, FONT
 from washer import Washer
 
 
@@ -107,7 +107,7 @@ class GameEngine(Washer):
         if pos_y is not None:
             _y_arg = True
         lines = text.splitlines()
-        font = pg.font.Font("fonts/Ubuntu-M.ttf", size)
+        font = pg.font.Font(FONT, size)
         for _index, _line in enumerate(reversed(lines)):
             if not _x_arg:
                 # in the center
